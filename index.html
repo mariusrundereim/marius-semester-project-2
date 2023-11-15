@@ -5,27 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/dist/output.css" />
+    <script type="module" src="./src/js/script.js"></script>
   </head>
   <body>
-    <header class="p-2 shadow-lg">
-      <div
-        class="container mx-auto mx-auto flex items-center justify-between space-x-4"
+    <main class="container mx-auto my-5">
+      <section
+        class="bg-brand-color rounded-2xl p-2 h-80 flex flex-col justify-between"
       >
-        <a href="#" class="text-2xl font-bold font-body">Biddl.</a>
-        <nav class="flex flex-col sm:flex-row gap-2">
-          <ul class="flex flex-col sm:flex-row gap-2">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Listings</a></li>
-            <li><a href="#">Profile</a></li>
-          </ul>
-        </nav>
-        <button
-          type="button"
-          class="bg-gray-200 p-2 px-4 rounded-2xl hover:bg-red-400"
-        >
-          Login
-        </button>
-      </div>
-    </header>
+        <div>
+          <h1 class="text-2xl">Welcome to</h1>
+          <h2 class="text-2xl font-bold">Biddl.</h2>
+        </div>
+        <div class="flex md:flex-row gap-2">
+          <div class="basis-3/4 p-2 border border-1 border-black rounded-2xl">
+            <p>I am new</p>
+            <button class="font-semibold text-2xl">Register</button>
+          </div>
+          <div class="basis-3/4 p-2 border border-1 border-black rounded-2xl">
+            <p>Already registered</p>
+            <button class="font-semibold text-2xl">Login</button>
+          </div>
+          <div class="basis-3/4 p-2 border border-1 border-black rounded-2xl">
+            <p>Discover</p>
+            <button class="font-semibold text-2xl">Listings</button>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
