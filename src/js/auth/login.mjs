@@ -17,7 +17,7 @@ export async function login(user) {
       saveToken("token", profile.accessToken);
       delete profile.accessToken;
       saveToken("profile", profile);
-      window.location = `index.html?name=${profile.name}`;
+      window.location = `profile.html?name=${profile.name}`;
       return;
     } else {
       alert("please fill in: valiud username and valid password");
