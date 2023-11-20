@@ -4,7 +4,8 @@ export const saveToken = (key, value) => {
 
 export const loadToken = (key) => {
   try {
-    return JSON.parse(localStorage.getItem(key));
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
   } catch (error) {
     return null;
   }
