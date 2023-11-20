@@ -14,4 +14,5 @@ export const regEmail = document.querySelector("#regEmail");
 export const userAvatar = document.querySelector("#userAvatar");
 export const regPassword = document.querySelector("#registerPassword");
 
-// Login
+// Header
+export const navProfile = document.querySelector("#nav_link_profile");

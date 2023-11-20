@@ -10,7 +10,7 @@ export function header() {
       <ul class="flex flex-col sm:flex-row gap-2">
         <li><a href="#">Home</a></li>
         <li><a href="#">Listings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a id="nav_link_profile" href="/src/html/profile.html">Profile</a></li>
       </ul>
     </nav>
 
