@@ -5,7 +5,7 @@ export function header() {
   <div
     class="container mx-auto mx-auto flex items-center justify-between space-x-4"
   >
-    <a href="#" class="text-2xl font-bold font-body">Biddl.</a>
+    <a href="/index.html" class="text-2xl font-bold font-body">Biddl.</a>
     <nav class="flex flex-col sm:flex-row gap-2">
       <ul class="flex flex-col sm:flex-row gap-2">
         <li><a href="#">Home</a></li>
@@ -15,20 +15,18 @@ export function header() {
     </nav>
 
     <div>
-      <button
-        type="button"
+      <a
+        href="/src/html/login.html"
         class="bg-brand-light p-2 px-4 rounded-2xl hover:bg-brand-color"
         id="login_btn"
+        >Login</a
       >
-        Login
-      </button>
-      <button
-        type="button"
+      <a
+        href="/src/html/register.html"
         class="bg-brand-light p-2 px-4 rounded-2xl hover:bg-brand-color"
         id="register_btn"
+        >Register</a
       >
-        Register
-      </button>
       <button
         type="button"
         class="text-white bg-brand-dark p-2 px-4 rounded-2xl"
