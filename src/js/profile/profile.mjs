@@ -14,10 +14,7 @@ export async function getProfile() {
 
     if (response.ok) {
       const result = await response.json();
-      console.log(result);
-      console.log(result.name);
-      renderProfile(result);
-      //viewProfile(result);
+      return result;
     } else {
       alert("Please log in");
     }
