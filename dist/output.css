@@ -685,10 +685,6 @@ video {
   cursor: default;
 }
 
-.flex-row{
-  flex-direction: row;
-}
-
 .flex-col{
   flex-direction: column;
 }
@@ -806,11 +802,6 @@ video {
 .bg-gray-400{
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
-.bg-gray-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200{
@@ -955,9 +946,5 @@ video {
 
   .md\:flex-row{
     flex-direction: row;
-  }
-
-  .md\:flex-col{
-    flex-direction: column;
   }
 }
