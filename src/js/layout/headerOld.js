@@ -3,7 +3,7 @@ export function header() {
   htmlHeader.innerHTML = `
   <header class="p-2 shadow-lg">
   <div
-    class="container mx-auto mx-auto flex items-center justify-between space-x-4"
+    class="container mx-auto flex items-center justify-between space-x-4"
   >
     <a href="/index.html" class="text-2xl font-bold font-body">Biddl.</a>
     <nav class="flex flex-col sm:flex-row gap-2">

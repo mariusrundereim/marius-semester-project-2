@@ -9,17 +9,13 @@ export async function getProfile() {
       headers: headers("application/json"),
       body: JSON.stringify(),
     };
-
     const name = getSearchParams().name;
-
-    const response = await fetch(
-      `${api_profiles}/${name}?_listings=true`,
-      getProfileData
-    );
+    const response = await fetch(`${api_profiles}/${name}`, getProfileData); // ?_listings=true
 
     if (response.ok) {
       const result = await response.json();
       console.log(result);
+      console.log(result.name);
       renderProfile(result);
       //viewProfile(result);
     } else {
