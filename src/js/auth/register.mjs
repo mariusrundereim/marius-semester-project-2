@@ -1,6 +1,5 @@
 import { api_register } from "../api/env/env.mjs";
 import { headers } from "./headers.mjs";
-import { formValidation } from "../components/formValidation.mjs";
 export async function registerUser(user) {
   try {
     const postData = {

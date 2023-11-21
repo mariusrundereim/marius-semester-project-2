@@ -894,6 +894,10 @@ video {
   font-weight: 600;
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
+
 .text-brand-dark{
   --tw-text-opacity: 1;
   color: rgb(24 24 24 / var(--tw-text-opacity));

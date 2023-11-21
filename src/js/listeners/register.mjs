@@ -5,25 +5,36 @@ import {
   userAvatar,
   regPassword,
 } from "../utils/domElements.mjs";
-import { formValidation } from "../components/formValidation.mjs";
+// import { formValidation } from "../components/formValidation.mjs";
+import * as formValidation from "../components/formValidation.mjs";
+import { displayError } from "../components/displayMessages.mjs";
 
 document
   .querySelector("#registration_form")
   .addEventListener("submit", handleSubmit);
 
-// export const newUser = document
-//   .querySelector("#registration_form")
-//   .addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     const studEmail = formValidation(regEmail);
-//     console.log(studEmail);
-//     const newUser = {
-//       name: registerName.value,
-//       avatar: userAvatar.value,
-//       //email: regEmail.value,
-//       email: studEmail.value,
-//       password: regPassword.value,
-//     };
-//     console.log(newUser);
-//     registerUser(newUser);
-//   });
+export function handleSubmit(e) {
+  e.preventDefault();
+
+  const nameValid = formValidation.validateName(registerName.value);
+  const emailValid = formValidation.validateEmail(regEmail.value);
+
+  if (!nameValid) {
+    displayError("First character to Uppercase. Minimum length is 3");
+    return;
+  }
+
+  if (!emailValid) {
+    displayError("Invalid email. Must be a @stud.noroff.no email address.");
+    return;
+  }
+
+  const newUser = {
+    name: registerName.value,
+    avatar: userAvatar.value,
+    email: regEmail.value,
+    password: regPassword.value,
+  };
+
+  registerUser(newUser);
+}
