@@ -42,9 +42,16 @@ export function header() {
     window.location = `/src/html/profile.html?name=${profile.name}`;
   });
 
+  const newList = createNavLink("Add", "#");
+  newList.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location = `/src/html/newListing.html`;
+  });
+
   ul.appendChild(homeLink);
   ul.appendChild(profileLink);
   ul.appendChild(listingsLink);
+  ul.appendChild(newList);
 
   navigation.appendChild(ul);
   containerDiv.appendChild(navigation);
