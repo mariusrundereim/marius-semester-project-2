@@ -1,5 +1,8 @@
-import { api_listings } from "../api/env/env.mjs";
-import { headers } from "../auth/headers.mjs";
+// import { api_listings } from "../api/env/env.mjs";
+// import { headers } from "../auth/headers.mjs";
+
+import { api_listings } from "../env/env.mjs";
+import { headers } from "../../auth/headers.mjs";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -20,7 +23,7 @@ export async function getListing() {
     );
 
     const result = await response.json();
-    console.log(result);
+    //console.log(result);
   } catch (error) {
     console.log(error);
   }

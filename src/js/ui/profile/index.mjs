@@ -1,4 +1,4 @@
-import { getProfile } from "../../profile/profile.mjs";
+import { getProfile } from "../../api/profile/profile.mjs";
 
 export async function renderProfile() {
   try {

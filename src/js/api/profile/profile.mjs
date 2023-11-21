@@ -1,6 +1,9 @@
-import { api_profiles } from "../api/env/env.mjs";
-import { getSearchParams } from "../api/searchParams.mjs";
-import { headers } from "../auth/headers.mjs";
+// import { api_profiles } from "../api/env/env.mjs";
+// import { getSearchParams } from "../api/searchParams.mjs";
+// import { headers } from "../auth/headers.mjs";
+import { api_profiles } from "../../api/env/env.mjs";
+import { getSearchParams } from "../searchParams.mjs";
+import { headers } from "../../auth/headers.mjs";
 
 export async function getProfile() {
   try {

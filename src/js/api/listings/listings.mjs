@@ -1,5 +1,8 @@
-import { api_listings } from "../api/env/env.mjs";
-import { headers } from "../auth/headers.mjs";
+// import { api_listings } from "../api/env/env.mjs";
+// import { headers } from "../auth/headers.mjs";
+
+import { api_listings } from "../env/env.mjs";
+import { headers } from "../../auth/headers.mjs";
 
 export async function getAllListings() {
   try {
@@ -13,6 +16,9 @@ export async function getAllListings() {
 
     const result = await response.json();
     console.log(result);
+    result.forEach((listing) => {
+      console.log(listing.title);
+    });
   } catch (error) {
     console.log(error);
   }

@@ -1,5 +1,7 @@
 import { api_register } from "../api/env/env.mjs";
 import { headers } from "./headers.mjs";
+// import { api_register } from "../env/env.mjs";
+// import { headers } from "../../auth/headers.mjs";
 export async function registerUser(user) {
   try {
     const postData = {
