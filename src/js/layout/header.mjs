@@ -32,7 +32,7 @@ export function header() {
   // Links
   const homeLink = createNavLink("Home", "#");
 
-  const listingsLink = createNavLink("Listings", "#");
+  const listingsLink = createNavLink("Listings", "/src/html/listings.html");
 
   const profileLink = createNavLink("Profile", "#");
   profileLink.classList.add("nav-link-profile");
