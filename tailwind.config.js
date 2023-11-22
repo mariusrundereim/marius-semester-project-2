@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["DM Sans", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
       },
       colors: {
         "brand-color": "#1EBFBF",
