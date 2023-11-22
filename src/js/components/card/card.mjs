@@ -1,12 +1,16 @@
-export function defaultCard(title, endsAt, image, seller) {
-  // const result = await getSingleListing()
-  const cardWrapper = document.querySelector("#listing_card");
+import { formatEndDate } from "../../utils/formatting/formatDate.mjs";
+import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
-  cardWrapper.innerHTML = `
+export function defaultCard(image, seller, title, endsAt, highestBid) {
+  const formattedEndDate = formatEndDate(endsAt);
+  const firstMedia = formatMediaUrl(image);
+  const cardElement = document.createElement("div");
+
+  cardElement.innerHTML = `
   <div class="bg-white rounded-xl">
           <!--Image-->
           <div class="bg-gray-400 w-full h-52 rounded-t-lg">
-          <img src="${image}" alt=""></div>
+          <img src="${firstMedia}" alt=""></div>
           <!-- Body -->
           <div class="p-2">
             <div class="mb-4">
@@ -31,7 +35,7 @@ export function defaultCard(title, endsAt, image, seller) {
                   />
                 </svg>
 
-                <p>${endsAt}</p>
+                <p>${formattedEndDate}</p>
               </div>
               <div class="flex inline-flex gap-2">
                 <svg
@@ -60,4 +64,5 @@ export function defaultCard(title, endsAt, image, seller) {
           </div>
         </div>
   `;
+  return cardElement;
 }

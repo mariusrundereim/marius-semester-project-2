@@ -4,6 +4,8 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
+import { formatEndDate } from "../../utils/formatting/formatDate.mjs";
+import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
 export async function getAllListings() {
   try {
@@ -16,15 +18,22 @@ export async function getAllListings() {
     const response = await fetch(`${api_listings}`, getListingData);
     const result = await response.json();
 
+    console.log(result);
     const cardWrapper = document.querySelector("#listing_card");
+    cardWrapper.innerHTML = "";
     result.forEach((listing) => {
-      // Extract relevant information from the listing
       const { title, endsAt, date, image } = listing;
 
-      // Create a card element using defaultCard function
-      const card = defaultCard(title, endsAt, date, image);
+      const formattedEndDate = formatEndDate(endsAt);
+      const firstMedia = formatMediaUrl(image);
 
-      // Append the card to the cardWrapper
+      const card = defaultCard(
+        title,
+        formattedEndDate,
+        date,
+        firstMedia,
+        "Random22"
+      );
       cardWrapper.appendChild(card);
     });
   } catch (error) {
