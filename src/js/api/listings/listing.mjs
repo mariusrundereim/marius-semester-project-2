@@ -17,10 +17,8 @@ export async function getListing() {
       body: JSON.stringify(),
     };
 
-    const response = await fetch(
-      `${url}_seller=true&_bids=true`,
-      getListingData
-    );
+    const response = await fetch(`${url}`, getListingData);
+    // _seller=true&_bids=true
 
     const result = await response.json();
     //console.log(result);

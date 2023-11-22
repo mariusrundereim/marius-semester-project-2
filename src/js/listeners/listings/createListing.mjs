@@ -1,4 +1,4 @@
-import { createListing } from "../api/listings/createListing.mjs";
+import { createListing } from "../../api/listings/createListing.mjs";
 
 export const listingForm = document
   .querySelector("#newListing-form")
