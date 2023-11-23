@@ -13,11 +13,15 @@ export async function getAllListings() {
       body: JSON.stringify(),
     };
 
+    let offset = 0;
+    let limit = 10;
+
     const response = await fetch(
-      `${api_listings}?_seller=true&_bids=true`,
+      `${api_listings}?limit=${limit}&offset=${offset}&_seller=true&_bids=true`,
       getListingData
     );
     if (!response.ok) {
+      displayListings();
       throw new Error("This is oing to have to change or something");
     }
     const result = await response.json();
