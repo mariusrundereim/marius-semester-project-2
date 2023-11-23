@@ -18,10 +18,12 @@ export function header() {
   );
 
   const logoLink = document.createElement("a");
-  logoLink.href = "/index.html";
-  logoLink.classList.add("text-2xl", "font-bold", "font-body");
-  logoLink.textContent = "Biddl.";
-  containerDiv.appendChild(logoLink);
+  const logo = document.createElement("img");
+  logo.classList.add("w-20");
+  logo.setAttribute("src", "./assets/logo/logo_bidify.svg");
+  logo.setAttribute("alt", "Brand logo");
+  logoLink.setAttribute("href", "/index.html");
+  logoLink.appendChild(logo);
 
   const navigation = document.createElement("nav");
   navigation.classList.add("flex", "flex-col", "sm:flex-row", "gap-2");
@@ -53,6 +55,8 @@ export function header() {
   ul.appendChild(listingsLink);
   ul.appendChild(newList);
 
+  // Appends
+  containerDiv.appendChild(logoLink);
   navigation.appendChild(ul);
   containerDiv.appendChild(navigation);
 

@@ -63,7 +63,7 @@ export function renderProfileInfo(container, result) {
           class="basis-1/2 p-4 bg-brand-color rounded-xl min-h-full h-40 flex flex-col justify-center items-center"
         >
           <h2 class="text-2xl">Wins</h2>
-          <p class="text-4xl font-medium">${result.wins[0]}</p>
+          <p class="text-4xl font-medium">${result.wins.length}</p>
         </div>
         <!-- Credit-->
         <div

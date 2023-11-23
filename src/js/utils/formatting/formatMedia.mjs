@@ -1,9 +1,9 @@
 export function formatMediaUrl(mediaArray) {
+  console.log("Media Array:", mediaArray);
+
   if (Array.isArray(mediaArray) && mediaArray.length > 0) {
-    // If mediaArray is an array and has at least one element
     return mediaArray[0];
   } else {
-    // If mediaArray is not an array or has no elements
-    return ""; // or you can return a default URL or handle it according to your requirements
+    return "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   }
 }

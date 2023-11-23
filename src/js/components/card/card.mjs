@@ -1,20 +1,21 @@
-import { formatEndDate } from "../../utils/formatting/formatDate.mjs";
-import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
-
 export function defaultCard(image, seller, title, endsAt, highestBid) {
-  const formattedEndDate = formatEndDate(endsAt);
-  const firstMedia = formatMediaUrl(image);
+  // const formattedEndDate = formatEndDate(endsAt);
   const cardElement = document.createElement("div");
+
+  // let media = image.media;
+  // if (!image.media[0]) {
+  //   media = "https://via.placeholder.com/150";
+  // }
 
   cardElement.innerHTML = `
   <div class="bg-white rounded-xl">
           <!--Image-->
-          <div class="bg-gray-400 w-full h-52 rounded-t-lg">
-          <img src="${firstMedia}" alt=""></div>
+          <div >
+          <img class="w-full h-52 rounded-t-lg object-cover" src="${image}" alt=""></div>
           <!-- Body -->
           <div class="p-2">
             <div class="mb-4">
-              <p>by <span>${seller}</span></p>
+              <p>by <span>${seller.name}</span></p>
               <h2 class="text-xl font-semibold">${title}</h2>
             </div>
 
@@ -35,7 +36,7 @@ export function defaultCard(image, seller, title, endsAt, highestBid) {
                   />
                 </svg>
 
-                <p>${formattedEndDate}</p>
+                <p>${endsAt}</p>
               </div>
               <div class="flex inline-flex gap-2">
                 <svg
@@ -53,7 +54,7 @@ export function defaultCard(image, seller, title, endsAt, highestBid) {
                   />
                 </svg>
 
-                <p>98</p>
+                <p>${highestBid}</p>
               </div>
             </div>
             <button

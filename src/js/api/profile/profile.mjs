@@ -13,7 +13,10 @@ export async function getProfile() {
       body: JSON.stringify(),
     };
     const name = getSearchParams().name;
-    const response = await fetch(`${api_profiles}/${name}`, getProfileData); // ?_listings=true
+    const response = await fetch(
+      `${api_profiles}/${name}?_listings=true`,
+      getProfileData
+    ); // ?_listings=true
 
     if (response.ok) {
       const result = await response.json();

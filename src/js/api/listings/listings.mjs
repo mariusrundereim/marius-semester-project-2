@@ -4,7 +4,6 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
-import { formatEndDate } from "../../utils/formatting/formatDate.mjs";
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
 export async function getAllListings() {
@@ -15,25 +14,23 @@ export async function getAllListings() {
       body: JSON.stringify(),
     };
 
-    const response = await fetch(`${api_listings}`, getListingData);
+    const response = await fetch(
+      `${api_listings}?_seller=true&_bids=true`,
+      getListingData
+    );
     const result = await response.json();
 
     console.log(result);
     const cardWrapper = document.querySelector("#listing_card");
     cardWrapper.innerHTML = "";
     result.forEach((listing) => {
-      const { title, endsAt, date, image } = listing;
+      const { image, seller, title, endsAt, highestBid } = listing;
+      console.log("image", image);
 
-      const formattedEndDate = formatEndDate(endsAt);
-      const firstMedia = formatMediaUrl(image);
+      // const formattedEndDate = formatEndDate(endsAt);
+      // const firstMedia = formatMediaUrl(image);
 
-      const card = defaultCard(
-        title,
-        formattedEndDate,
-        date,
-        firstMedia,
-        "Random22"
-      );
+      const card = defaultCard(image, seller, title, endsAt, highestBid);
       cardWrapper.appendChild(card);
     });
   } catch (error) {
