@@ -2,19 +2,14 @@ import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
 export function defaultCard({ media, seller, title, endsAt, highestBid }) {
   const cardElement = document.createElement("div");
-  const media1 = formatMediaUrl(media);
+  const firstMedia = formatMediaUrl(media);
 
-  // let media = image.media;
-  // if (!image.media[0]) {
-  //   media = "https://via.placeholder.com/150";
-  // }
-
-  console.log(media);
   cardElement.innerHTML = `
+
   <div class="bg-white rounded-xl flex flex-col grow">
           <!--Image-->
           <div >
-          <img class="w-full h-52 rounded-t-lg object-cover" src="${media1}" alt=""></div>
+          <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>
           <!-- Body -->
           <div class="p-2">
             <div class="mb-4">

@@ -633,6 +633,10 @@ video {
   height: 5rem;
 }
 
+.h-28{
+  height: 7rem;
+}
+
 .h-40{
   height: 10rem;
 }
@@ -776,11 +780,6 @@ video {
 .border-brand-light{
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
-}
-
-.border-red-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
 .border-white{
