@@ -4,6 +4,7 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
+import { displayListings } from "../../listeners/listings/displayListings.mjs";
 
 export async function getAllListings() {
   try {
@@ -34,17 +35,13 @@ export async function getAllListings() {
   }
 }
 
-(async () => {
-  await displayListings();
-})();
-
-async function displayListings() {
-  //catch and handle the error
-  const cardWrapper = document.querySelector("#listing_card");
-  cardWrapper.innerHTML = "";
-  const result = await getAllListings();
-  result.forEach((listing) => {
-    const card = defaultCard(listing);
-    cardWrapper.appendChild(card);
-  });
-}
+// async function displayListings() {
+//   //catch and handle the error
+//   const cardWrapper = document.querySelector("#listing_card");
+//   cardWrapper.innerHTML = "";
+//   const result = await getAllListings();
+//   result.forEach((listing) => {
+//     const card = defaultCard(listing);
+//     cardWrapper.appendChild(card);
+//   });
+// }
