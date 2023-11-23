@@ -4,7 +4,6 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
-import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
 export async function getAllListings() {
   try {
@@ -18,23 +17,30 @@ export async function getAllListings() {
       `${api_listings}?_seller=true&_bids=true`,
       getListingData
     );
+    if (!response.ok) {
+      throw new Error("This is oing to have to change or something");
+    }
     const result = await response.json();
-
     console.log(result);
-    const cardWrapper = document.querySelector("#listing_card");
-    cardWrapper.innerHTML = "";
-    result.forEach((listing) => {
-      const { image, seller, title, endsAt, highestBid } = listing;
-      console.log("image", image);
 
-      // const formattedEndDate = formatEndDate(endsAt);
-      // const firstMedia = formatMediaUrl(image);
-
-      const card = defaultCard(image, seller, title, endsAt, highestBid);
-      cardWrapper.appendChild(card);
-    });
+    return result;
   } catch (error) {
     console.log(error);
+    // throw error(error);
   }
 }
-getAllListings();
+
+(async () => {
+  await displayListings();
+})();
+
+async function displayListings() {
+  //catch and handle the error
+  const cardWrapper = document.querySelector("#listing_card");
+  cardWrapper.innerHTML = "";
+  const result = await getAllListings();
+  result.forEach((listing) => {
+    const card = defaultCard(listing);
+    cardWrapper.appendChild(card);
+  });
+}
