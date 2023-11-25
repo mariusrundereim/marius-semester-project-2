@@ -1,12 +1,12 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 
-export function defaultCard({ media, seller, title, endsAt, highestBid }) {
-  const cardElement = document.createElement("div");
+export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
   const firstMedia = formatMediaUrl(media);
-
+  const cardElement = document.createElement("div");
+  cardElement.id = "card_item";
   cardElement.innerHTML = `
 
-  <div class="bg-white rounded-xl flex flex-col grow">
+  <div class="bg-white rounded-xl flex flex-col grow" id="card-item">
           <!--Image-->
           <div >
           <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>
@@ -63,5 +63,10 @@ export function defaultCard({ media, seller, title, endsAt, highestBid }) {
           </div>
         </div>
   `;
+
+  cardElement.addEventListener("click", () => {
+    window.location.href = `listings/${id}`;
+  });
+
   return cardElement;
 }

@@ -1,5 +1,10 @@
-// import { api_listings } from "../../api/env/env.mjs";
-// import { getListing } from "../../api/listings/listing.mjs";
+import { baseURL } from "../../api/env/env.mjs";
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let listingId = urlParams.get("id");
 
-// const randomId = "8e0e1ea9-6990-4182-9a91-a5b52756b12a";
-// console.log(getListing());
+export async function specificListing() {
+  const result = await baseURL(`listings/${listingId}`, "GET");
+  console.log(result);
+  return result;
+}
