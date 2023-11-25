@@ -1,9 +1,5 @@
-// import { api_listings } from "../api/env/env.mjs";
-// import { headers } from "../auth/headers.mjs";
-
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
-import { defaultCard } from "../../components/card/card.mjs";
 import { displayListings } from "../../listeners/listings/displayListings.mjs";
 
 export async function getAllListings() {
@@ -15,7 +11,7 @@ export async function getAllListings() {
     };
 
     let offset = 0;
-    let limit = 10;
+    let limit = 50;
 
     const response = await fetch(
       `${api_listings}?limit=${limit}&offset=${offset}&_seller=true&_bids=true`,

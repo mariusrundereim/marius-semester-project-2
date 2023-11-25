@@ -1,6 +1,7 @@
 export function renderListing(listing) {
+  console.log("Hello");
   const listContainer = document.querySelector("#listing_container");
-  listContainer.innerHTML = "";
+  //listContainer.innerHTML = "";
   if (listing) {
     listContainer.innerHTML = `
     <section class="p-2 border border-1 border-brand-light rounded-xl">

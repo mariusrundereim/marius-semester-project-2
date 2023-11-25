@@ -4,6 +4,7 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
   const firstMedia = formatMediaUrl(media);
   const cardElement = document.createElement("div");
   cardElement.id = "card_item";
+
   cardElement.innerHTML = `
 
   <div class="bg-white rounded-xl flex flex-col grow" id="card-item">
@@ -65,7 +66,7 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
   `;
 
   cardElement.addEventListener("click", () => {
-    window.location.href = `listings/${id}`;
+    window.location.href = `listingSpecific.html?id=${id}`;
   });
 
   return cardElement;
