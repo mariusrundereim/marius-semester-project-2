@@ -17,7 +17,7 @@ export async function getListingById(id, options = {}) {
     }
 
     const result = await response.json();
-    console.log(result);
+    console.log("Result:", result);
     return result;
   } catch (error) {
     console.error(error);
