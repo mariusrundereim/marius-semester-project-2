@@ -1,7 +1,9 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
+import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
 
 export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
   const firstMedia = formatMediaUrl(media);
+  const endsAtFormatted = updateRemainingTime(endsAt);
   const cardElement = document.createElement("div");
   cardElement.id = "card_item";
 
@@ -35,7 +37,7 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
                   />
                 </svg>
 
-                <p>${endsAt}</p>
+                <p>${endsAtFormatted}</p>
               </div>
               <div class="flex inline-flex gap-2">
                 <svg

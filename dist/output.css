@@ -698,6 +698,10 @@ video {
   flex-grow: 1;
 }
 
+.basis-1{
+  flex-basis: 0.25rem;
+}
+
 .basis-1\/2{
   flex-basis: 50%;
 }
