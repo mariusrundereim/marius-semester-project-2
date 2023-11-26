@@ -1,5 +1,5 @@
 import { baseURL } from "../../api/env/env.mjs";
-import { singleListing } from "../../ui/listings/singleListing.mjs";
+import { viewListingDetails } from "../../ui/listings/singleListing.mjs";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -17,7 +17,9 @@ export async function getListingById(id, options = {}) {
     }
 
     const result = await response.json();
-    console.log("Result:", result);
+    //console.log("Result:", result);
+
+    viewListingDetails(result);
     return result;
   } catch (error) {
     console.error(error);
@@ -32,7 +34,6 @@ if (listingId) {
   };
 
   getListingById(listingId, options);
-  singleListing();
 } else {
   console.log("Listing ID is missing");
 }
