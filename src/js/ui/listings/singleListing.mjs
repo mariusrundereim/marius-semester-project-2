@@ -1,4 +1,7 @@
-import { bidHistory } from "../../listeners/listings/listingElements.mjs";
+import {
+  bidHistory,
+  highestBidder,
+} from "../../listeners/listings/listingElements.mjs";
 
 export function viewListingDetails(listing) {
   const listingWrapper = document.querySelector("#listing_container");
