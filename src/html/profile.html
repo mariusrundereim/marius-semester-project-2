@@ -41,16 +41,21 @@
             </div>
           </div>
 
-          <button class="p-2 rounded-xl text-white bg-brand-dark">
+          <button
+            class="p-2 rounded-xl text-white bg-brand-dark"
+            name="change_avatar_btn"
+            id="changeAvatarBtn"
+          >
             Change avatar
           </button>
         </div>
       </section>
-      <section>
+      <!-- Update Avatar-->
+      <section id="avatarSection">
         <div class="bg-white p-4 rounded-xl">
-          <h2 class="font-semibold">Settings</h2>
+          <h2 class="font-semibold">Update Avatar</h2>
           <form id="updateAvatar_form">
-            <label for="avatar">Change avatar:</label>
+            <label for="avatar">URL:</label>
             <input
               type="text"
               name="newAvatar"

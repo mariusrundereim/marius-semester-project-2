@@ -32,7 +32,7 @@ export function header() {
   ul.classList.add("flex", "flex-col", "sm:flex-row", "gap-2");
 
   // Links
-  const homeLink = createNavLink("Home", "#");
+  const homeLink = createNavLink("Home", "/index.html");
 
   const listingsLink = createNavLink("Listings", "/src/html/listings.html");
 
