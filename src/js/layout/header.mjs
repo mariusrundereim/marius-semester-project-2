@@ -5,7 +5,7 @@ import { checkLoggedIn } from "../auth/state.mjs";
 export function header() {
   const isLoggedIn = checkLoggedIn();
   const htmlHeader = document.createElement("header");
-  htmlHeader.classList.add("p-2", "shadow-lg");
+  htmlHeader.classList.add("p-2", "shadow-lg", "bg-white");
 
   const containerDiv = document.createElement("div");
   containerDiv.classList.add(
@@ -19,8 +19,8 @@ export function header() {
 
   const logoLink = document.createElement("a");
   const logo = document.createElement("img");
-  logo.classList.add("w-20");
-  logo.setAttribute("src", "./assets/logo/logo_bidify.svg");
+  logo.classList.add("w-36");
+  logo.setAttribute("src", "../assets/logo/logo_bidify.svg");
   logo.setAttribute("alt", "Brand logo");
   logoLink.setAttribute("href", "/index.html");
   logoLink.appendChild(logo);
@@ -63,9 +63,14 @@ export function header() {
   // Buttons
 
   const buttonsDiv = document.createElement("div");
-
+  buttonsDiv.classList.add(
+    "flex",
+    "gap-2",
+    "border-l",
+    "border-gray-300",
+    "pl-4"
+  );
   const loginBtn = createButton("/src/html/login.html", "Login", "login_btn");
-
   const registerBtn = createButton(
     "/src/html/register.html",
     "Register",
@@ -78,17 +83,56 @@ export function header() {
     location.href = "/";
   });
 
+  // Profile
+
+  const profile = loadToken("profile");
+  if (profile) {
+    const divElement = document.createElement("div");
+    divElement.classList.add("w-max", "rounded-2xl");
+    const divInner = document.createElement("div");
+    divInner.classList.add("flex", "gap-2", "align-middle", "p-2");
+    const profileImage = document.createElement("img");
+    profileImage.setAttribute("src", profile.avatar);
+    profileImage.setAttribute("alt", "Profile image");
+    profileImage.classList.add(
+      "w-10",
+      "aspect-square",
+      "rounded-full",
+      "object-cover"
+    );
+    const newDiv = document.createElement("div");
+    const profileName = document.createElement("h3");
+    profileName.textContent = profile.name;
+    profileName.classList.add("text-black", "font-bold");
+    const profileCredits = document.createElement("p");
+    profileCredits.textContent = `Credits: ${profile.credits}`;
+    profileCredits.classList.add("text-black");
+    newDiv.appendChild(profileName);
+    newDiv.appendChild(profileCredits);
+    divInner.appendChild(profileImage);
+    divInner.appendChild(newDiv);
+    divElement.appendChild(divInner);
+    buttonsDiv.appendChild(divElement);
+  }
+
   buttonsDiv.appendChild(loginBtn);
   buttonsDiv.appendChild(registerBtn);
   buttonsDiv.appendChild(logoutBtn);
-
   containerDiv.appendChild(buttonsDiv);
   htmlHeader.appendChild(containerDiv);
 
-  //   if (!isLoggedIn) {
-  //     const profile = document.querySelector("nav-link-profile");
-  //     profile.classList.add("hidden");
-  //   }
+  // Hide login and register buttons if logged in
+  if (isLoggedIn) {
+    loginBtn.classList.add("hidden");
+    registerBtn.classList.add("hidden");
+  } else {
+    logoutBtn.classList.add("hidden");
+  }
+
+  // Hide profile when logged out
+  if (!isLoggedIn) {
+    profileLink.classList.add("hidden");
+  }
 
   return htmlHeader;
 }
@@ -96,6 +140,13 @@ export function header() {
 export function createNavLink(text, href, id) {
   const listItem = document.createElement("li");
   const link = document.createElement("a");
+  link.classList.add(
+    "text-black",
+    "hover:font-bold",
+    "hover:text-brand-color",
+    "transition-all",
+    "mx-2"
+  );
   link.href = href;
   link.textContent = text;
   if (id) {
