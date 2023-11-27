@@ -139,8 +139,13 @@ export function viewListingDetails(listing) {
   placeBidTitle.classList.add("text-xl", "font-bold");
   placeBidTitle.textContent = "Place a bid";
   const placeBidForm = document.createElement("form");
+  placeBidForm.id = "bid_form";
   placeBidForm.classList.add("flex", "flex-col", "gap-2");
   const placeBidInput = document.createElement("input");
+  placeBidInput.addEventListener("input", (e) => {
+    console.log(e.target.value);
+  });
+  placeBidInput.id = "bid_input_amount";
   placeBidInput.classList.add(
     "border",
     "border-1",
@@ -151,7 +156,8 @@ export function viewListingDetails(listing) {
   placeBidInput.placeholder = "Enter your bid";
   placeBidInput.type = "number";
   placeBidInput.min = 1;
-  placeBidInput.max = 100;
+  placeBidInput.max = 1000;
+  console.log(placeBidInput.value);
   const placeBidButton = document.createElement("button");
   placeBidButton.classList.add(
     "text-white",
@@ -161,6 +167,8 @@ export function viewListingDetails(listing) {
     "rounded-lg"
   );
   placeBidButton.textContent = "Bidify";
+  placeBidButton.type = "submit";
+  placeBidButton.id = "bid_button";
 
   // Highest bidder container
   const highestBidContainer = document.createElement("div");
