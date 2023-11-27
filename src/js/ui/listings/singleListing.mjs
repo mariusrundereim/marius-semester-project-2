@@ -2,7 +2,7 @@ export function viewListingDetails(listing) {
   const listingWrapper = document.querySelector("#listing_container");
   // Section for Image gallery
   const gallerySection = document.createElement("section");
-  gallerySection.classList.add("flex", "flex-col", "md:flex-row", "gap-4");
+  gallerySection.classList.add("flex", "flex-col", "gap-4");
   const firstMedia = document.createElement("img");
   firstMedia.classList.add("aspect-video", "object-cover", "rounded-md");
   firstMedia.src = listing.media[0];
@@ -27,7 +27,7 @@ export function viewListingDetails(listing) {
     "rounded-md",
     "brightness-50"
   );
-  nextMediaItem.src = listing.media[1];
+  nextMediaItem.src = listing.media[0];
   nextMediaItem.alt = listing.title;
 
   gallerySection.appendChild(firstMedia);
@@ -107,9 +107,142 @@ export function viewListingDetails(listing) {
   endsDiv.appendChild(endsDivInner);
   titleSellerSection.appendChild(endsDiv);
 
+  // Section for Bids
+  const bidsSection = document.createElement("section");
+  bidsSection.classList.add(
+    "flex",
+    "flex-col",
+    "md:flex-row",
+    "mt-5",
+    "mb-4",
+    "min-h-max"
+  );
+
+  const placeBidContainer = document.createElement("div");
+  placeBidContainer.classList.add(
+    "flex",
+    "basis-1/2",
+    "flex-col",
+    "border",
+    "border-1",
+    "border-brand-light",
+    "rounded-xl"
+  );
+  const placeBidInner = document.createElement("div");
+  placeBidInner.classList.add("p-2");
+  const placeBidTitle = document.createElement("h3");
+  placeBidTitle.classList.add("text-xl", "font-bold");
+  placeBidTitle.textContent = "Place a bid";
+  const placeBidForm = document.createElement("form");
+  placeBidForm.classList.add("flex", "flex-col", "gap-2");
+  const placeBidInput = document.createElement("input");
+  placeBidInput.classList.add(
+    "border",
+    "border-1",
+    "border-brand-light",
+    "rounded-md",
+    "p-2"
+  );
+  placeBidInput.placeholder = "Enter your bid";
+  placeBidInput.type = "number";
+  placeBidInput.min = 1;
+  placeBidInput.max = 100;
+  const placeBidButton = document.createElement("button");
+  placeBidButton.classList.add(
+    "text-white",
+    "bg-brand-dark",
+    "p-2",
+    "px-6",
+    "rounded-lg"
+  );
+  placeBidButton.textContent = "Bidify";
+
+  // Highest bidder container
+  const highestBidContainer = document.createElement("div");
+  highestBidContainer.classList.add(
+    "p-2",
+    "basis-1/2",
+    "border",
+    "border-1",
+    "rounded-xl"
+  );
+  const highestBidInner = document.createElement("div");
+  highestBidInner.classList.add("flex", "flex-col", "justify-center");
+  const highestBidTitle = document.createElement("h3");
+  highestBidTitle.classList.add("text-xl", "font-bold");
+  highestBidTitle.textContent = "Highest bid";
+  const highestBidAmount = document.createElement("p");
+  highestBidAmount.classList.add("text-2xl", "font-bold");
+  highestBidAmount.textContent = listing.bids[0].bidderName;
+
+  // Append elements to Place Bid section
+  placeBidInner.appendChild(placeBidTitle);
+  placeBidForm.appendChild(placeBidInput);
+  placeBidForm.appendChild(placeBidButton);
+  placeBidInner.appendChild(placeBidForm);
+  placeBidContainer.appendChild(placeBidInner);
+  bidsSection.appendChild(placeBidContainer);
+
+  highestBidInner.appendChild(highestBidTitle);
+  highestBidInner.appendChild(highestBidAmount);
+  highestBidContainer.appendChild(highestBidInner);
+  bidsSection.appendChild(highestBidContainer);
+
+  // Create Bidding History section
+  const biddingHistorySection = document.createElement("section");
+  biddingHistorySection.classList.add(
+    "p-2",
+    "border",
+    "border-1",
+    "rounded-xl"
+  );
+  const bidHistoryTitleContainer = document.createElement("div");
+  bidHistoryTitleContainer.classList.add(
+    "flex",
+    "justify-between",
+    "text-center"
+  );
+  const bidHistoryTitle = document.createElement("h3");
+  bidHistoryTitle.classList.add("text-xl", "font-bold");
+  bidHistoryTitle.textContent = "Bidding History";
+
+  const bidItemsContainer = document.createElement("div");
+  bidItemsContainer.classList.add("flex", "flex-col", "gap-2");
+
+  const bidItem = document.createElement("div");
+  bidItem.classList.add(
+    "flex",
+    "justify-between",
+    "border",
+    "border-1",
+    "rounded-xl",
+    "p-2",
+    "cursor-default"
+  );
+  const bidItemName = document.createElement("p");
+  bidItemName.classList.add("text-md");
+  bidItemName.textContent = listing.bids[0].bidderName;
+  const bidItemAmount = document.createElement("p");
+  bidItemAmount.classList.add("text-md");
+  bidItemAmount.textContent = listing.bids[0].amount;
+  const bidItemCreated = document.createElement("p");
+  bidItemCreated.classList.add("text-md");
+  bidItemCreated.textContent = listing.bids[0].created;
+
+  // Append elements to Bidding History section
+  bidHistoryTitleContainer.appendChild(bidHistoryTitle);
+  biddingHistorySection.appendChild(bidHistoryTitleContainer);
+  bidItem.appendChild(bidItemName);
+  bidItem.appendChild(bidItemAmount);
+  bidItem.appendChild(bidItemCreated);
+  bidItemsContainer.appendChild(bidItem);
+  biddingHistorySection.appendChild(bidItemsContainer);
+
   // Append to listing wrapper (end container)
   listingWrapper.appendChild(gallerySection);
   listingWrapper.appendChild(titleSellerSection);
+  listingWrapper.appendChild(bidsSection);
+  listingWrapper.appendChild(biddingHistorySection);
 }
 
 // export function viewListingDetails(listing) {

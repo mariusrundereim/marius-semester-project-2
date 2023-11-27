@@ -740,6 +740,10 @@ video {
   cursor: default;
 }
 
+.cursor-auto{
+  cursor: auto;
+}
+
 .flex-col{
   flex-direction: column;
 }
