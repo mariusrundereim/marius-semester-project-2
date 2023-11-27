@@ -149,6 +149,7 @@ export function viewListingDetails(listing) {
     console.log(e.target.value);
   });
   placeBidInput.id = "bid_input_amount";
+  // placeBidInput.required = true;
   placeBidInput.classList.add(
     "border",
     "border-1",
