@@ -1,4 +1,4 @@
-import { bidHistory } from "../../listeners/listings/bidHistory.mjs";
+import { bidHistory } from "../../listeners/listings/listingElements.mjs";
 
 export function viewListingDetails(listing) {
   const listingWrapper = document.querySelector("#listing_container");
@@ -164,24 +164,7 @@ export function viewListingDetails(listing) {
 
   // Highest bidder container
   const highestBidContainer = document.createElement("div");
-  highestBidContainer.classList.add(
-    "p-2",
-    "basis-1/2",
-    "border",
-    "border-1",
-    "rounded-xl"
-  );
-  const highestBidInner = document.createElement("div");
-  highestBidInner.classList.add("flex", "flex-col", "justify-center");
-  const highestBidTitle = document.createElement("h3");
-  highestBidTitle.classList.add("text-xl", "font-bold");
-  highestBidTitle.textContent = "Highest bid";
-  const highestBidName = document.createElement("p");
-  highestBidName.classList.add("text-md");
-  highestBidName.textContent = listing.bids[0].bidderName;
-  const highestBidAmount = document.createElement("p");
-  highestBidAmount.classList.add("text-md");
-  highestBidAmount.textContent = listing.bids[0].amount;
+  highestBidContainer.id = "highest_bidder";
 
   // Append elements to Place Bid section
   placeBidInner.appendChild(placeBidTitle);
@@ -191,10 +174,6 @@ export function viewListingDetails(listing) {
   placeBidContainer.appendChild(placeBidInner);
   bidsSection.appendChild(placeBidContainer);
 
-  highestBidInner.appendChild(highestBidTitle);
-  highestBidInner.appendChild(highestBidName);
-  highestBidInner.appendChild(highestBidAmount);
-  highestBidContainer.appendChild(highestBidInner);
   bidsSection.appendChild(highestBidContainer);
 
   // Create Bidding History section
@@ -221,31 +200,11 @@ export function viewListingDetails(listing) {
 
   const bidItem = document.createElement("div");
   bidItem.id = "bid_item";
-  // bidItem.classList.add(
-  //   "flex",
-  //   "justify-between",
-  //   "border",
-  //   "border-1",
-  //   "rounded-xl",
-  //   "p-2",
-  //   "cursor-default"
-  // );
-  const bidItemName = document.createElement("p");
-  bidItemName.classList.add("text-md");
-  bidItemName.textContent = listing.bids[0].bidderName;
-  const bidItemAmount = document.createElement("p");
-  bidItemAmount.classList.add("text-md");
-  bidItemAmount.textContent = listing.bids[0].amount;
-  const bidItemCreated = document.createElement("p");
-  bidItemCreated.classList.add("text-md");
-  bidItemCreated.textContent = listing.bids[0].created;
 
   //Append elements to Bidding History section
   bidHistoryTitleContainer.appendChild(bidHistoryTitle);
   biddingHistorySection.appendChild(bidHistoryTitleContainer);
-  bidItem.appendChild(bidItemName);
-  bidItem.appendChild(bidItemAmount);
-  bidItem.appendChild(bidItemCreated);
+
   bidItemsContainer.appendChild(bidItem);
   biddingHistorySection.appendChild(bidItemsContainer);
 

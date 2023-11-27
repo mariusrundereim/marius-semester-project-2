@@ -1,6 +1,9 @@
 import { baseURL } from "../../api/env/env.mjs";
 import { viewListingDetails } from "../../ui/listings/singleListing.mjs";
-import { bidHistory } from "../../listeners/listings/bidHistory.mjs";
+import {
+  bidHistory,
+  highestBidder,
+} from "../../listeners/listings/listingElements.mjs";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -22,6 +25,7 @@ export async function getListingById(id, options = {}) {
 
     viewListingDetails(result);
     bidHistory(result);
+    highestBidder(result);
     return result;
   } catch (error) {
     console.error(error);
