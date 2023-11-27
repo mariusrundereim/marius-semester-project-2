@@ -10,8 +10,8 @@ export async function getAllListings() {
       body: JSON.stringify(),
     };
 
-    let offset = 0;
-    let limit = 100;
+    let offset = 40;
+    let limit = 4;
 
     const response = await fetch(
       `${api_listings}?limit=${limit}&offset=${offset}&_seller=true&_bids=true`,

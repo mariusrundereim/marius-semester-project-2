@@ -6,6 +6,7 @@ export async function displayListings() {
   const cardWrapper = document.querySelector("#listing_cards");
   cardWrapper.innerHTML = "";
   const result = await getAllListings();
+
   result.forEach((listing) => {
     const card = defaultCard(listing);
     cardWrapper.appendChild(card);

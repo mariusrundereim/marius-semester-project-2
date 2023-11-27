@@ -1,3 +1,5 @@
+import { bidHistory } from "../../listeners/listings/bidHistory.mjs";
+
 export function viewListingDetails(listing) {
   const listingWrapper = document.querySelector("#listing_container");
   // Section for Image gallery
@@ -43,7 +45,8 @@ export function viewListingDetails(listing) {
     "md:flex-row",
     "mt-5",
     "mb-4",
-    "min-h-max"
+    "min-h-max",
+    "gap-2"
   );
 
   const sellerDetailsContainer = document.createElement("div");
@@ -60,8 +63,8 @@ export function viewListingDetails(listing) {
   const divInner = document.createElement("div");
   divInner.classList.add("p-2");
   const sellerName = document.createElement("h3");
-  sellerName.classList.add("text-xl", "font-bold");
-  sellerName.textContent = listing.seller.name;
+  sellerName.classList.add("text-md");
+  sellerName.textContent = `Seller: ${listing.seller.name}`;
   const listingTitle = document.createElement("h3");
   listingTitle.classList.add("text-xl", "font-bold");
   listingTitle.textContent = listing.title;
@@ -115,7 +118,8 @@ export function viewListingDetails(listing) {
     "md:flex-row",
     "mt-5",
     "mb-4",
-    "min-h-max"
+    "min-h-max",
+    "gap-2"
   );
 
   const placeBidContainer = document.createElement("div");
@@ -126,7 +130,8 @@ export function viewListingDetails(listing) {
     "border",
     "border-1",
     "border-brand-light",
-    "rounded-xl"
+    "rounded-xl",
+    "bg-brand-color"
   );
   const placeBidInner = document.createElement("div");
   placeBidInner.classList.add("p-2");
@@ -171,9 +176,12 @@ export function viewListingDetails(listing) {
   const highestBidTitle = document.createElement("h3");
   highestBidTitle.classList.add("text-xl", "font-bold");
   highestBidTitle.textContent = "Highest bid";
+  const highestBidName = document.createElement("p");
+  highestBidName.classList.add("text-md");
+  highestBidName.textContent = listing.bids[0].bidderName;
   const highestBidAmount = document.createElement("p");
-  highestBidAmount.classList.add("text-2xl", "font-bold");
-  highestBidAmount.textContent = listing.bids[0].bidderName;
+  highestBidAmount.classList.add("text-md");
+  highestBidAmount.textContent = listing.bids[0].amount;
 
   // Append elements to Place Bid section
   placeBidInner.appendChild(placeBidTitle);
@@ -184,6 +192,7 @@ export function viewListingDetails(listing) {
   bidsSection.appendChild(placeBidContainer);
 
   highestBidInner.appendChild(highestBidTitle);
+  highestBidInner.appendChild(highestBidName);
   highestBidInner.appendChild(highestBidAmount);
   highestBidContainer.appendChild(highestBidInner);
   bidsSection.appendChild(highestBidContainer);
@@ -197,6 +206,7 @@ export function viewListingDetails(listing) {
     "rounded-xl"
   );
   const bidHistoryTitleContainer = document.createElement("div");
+  //bidHistoryTitleContainer.id = "bid_history_title";
   bidHistoryTitleContainer.classList.add(
     "flex",
     "justify-between",
@@ -210,15 +220,16 @@ export function viewListingDetails(listing) {
   bidItemsContainer.classList.add("flex", "flex-col", "gap-2");
 
   const bidItem = document.createElement("div");
-  bidItem.classList.add(
-    "flex",
-    "justify-between",
-    "border",
-    "border-1",
-    "rounded-xl",
-    "p-2",
-    "cursor-default"
-  );
+  bidItem.id = "bid_item";
+  // bidItem.classList.add(
+  //   "flex",
+  //   "justify-between",
+  //   "border",
+  //   "border-1",
+  //   "rounded-xl",
+  //   "p-2",
+  //   "cursor-default"
+  // );
   const bidItemName = document.createElement("p");
   bidItemName.classList.add("text-md");
   bidItemName.textContent = listing.bids[0].bidderName;
@@ -229,7 +240,7 @@ export function viewListingDetails(listing) {
   bidItemCreated.classList.add("text-md");
   bidItemCreated.textContent = listing.bids[0].created;
 
-  // Append elements to Bidding History section
+  //Append elements to Bidding History section
   bidHistoryTitleContainer.appendChild(bidHistoryTitle);
   biddingHistorySection.appendChild(bidHistoryTitleContainer);
   bidItem.appendChild(bidItemName);
@@ -244,80 +255,3 @@ export function viewListingDetails(listing) {
   listingWrapper.appendChild(bidsSection);
   listingWrapper.appendChild(biddingHistorySection);
 }
-
-// export function viewListingDetails(listing) {
-//   console.log(listing.seller.name);
-//   console.log("Naaame", listing.seller.name);
-//   console.log(listing.media);
-//   console.log(listing.description);
-//   console.log(listing.endsAt);
-//   console.log(listing.bids[0].bidderName);
-//   console.log(listing.title);
-
-//   const listingDetails = document.querySelector("#listing_container");
-//   // Media Gallery
-//   const mediaGallery = document.createElement("div");
-//   mediaGallery.classList.add(
-//     "p-2",
-//     "flex",
-//     "flex-col",
-//     "bg-white",
-//     "rounded-md"
-//   );
-
-//   const coverImage = document.createElement("img");
-//   coverImage.classList.add(
-//     "max-h-96",
-//     "aspect-video",
-//     "object-cover",
-//     "rounded-md"
-//   );
-//   coverImage.src = listing.media[0];
-//   coverImage.alt = listing.title;
-
-//   const nextImagesContainer = document.createElement("div");
-//   nextImagesContainer.classList.add(
-//     "py-2",
-//     "flex",
-//     "flex-wrap",
-//     "gap-1",
-//     "justify-center",
-//     "items-center"
-//   );
-
-//   // More media images
-//   for (let i = 0; i < listing.media.length; i++) {
-//     const nextImage = document.createElement("img");
-//     nextImage.classList.add(
-//       "h-10",
-//       "md:h-20",
-//       "aspect-square",
-//       "object-cover",
-//       "rounded-md",
-//       "brightness-50"
-//     );
-//     nextImage.src = listing.media[i];
-//     nextImage.alt = listing.title;
-//     nextImagesContainer.appendChild(nextImage);
-//   }
-
-//   // Listing Title, Seller and Description
-
-//   const sellerDetailsContainer = document.createElement("div");
-//   sellerDetailsContainer.classList.add(
-//     "flex",
-//     "basis-1/2",
-//     "flex-col",
-//     "border",
-//     "border-1",
-//     "border-brand-light",
-//     "rounded-xl"
-//   );
-
-//   // Append elements to Image gallery section
-//   mediaGallery.appendChild(coverImage);
-//   mediaGallery.appendChild(nextImagesContainer);
-
-//   // Append elements to End Container
-//   listingDetails.appendChild(mediaGallery);
-// }
