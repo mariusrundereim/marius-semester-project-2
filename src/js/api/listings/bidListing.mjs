@@ -25,7 +25,7 @@ export async function bidListing(id, amount) {
     }
     const result = await response.json();
     console.log(result);
-    // bidOnListing(result);
+    bidOnListing(result);
 
     return result;
   } catch (error) {
