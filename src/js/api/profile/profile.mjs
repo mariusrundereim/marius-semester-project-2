@@ -19,5 +19,7 @@ export async function getProfile() {
     const profileResult = result;
     console.log("Profile from API", profileResult);
     return profileResult;
-  } catch (error) {}
+  } catch (error) {
+    console.error("Error getting profile", error);
+  }
 }

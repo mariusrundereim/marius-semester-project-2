@@ -1,10 +1,15 @@
 import { getProfile } from "../../api/profile/profile.mjs";
 
-console.log("profile");
-
-export const catchProfile = async () => {
-  getProfile();
-};
+export async function handleProfileRequest() {
+  try {
+    const profile = await getProfile();
+    console.log("Profile from listener", profile);
+    // Handle logics here
+    return profile;
+  } catch (error) {
+    console.error("Error handling", error);
+  }
+}
 
 // Catch profile from the api
 // =============================================================
