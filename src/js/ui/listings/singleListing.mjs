@@ -1,10 +1,15 @@
 import { bidListing } from "../../api/listings/bidListing.mjs";
-import {
-  bidHistory,
-  highestBidder,
-} from "../../listeners/listings/listingElements.mjs";
+import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
+// import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
+// import {
+//   bidHistory,
+//   highestBidder,
+// } from "../../listeners/listings/listingElements.mjs";
 
 export function viewListingDetails(listing) {
+  console.log("Ends:", listing.endsAt);
+  // console.log("Ends:", updateRemainingTime(listing.endsAt));
+  console.log("EndsFormat:", formatEndsAt(listing.endsAt));
   const listingWrapper = document.querySelector("#listing_container");
   // Section for Image gallery
   const gallerySection = document.createElement("section");
@@ -99,7 +104,7 @@ export function viewListingDetails(listing) {
   endsDivTitle.textContent = "Ends in";
   const endsDivTime = document.createElement("p");
   endsDivTime.classList.add("text-2xl", "font-bold");
-  endsDivTime.textContent = listing.endsAt;
+  endsDivTime.textContent = formatEndsAt(listing.endsAt);
 
   // Append elements to Seller Details section
   divInner.appendChild(sellerName);
@@ -147,10 +152,7 @@ export function viewListingDetails(listing) {
   placeBidForm.id = "bid_form";
   placeBidForm.classList.add("flex", "flex-col", "gap-2");
   const placeBidInput = document.createElement("input");
-  // placeBidInput.addEventListener("input", (e) => {
-  //   e.preventDefault();
-  //   console.log(e.target.value);
-  // });
+
   placeBidForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(placeBidInput.value, listing.id);

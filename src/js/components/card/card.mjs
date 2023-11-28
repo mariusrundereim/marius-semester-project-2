@@ -1,9 +1,10 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
-import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
+// import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
+import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 
 export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
   const firstMedia = formatMediaUrl(media);
-  const endsAtFormatted = updateRemainingTime(endsAt);
+  const endsAtFormatted = formatEndsAt(endsAt);
   const cardElement = document.createElement("div");
   cardElement.id = "card_item";
 

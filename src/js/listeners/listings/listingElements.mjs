@@ -1,7 +1,18 @@
+// BidHistory and HighestBidder elements
+
 export function bidHistory(listing) {
   console.log(listing.bids);
   const bidHistorySection = document.querySelector("#bid_item");
   bidHistorySection.classList.add("test");
+
+  // If no bids, display message
+  if (listing.bids.length === 0) {
+    const noBids = document.createElement("p");
+    noBids.classList.add("text-center");
+    noBids.textContent = "No bids yet";
+    bidHistorySection.appendChild(noBids);
+    return bidHistorySection;
+  }
 
   listing.bids.sort((a, b) => {
     return b.amount - a.amount;
@@ -44,6 +55,15 @@ export function highestBidder(listing) {
     "border-1",
     "rounded-xl"
   );
+
+  // If no bids, display message
+  if (listing.bids.length === 0) {
+    const noBids = document.createElement("p");
+    noBids.classList.add("text-center");
+    noBids.textContent = "You could be the first bidder!";
+    highestBidderContainer.appendChild(noBids);
+    return highestBidderContainer;
+  }
   const highestBidderInner = document.createElement("div");
   highestBidderInner.classList.add("flex", "flex-col", "justify-center");
   const highestBidderTitle = document.createElement("h3");
