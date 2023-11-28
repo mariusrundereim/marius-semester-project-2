@@ -1,5 +1,4 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
-// import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 
 export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
@@ -10,7 +9,7 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
 
   cardElement.innerHTML = `
 
-  <div class="bg-white rounded-xl flex flex-col grow" id="card-item">
+  <div class="bg-white rounded-xl flex flex-col" id="card-item">
           <!--Image-->
           <div >
           <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>
