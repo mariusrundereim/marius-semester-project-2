@@ -9,7 +9,6 @@ createNavLink();
 document.body.prepend(headerElement);
 
 export const profile = getProfile();
-console.log("profile from script", profile);
 
 document.addEventListener("DOMContentLoaded", async () => {
   await displayProfile();
