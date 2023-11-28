@@ -1,3 +1,4 @@
+/*
 import { getProfile } from "../../api/profile/profile.mjs";
 
 export async function renderProfile() {
@@ -74,3 +75,4 @@ export function renderProfileInfo(container, result) {
         </div>
         `;
 }
+*/

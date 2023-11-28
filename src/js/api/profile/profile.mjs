@@ -1,6 +1,3 @@
-// import { api_profiles } from "../api/env/env.mjs";
-// import { getSearchParams } from "../api/searchParams.mjs";
-// import { headers } from "../auth/headers.mjs";
 import { api_profiles } from "../../api/env/env.mjs";
 import { getSearchParams } from "../searchParams.mjs";
 import { headers } from "../../auth/headers.mjs";
@@ -18,12 +15,9 @@ export async function getProfile() {
       getProfileData
     ); // ?_listings=true
 
-    if (response.ok) {
-      const result = await response.json();
-      return result;
-    } else {
-      alert("Please log in");
-    }
+    const result = await response.json();
+    const profileResult = result;
+    console.log("Profile from API", profileResult);
+    return profileResult;
   } catch (error) {}
 }
-getProfile();
