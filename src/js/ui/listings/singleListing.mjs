@@ -1,3 +1,4 @@
+import { bidListing } from "../../api/listings/bidListing.mjs";
 import {
   bidHistory,
   highestBidder,
@@ -142,11 +143,19 @@ export function viewListingDetails(listing) {
   placeBidTitle.classList.add("text-xl", "font-bold");
   placeBidTitle.textContent = "Place a bid";
   const placeBidForm = document.createElement("form");
+
   placeBidForm.id = "bid_form";
   placeBidForm.classList.add("flex", "flex-col", "gap-2");
   const placeBidInput = document.createElement("input");
-  placeBidInput.addEventListener("input", (e) => {
-    console.log(e.target.value);
+  // placeBidInput.addEventListener("input", (e) => {
+  //   e.preventDefault();
+  //   console.log(e.target.value);
+  // });
+  placeBidForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(placeBidInput.value, listing.id);
+    bidListing(listing.id, placeBidInput.value);
+    // Call api - parametere burde være value og id
   });
   placeBidInput.id = "bid_input_amount";
   // placeBidInput.required = true;

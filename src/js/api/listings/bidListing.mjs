@@ -3,29 +3,27 @@ import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { bidOnListing } from "../../listeners/listings/bidList.mjs";
 
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const id = params.get("id");
-const url = `${api_listings}/${id}/bids`;
-
 export async function bidListing(id, amount) {
+  console.log(id, amount);
+  amount = parseInt(amount);
+  console.log(typeof amount);
   try {
     const bidListingData = {
       method: "POST",
       headers: headers("application/json"),
-      body: JSON.stringify({ amount: amount }),
+      body: JSON.stringify({ amount: Number(amount) }),
     };
 
-    const response = await fetch(`${url}`, bidListingData);
-    if (!response.ok) {
-      throw new Error("This is oing to have to change or something");
-    }
-    if (response.ok) {
-      location.reload();
-    }
+    const response = await fetch(`${api_listings}/${id}/bids`, bidListingData);
     const result = await response.json();
     console.log(result);
-    bidOnListing(result);
+
+    // bidOnListing(result);
+    if (response.ok) {
+      // location.reload();
+    } else {
+      throw new Error("This is oing to have to change or something");
+    }
 
     return result;
   } catch (error) {

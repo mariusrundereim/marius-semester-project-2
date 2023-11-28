@@ -1,6 +1,8 @@
-import { bidListing } from "../../api/listings.mjs";
+// import { bidListing } from "../../api/listings.mjs";
+import { bidListing } from "../../api/listings/bidListing.mjs";
 
 export function bidOnListing(listing) {
+  console.log("HEI");
   const bidForm = document.querySelector("#bid_form");
   bidForm.addEventListener("submit", async (e) => {
     e.preventDefault();

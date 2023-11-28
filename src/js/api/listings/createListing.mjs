@@ -1,6 +1,5 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
-
 export async function createListing(newListing) {
   try {
     const postData = {

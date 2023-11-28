@@ -10,15 +10,16 @@ export async function getAllListings() {
       body: JSON.stringify(),
     };
 
-    let offset = 40;
-    let limit = 4;
+    let offset = 0;
+    let limit = 50;
 
     const response = await fetch(
       `${api_listings}?limit=${limit}&offset=${offset}&_seller=true&_bids=true`,
       getListingData
     );
     if (!response.ok) {
-      displayListings();
+      // displayListings(); STRENGT FORBUTT
+      document.querySelector("body").innerHTML = "Error";
       throw new Error("This is oing to have to change or something");
     }
     const result = await response.json();
@@ -27,17 +28,5 @@ export async function getAllListings() {
     return result;
   } catch (error) {
     console.log(error);
-    // throw error(error);
   }
 }
-
-// async function displayListings() {
-//   //catch and handle the error
-//   const cardWrapper = document.querySelector("#listing_card");
-//   cardWrapper.innerHTML = "";
-//   const result = await getAllListings();
-//   result.forEach((listing) => {
-//     const card = defaultCard(listing);
-//     cardWrapper.appendChild(card);
-//   });
-// }

@@ -7,6 +7,11 @@ export async function displayListings() {
   cardWrapper.innerHTML = "";
   const result = await getAllListings();
 
+  // Sort the listings by date
+  result.sort((a, b) => {
+    return new Date(b.created) - new Date(a.created);
+  });
+
   result.forEach((listing) => {
     const card = defaultCard(listing);
     cardWrapper.appendChild(card);
