@@ -8,8 +8,8 @@ const headerElement = header();
 createNavLink();
 document.body.prepend(headerElement);
 
-export const profile = getProfile();
+// export const profile = getProfile();
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await displayProfile();
-});
+// document.addEventListener("DOMContentLoaded", async () => {
+//   await displayProfile();
+// });

@@ -1,9 +1,8 @@
-import { handleProfileRequest } from "../../listeners/profile/catchProfile.mjs";
+import { handleProfileRequest } from "../../listeners/profile/profile.mjs";
 export async function displayProfile() {
   try {
     const profile = await handleProfileRequest();
-    // console.log("Profile from UI", profile);
-    // Render the profile data to the UI
+    console.log("Profile from UI", profile);
   } catch (error) {
     console.error("Error displaying profile", error);
   }
