@@ -121,21 +121,37 @@ export function profileListings(profile) {
   const listingsListItemsListItemActionsView = document.createElement("button");
 
   // Add classes
-  listingsSection.classList.add("flex", "flex-col", "gap-4");
-  listingsTitle.classList.add("text-2xl", "font-bold");
+  listingsSection.classList.add(
+    "border",
+    "border-solid",
+    "border-2",
+    "border-white",
+    "rounded-xl",
+    "min-h-full",
+    "p-4"
+  );
+  listingsTitle.classList.add("text-2xl", "font-bold", "text-center");
   listingsList.classList.add("flex", "flex-col", "gap-4");
   listingsListTitle.classList.add("text-xl", "font-bold");
-  listingsListItems.classList.add(
-    "flex",
-    "flex-row",
-
-    "rounded-xl",
-    "p-4",
-    "bg-brand-light"
-  );
+  listingsListItems.classList.add("grid", "gap-2", "bg-teal-300");
   listingsListItemsTitle.classList.add("text-xl", "font-bold");
-  listingsListItemsList.classList.add("flex", "flex-row", "gap-4");
-  listingsListItemsListItem.classList.add("bg-yellow-400");
+  listingsListItemsList.classList.add(
+    "p-2",
+    "bg-white",
+    "flex",
+    "flex-col",
+    "justify-between",
+    "items-center",
+    "md:flex-row",
+    "min-h-full",
+    "rounded-2xl"
+  );
+  listingsListItemsListItem.classList.add(
+    "flex",
+    "flex-col",
+    "md:flex-row",
+    "items-center"
+  );
   listingsListItemsListItemMedia.classList.add("border-2", "border-brand-dark");
   listingsListItemsListItemMediaImg.classList.add(
     "h-20",
