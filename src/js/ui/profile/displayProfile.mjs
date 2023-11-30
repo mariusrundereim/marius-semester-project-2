@@ -1,8 +1,9 @@
 import { handleProfileRequest } from "../../listeners/profile/profile.mjs";
-// import { profileHero } from "./sections/profileHero.mjs";
-// import { editProfile } from "./sections/editProfile.mjs";
-// import { profileDashboard } from "./sections/dashboard.mjs";
-// import { biddingsWon, profileListings } from "./sections/biddings.mjs";
+import { profileHero } from "./sections/profileHero.mjs";
+import { editProfile } from "./sections/editProfile.mjs";
+import { profileDashboard } from "./sections/dashboard.mjs";
+import { biddingSection } from "./sections/biddings.mjs";
+// import { biddingsWon } from "./sections/biddings.mjs";
 export async function displayProfile() {
   try {
     const profile = await handleProfileRequest();
@@ -10,9 +11,10 @@ export async function displayProfile() {
     // const profileContainer = document.querySelector("#profile_content");
 
     // From sections
-    // profileHero(profile);
-    // editProfile(profile);
-    // profileDashboard(profile);
+    profileHero(profile);
+    editProfile(profile);
+    profileDashboard(profile);
+    biddingSection(profile);
     // biddingsWon(profile);
     // profileListings(profile);
 

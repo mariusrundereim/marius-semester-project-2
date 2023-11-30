@@ -1,7 +1,8 @@
 import { getProfile } from "../../api/profile/profile.mjs";
-import { viewActiveBids } from "./activeBids.mjs";
+// import { viewActiveBids } from "./activeBids.mjs";
 import { displayProfile } from "../../ui/profile/displayProfile.mjs";
 import { profileWins } from "./profileWins.mjs";
+import { viewActiveBids } from "./activeBids.mjs";
 
 export async function handleProfileRequest() {
   try {
@@ -10,6 +11,7 @@ export async function handleProfileRequest() {
 
     viewActiveBids(profile);
     profileWins(profile);
+    viewActiveBids(profile);
     return profile;
   } catch (error) {
     console.error("Error handling", error);

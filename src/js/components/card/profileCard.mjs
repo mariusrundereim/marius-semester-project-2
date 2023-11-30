@@ -1,7 +1,7 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 
-export function profileCard(media, title, bids, endsAt) {
+export function profileCard(media, title, bids, endsAt, id) {
   const firstMedia = formatMediaUrl(media);
   const endsAtFormatted = formatEndsAt(endsAt);
   const cardElement = document.createElement("div");
@@ -13,7 +13,7 @@ export function profileCard(media, title, bids, endsAt) {
             <div class="flex flex-col md:flex-row items-center">
               <img
                 class="h-40 md:h-10 md:me-4 object-cover rounded-lg"
-                src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=2065&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="${firstMedia}"
                 alt=""
               />
               <h3 class="text-xl font-medium text-center py-3">Headphones</h3>
@@ -35,5 +35,10 @@ export function profileCard(media, title, bids, endsAt) {
             </div>
           </div>
   `;
+  cardElement.addEventListener("click", () => {
+    window.location.href = `listingSpecific.html?id=${id}`;
+  });
+
+  return cardElement;
   // return cardElement;
 }
