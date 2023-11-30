@@ -9,11 +9,12 @@ export async function createListing(newListing) {
     };
 
     const response = await fetch(`${api_listings}`, postData);
-    if (response.ok) {
-      location.reload();
-    } else {
-      alert("Not ok. Insert correct on Listing post");
+    if (!response.ok) {
+      throw new Error("Not ok. Insert correct on Listing post");
     }
+    const result = await response.json();
+    console.log(result);
+    return result;
   } catch (error) {
     console.log(error);
   }

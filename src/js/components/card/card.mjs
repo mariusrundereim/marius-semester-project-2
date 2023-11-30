@@ -9,7 +9,7 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
 
   cardElement.innerHTML = `
 
-  <div class="bg-white rounded-xl flex flex-col" id="card-item">
+  <div class="bg-white rounded-xl flex flex-col min-w-[10rem] min-h-[25rem]" id="card-item">
           <!--Image-->
           <div >
           <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>

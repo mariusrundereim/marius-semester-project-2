@@ -15,6 +15,12 @@ export async function getProfile() {
       getProfileData
     ); // ?_listings=true
 
+    if (!response.ok) {
+      // displayListings(); STRENGT FORBUTT
+      document.querySelector("body").innerHTML = "Error";
+      throw new Error("This is oing to have to change or something");
+    }
+
     const result = await response.json();
     const profileResult = result;
     console.log("Profile from API", profileResult);
