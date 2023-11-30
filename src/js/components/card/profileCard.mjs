@@ -1,7 +1,7 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 
-export function profileCard(media, title, bids, endsAt, id) {
+export function profileCard({ media, title, bids, endsAt, id }) {
   const firstMedia = formatMediaUrl(media);
   const endsAtFormatted = formatEndsAt(endsAt);
   const cardElement = document.createElement("div");
@@ -16,14 +16,14 @@ export function profileCard(media, title, bids, endsAt, id) {
                 src="${firstMedia}"
                 alt=""
               />
-              <h3 class="text-xl font-medium text-center py-3">Headphones</h3>
+              <h3 class="text-xl font-medium text-center py-3">${title}</h3>
             </div>
             <div class="flex flex-col md:flex-row gap-2">
               <p>Your bid: <span>25</span></p>
               <p>Latest bid: <span>25</span></p>
             </div>
             <div>
-              <p>Ends: <span>2 days, 12 hours, 3 minutes</span></p>
+              <p>Ends: <span>${endsAtFormatted}</span></p>
             </div>
             <div>
               <button

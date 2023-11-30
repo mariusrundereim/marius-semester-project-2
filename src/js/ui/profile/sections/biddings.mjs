@@ -1,12 +1,8 @@
-// import { viewActiveBids } from "../../../listeners/profile/activeBids.mjs";
+// import { viewActiveBids } from "../../listeners/profile/activeBids.mjs";
+import { viewActiveBids } from "../../../listeners/profile/activeBids.mjs";
 // import { profileCard } from "../../components/card/profileCard.mjs";
-import { profileCard } from "../../components/card/profileCard.mjs";
-// import { viewActiveBids } from "../../../listeners/profile/activeBids.mjs";
 
 export function biddingSection(profile) {
-  //
-  console.log("Hei");
-
   const profileContainer = document.querySelector("#profile_content");
   const biddingSection = document.createElement("section");
   const biddingTopDiv = document.createElement("div");
@@ -27,17 +23,14 @@ export function biddingSection(profile) {
   biddingTopDiv.appendChild(bidTitle);
   biddingTopDiv.appendChild(bidList);
 
-  // Display active bids using profileCard
-  profile.listings.forEach((listing) => {
-    const card = profileCard(
-      listing.media,
-      listing.title,
-      listing.bids,
-      listing.endsAt,
-      listing.id
-    );
+  const activeBids = viewActiveBids(profile);
+  activeBids.forEach((bid) => {
+    const card = profileCard(bid);
     bidList.appendChild(card);
   });
+
+  // Display active bids and reuse the profileCard component
+  // Use the card from profile > activebids.mjs
 
   profileContainer.appendChild(biddingSection);
   return biddingSection;
