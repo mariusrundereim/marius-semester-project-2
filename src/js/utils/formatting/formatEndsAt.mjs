@@ -15,7 +15,7 @@ export function formatEndsAt(endsAt) {
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   const timeRemaining = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
+  // return days;
   // setInterval(updateRemainingTime, 1000);
   // console.log(timeRemaining);
   return timeRemaining;

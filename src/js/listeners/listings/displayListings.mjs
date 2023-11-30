@@ -11,23 +11,35 @@ export async function displayListings() {
 
     const result = await getAllListings();
 
-    // Filter and sort
-    const endSoonListings = result.sort(
-      (a, b) => new Date(a.endsAt) - new Date(b.endsAt)
-    );
+    // Ends soon
+    // const endSoonListings = JSON.parse(JSON.stringify(result)); // Deep Copy
+    const endSoonListings = [...result];
+    endSoonListings.sort((a, b) => {
+      a = Date.parse(a.endsAt);
+      b = Date.parse(b.endsAt);
+      // console.log(a - b);
+      return a - b;
+    });
 
-    const newListingListings = result.sort(
-      (a, b) => new Date(a.created) - new Date(b.created)
-    );
+    // const newListingListings = JSON.parse(JSON.stringify(result));
+    const newListingListings = [...result];
+    newListingListings.sort((a, b) => {
+      a = Date.parse(a.created);
+      b = Date.parse(b.created);
+      // console.log(a - b);
+      return b - a;
+    });
+    // console.log("New:", newListingListings);
 
     // Display 10 listings in a for loop
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
       const card = defaultCard(endSoonListings[i]);
       cardWrapper.appendChild(card);
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 20; i++) {
       const card = defaultCard(newListingListings[i]);
+      // const card = defaultCard(result[i]);
       newListing.appendChild(card);
     }
   } catch (error) {
