@@ -11,14 +11,19 @@ export function viewListingDetails(listing) {
   // console.log("Ends:", updateRemainingTime(listing.endsAt));
   console.log("EndsFormat:", formatEndsAt(listing.endsAt));
   const listingWrapper = document.querySelector("#listing_container");
+
   // Section for Image gallery
   const gallerySection = document.createElement("section");
   gallerySection.classList.add("flex", "flex-col", "gap-4");
+
+  // Create the first media item
   const firstMedia = document.createElement("img");
   firstMedia.classList.add("aspect-video", "object-cover", "rounded-md");
   firstMedia.src = listing.media[0];
   firstMedia.alt = listing.title;
+  gallerySection.appendChild(firstMedia);
 
+  // Create a container for the rest of the media items
   const nextMediaContainer = document.createElement("div");
   nextMediaContainer.classList.add(
     "py-2",
@@ -28,22 +33,26 @@ export function viewListingDetails(listing) {
     "justify-center",
     "items-center"
   );
-
-  const nextMediaItem = document.createElement("img");
-  nextMediaItem.classList.add(
-    "h-10",
-    "md:h-20",
-    "aspect-square",
-    "object-cover",
-    "rounded-md",
-    "brightness-50"
-  );
-  nextMediaItem.src = listing.media[0];
-  nextMediaItem.alt = listing.title;
-
-  gallerySection.appendChild(firstMedia);
   gallerySection.appendChild(nextMediaContainer);
-  nextMediaContainer.appendChild(nextMediaItem);
+
+  // nextMediaItem
+  listing.media.slice(1).forEach((mediaUrl) => {
+    const nextMediaItem = document.createElement("img");
+    nextMediaItem.classList.add(
+      "h-10",
+      "md:h-20",
+      "aspect-square",
+      "object-cover",
+      "rounded-md",
+      "brightness-50"
+    );
+    nextMediaItem.src = mediaUrl;
+    nextMediaItem.alt = listing.title;
+    nextMediaContainer.appendChild(nextMediaItem);
+  });
+
+  // Append the gallerySection to the listingWrapper
+  listingWrapper.appendChild(gallerySection);
 
   // Section to Title and Seller Details
 
