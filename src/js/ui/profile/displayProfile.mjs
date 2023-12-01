@@ -3,7 +3,7 @@ import { handleProfileRequest } from "../../listeners/profile/profile.mjs";
 import { profileHero } from "./sections/profileHero.mjs";
 import { editProfile } from "./sections/editProfile.mjs";
 import { profileDashboard } from "./sections/dashboard.mjs";
-import { biddingSection } from "./sections/biddings.mjs";
+// import { biddingSection } from "./sections/biddings.mjs";
 
 export async function displayProfile() {
   try {
@@ -14,7 +14,7 @@ export async function displayProfile() {
     profileHero(profile);
     editProfile(profile);
     profileDashboard(profile);
-    biddingSection(profile);
+    // biddingSection(profile);
   } catch (error) {
     console.error("Error displaying profile", error);
   }
