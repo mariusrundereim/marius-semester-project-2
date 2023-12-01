@@ -18,11 +18,14 @@ export async function updateAvatar(avatar) {
     const getUrl = `${api_profiles}/${path}`;
     console.log("URL:", getUrl);
 
+    // avatar = avatar.avatar;
+    const newAvatar = avatar.avatar;
+    console.log("Avatar:", newAvatar);
     const response = await fetch(getUrl, {
       method: "PUT",
       headers: headers("application/json"),
       // "Content-Type": "application/json",
-      body: JSON.stringify({ avatar }),
+      body: JSON.stringify({ newAvatar }),
     });
     console.log(response);
 
