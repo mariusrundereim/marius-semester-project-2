@@ -32,5 +32,6 @@ export const listingForm = document
       endsAt: new Date(formData.get("endsAt")),
     };
     console.log(newListing);
+
     createListing(newListing);
   });

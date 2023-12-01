@@ -12,8 +12,7 @@ export async function updateProfileAvatar() {
     };
     console.log("Media", media);
 
-    const result = await updateAvatar(media);
-    console.log("Result", result);
-    //   console.log(media);
+    const update = await updateAvatar(media);
+    console.log("Update:", update);
   });
 }
