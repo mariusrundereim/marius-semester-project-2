@@ -4,8 +4,8 @@ import { headers } from "../../auth/headers.mjs";
 
 let recordArray = []; // Declared as global variable
 export async function searchListings(pOffset) {
-  for (let i = 0; i < 1000; i += 200) {
-    console.log(i);
+  for (let offset = 0; offset < 1000; offset += 200) {
+    console.log(offset);
 
     try {
       const getListingData = {
@@ -15,7 +15,7 @@ export async function searchListings(pOffset) {
       };
 
       const response = await fetch(
-        `${api_listings}?offset=${i}&_seller=true&_bids=true&_active=true`,
+        `${api_listings}?offset=${offset}&_seller=true&_bids=true&_active=true`,
         getListingData
       );
       if (!response.ok) {
@@ -26,7 +26,7 @@ export async function searchListings(pOffset) {
 
       recordArray.push(result); // Add fetched data to recordArray
 
-      console.log(recordArray);
+      console.log("Recorded array:", recordArray);
     } catch (error) {
       console.log(error);
     }
