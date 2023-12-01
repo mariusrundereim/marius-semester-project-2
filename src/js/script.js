@@ -1,7 +1,8 @@
-//import { header } from "./layout/header.js";
+import { header, createNavLink } from "./layout/header.mjs";
 // import { displayProfile } from "./ui/profile/displayProfile.mjs";
 
-import { header, createNavLink } from "./layout/header.mjs";
+import { searchListings } from "./api/listings/searchListing.mjs";
+searchListings();
 // import DisplayMessage from "./utils/messages/toast.mjs";
 
 // Header

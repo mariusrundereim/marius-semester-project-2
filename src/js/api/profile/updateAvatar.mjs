@@ -1,31 +1,28 @@
 import { api_profiles } from "../../api/env/env.mjs";
-// import { api_profilesX } from "../../api/env/env.mjs";
-import { loadToken } from "../../storage/storage.mjs";
+// import { loadToken } from "../../storage/storage.mjs";
 import { headers } from "../../auth/headers.mjs";
-
-// export function profileAvatar() {
-//   const profile = loadToken("profile");
-//   const { name, avatar } = profile;
-//   console.log(profile.avatar);
-//   console.log(`${api_profiles}/${name}/media`);
-// }
-// profileAvatar();
+import { getProfile } from "./profile.mjs";
 
 export async function updateAvatar(avatar) {
   try {
-    const { name } = loadToken("profile");
+    // const { name } = loadToken("profile");
+
+    const name = getProfile();
+    console.log("Name:", name);
     const path = `${name}/media`;
+    console.log("Path:", path);
     const getUrl = `${api_profiles}/${path}`;
     console.log("URL:", getUrl);
 
-    // avatar = avatar.avatar;
-    const newAvatar = avatar.avatar;
-    console.log("Avatar:", newAvatar);
+    // console.log("Test", profileResult);
+
+    avatar = avatar.avatar;
+    // const newAvatar = avatar.avatar;
     const response = await fetch(getUrl, {
       method: "PUT",
       headers: headers("application/json"),
       // "Content-Type": "application/json",
-      body: JSON.stringify({ newAvatar }),
+      body: JSON.stringify({ avatar }),
     });
     console.log(response);
 
@@ -41,3 +38,7 @@ export async function updateAvatar(avatar) {
   }
 }
 // updateAvatar();
+
+// (async () => {
+//   await getProfile();
+// })();

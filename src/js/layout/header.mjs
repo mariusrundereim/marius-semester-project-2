@@ -93,6 +93,7 @@ export function header() {
     divInner.classList.add("flex", "gap-2", "align-middle", "p-2");
     const profileImage = document.createElement("img");
     profileImage.setAttribute("src", profile.avatar);
+    console.log("Avatar", profile.avatar);
     profileImage.setAttribute("alt", "Profile image");
     profileImage.classList.add(
       "w-10",

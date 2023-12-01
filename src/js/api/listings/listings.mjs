@@ -10,9 +10,6 @@ export async function getAllListings() {
       body: JSON.stringify(),
     };
 
-    // let offset = 0;
-    // let limit = 50;
-
     const response = await fetch(
       `${api_listings}?&_seller=true&_bids=true&_active=true`,
       getListingData
@@ -23,7 +20,8 @@ export async function getAllListings() {
       throw new Error("This is oing to have to change or something");
     }
     const result = await response.json();
-    console.log(result);
+
+    // console.log(result);
 
     return result;
   } catch (error) {
