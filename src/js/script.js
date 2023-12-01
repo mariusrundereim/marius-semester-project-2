@@ -1,5 +1,4 @@
 //import { header } from "./layout/header.js";
-import { getProfile } from "./api/profile/profile.mjs";
 // import { displayProfile } from "./ui/profile/displayProfile.mjs";
 
 import { header, createNavLink } from "./layout/header.mjs";

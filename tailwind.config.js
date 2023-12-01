@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./**/*.html",
+    "./**/**/*.html",
     "./src/**/*.js",
     "./src/**/*.mjs",
     "./src/js/**/*.mjs",
