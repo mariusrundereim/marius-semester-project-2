@@ -2,7 +2,7 @@ import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 // import { displayListings } from "../../listeners/listings/displayListings.mjs";
 
-let recordArray = [];
+let recordArray = []; // Declared as global variable
 export async function searchListings(pOffset) {
   for (let i = 0; i < 1000; i += 200) {
     console.log(i);
@@ -19,19 +19,18 @@ export async function searchListings(pOffset) {
         getListingData
       );
       if (!response.ok) {
-        // displayListings(); STRENGT FORBUTT
         document.querySelector("body").innerHTML = "Error";
-        throw new Error("This is oing to have to change or something");
+        throw new Error("Som error with search");
       }
       const result = await response.json();
 
-      recordArray.push(result);
+      recordArray.push(result); // Add fetched data to recordArray
 
       console.log(recordArray);
     } catch (error) {
       console.log(error);
     }
   }
-  return recordArray;
-  console.log("New array:", recordArray);
+  return recordArray; // Return array
 }
+console.log("New array:", recordArray);
