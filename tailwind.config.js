@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./**/*.html",
+    "./**/**/*.html",
     "./src/**/*.js",
     "./src/**/*.mjs",
     "./src/js/**/*.mjs",
@@ -9,7 +10,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["DM Sans", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
+      },
+      colors: {
+        "brand-color": "#1EBFBF",
+        "brand-dark": "#181818",
+        "brand-light": "#F5F5F5",
       },
     },
   },
