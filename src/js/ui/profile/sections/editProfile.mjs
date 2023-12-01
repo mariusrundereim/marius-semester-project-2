@@ -19,9 +19,11 @@ export function editProfile(profile) {
   );
   editSecInner.classList.add("flex", "flex-col", "gap-4");
   form.classList.add("flex", "flex-col", "gap-4");
+  form.id = "updateAvatar_form";
   title.classList.add("text-2xl", "font-bold");
   formLabel.classList.add("text-xl");
   formInput.classList.add("border", "border-gray-300", "rounded-xl", "p-2");
+  formInput.id = "newAvatar";
   formBtn.classList.add(
     "p-2",
     "rounded-xl",
@@ -35,7 +37,7 @@ export function editProfile(profile) {
   formInput.type = "text";
   formInput.name = "avatar";
   formInput.placeholder = "Inssert URL";
-  formInput.value = profile.avatar;
+  // formInput.value = profile.avatar;
   formBtn.textContent = "Update";
   // Append
   editSection.appendChild(title);

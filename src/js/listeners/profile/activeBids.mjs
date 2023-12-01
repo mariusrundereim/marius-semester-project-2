@@ -9,11 +9,11 @@ export function viewActiveBids(profile) {
     activeBids[0].title,
     activeBids[0].bids,
     activeBids[0].endsAt,
-    activeBids[0].id,
-    console.log(activeBids[0].title),
-    console.log(activeBids[0].id)
+    activeBids[0].id
+    // console.log(activeBids[0].title),
+    // console.log(activeBids[0].id)
   );
-  console.log("A card", card);
+  // console.log("A card", card);
 
   return activeBids;
 }
