@@ -16,7 +16,7 @@ export async function displayProfile() {
     editProfile(profile);
     profileDashboard(profile);
     // biddingSection(profile);
-    updateProfileAvatar();
+    updateProfileAvatar(profile);
   } catch (error) {
     console.error("Error displaying profile", error);
   }

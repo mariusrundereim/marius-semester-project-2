@@ -6,13 +6,14 @@ export async function updateProfileAvatar() {
   updateAvatarForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form);
+    console.log("Form:", form);
     const media = {
-      avatar: form.newAvatar.value,
+      avatar: form.new_avatar.value,
     };
+    console.log("Media", media);
 
     const result = await updateAvatar(media);
-    console.log(result);
+    console.log("Result", result);
     //   console.log(media);
   });
 }

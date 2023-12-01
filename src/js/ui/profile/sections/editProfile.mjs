@@ -23,7 +23,8 @@ export function editProfile(profile) {
   title.classList.add("text-2xl", "font-bold");
   formLabel.classList.add("text-xl");
   formInput.classList.add("border", "border-gray-300", "rounded-xl", "p-2");
-  formInput.id = "newAvatar";
+  formInput.id = "new_avatar";
+
   formBtn.classList.add(
     "p-2",
     "rounded-xl",
@@ -36,8 +37,8 @@ export function editProfile(profile) {
   formLabel.textContent = "Avatar URL";
   formInput.type = "text";
   formInput.name = "avatar";
-  formInput.placeholder = "Inssert URL";
-  // formInput.value = profile.avatar;
+  formInput.placeholder = "Insert URL";
+  formInput.value = profile.avatar;
   formBtn.textContent = "Update";
   // Append
   editSection.appendChild(title);

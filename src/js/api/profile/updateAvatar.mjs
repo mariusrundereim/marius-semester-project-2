@@ -21,6 +21,7 @@ export async function updateAvatar(avatar) {
     const response = await fetch(getUrl, {
       method: "PUT",
       headers: headers("application/json"),
+      // "Content-Type": "application/json",
       body: JSON.stringify({ avatar }),
     });
     console.log(response);
