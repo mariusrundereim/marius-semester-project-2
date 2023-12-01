@@ -623,10 +623,6 @@ video {
   font-family: DM Sans, sans-serif;
 }
 
-.font-serif{
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
