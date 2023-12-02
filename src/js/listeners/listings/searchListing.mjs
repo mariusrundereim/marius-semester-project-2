@@ -16,12 +16,24 @@ export async function displaySearchListing() {
     cardContainer.innerHTML = "";
 
     // Get the search input value
-    const searchInput = document.querySelector("#search_listings_input");
+    const searchInput = document
+      .querySelector("#search_listings_input")
+      .value.toLowerCase();
+
+    console.log("Search input:", searchInput);
 
     // Find the first listing that exactly matches the search input value
     const foundListing = flatResult.find((listing) => {
-      return listing.title.toLowerCase() === searchInput;
+      // Access the nested 'title' property
+      const title = listing.title.toLowerCase().trim();
+      // Log each nested listing title to check for matches
+      console.log("Listing Title:", title);
+      console.log("Comparison Result:", title === searchInput);
+      return title === searchInput;
     });
+
+    // Log the foundListing to check its value
+    console.log("Found Listing:", foundListing);
 
     // Display the search result if found
     if (foundListing) {
@@ -37,11 +49,11 @@ export async function displaySearchListing() {
 }
 
 // Attach an event listener to the search button
-
+// Attach an event listener to the search button
 document
   .querySelector("#search_listings_button")
-  .addEventListener("click", (e) => {
-    e.preventDefault();
+  .addEventListener("click", (event) => {
+    event.preventDefault();
     displaySearchListing();
   });
 
