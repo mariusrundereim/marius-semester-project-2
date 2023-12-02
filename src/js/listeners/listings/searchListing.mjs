@@ -1,7 +1,3 @@
-// Use the form to search for listings
-// Display the listing card with defaultCard
-// Search for all in recordArray
-
 import { searchListings } from "../../api/listings/searchListing.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
 // import { searchForm } from "../../ui/listings/searchForm.mjs";
@@ -12,6 +8,7 @@ export async function displaySearchListing() {
     const result = await searchListings();
     const flatResult = result.flat();
 
+    console.log("Complete array:", result);
     // Clear the card container
     cardContainer.innerHTML = "";
 
@@ -27,8 +24,8 @@ export async function displaySearchListing() {
       // Access the nested 'title' property
       const title = listing.title.toLowerCase().trim();
       // Log each nested listing title to check for matches
-      console.log("Listing Title:", title);
-      console.log("Comparison Result:", title === searchInput);
+      //   console.log("Listing Title:", title);
+      //   console.log("Comparison Result:", title === searchInput);
       return title === searchInput;
     });
 
@@ -50,13 +47,9 @@ export async function displaySearchListing() {
 
 // Attach an event listener to the search button
 // Attach an event listener to the search button
-document
-  .querySelector("#search_listings_button")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-    displaySearchListing();
-  });
 
-(async () => {
-  await displaySearchListing();
-})();
+// (async () => {
+//   await displaySearchListing();
+// })();
+
+// displaySearchListing()
