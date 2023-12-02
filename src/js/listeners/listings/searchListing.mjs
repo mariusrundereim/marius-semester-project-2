@@ -21,11 +21,7 @@ export async function displaySearchListing() {
 
     // Find the first listing that exactly matches the search input value
     const foundListing = flatResult.find((listing) => {
-      // Access the nested 'title' property
       const title = listing.title.toLowerCase().trim();
-      // Log each nested listing title to check for matches
-      //   console.log("Listing Title:", title);
-      //   console.log("Comparison Result:", title === searchInput);
       return title === searchInput;
     });
 
@@ -52,4 +48,4 @@ export async function displaySearchListing() {
 //   await displaySearchListing();
 // })();
 
-// displaySearchListing()
+displaySearchListing();

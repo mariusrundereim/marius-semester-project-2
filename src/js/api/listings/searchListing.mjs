@@ -26,9 +26,8 @@ export async function searchListings() {
 
       recordArray.push(...result); // Add fetched data to recordArray
 
-      console.log("My array", recordArray);
-      // console.log("Recorded array:", recordArray);
-      console.log("API response:", result);
+      // console.log("My array", recordArray);
+      // console.log("API response:", result);
     } catch (error) {
       console.log(error);
     }
