@@ -1,4 +1,5 @@
 import { header, createNavLink } from "./layout/header.mjs";
+import { createListingForm } from "./listeners/listings/createListing.mjs";
 // import { displayProfile } from "./ui/profile/displayProfile.mjs";
 
 // import DisplayMessage from "./utils/messages/toast.mjs";
@@ -7,6 +8,9 @@ import { header, createNavLink } from "./layout/header.mjs";
 const headerElement = header();
 createNavLink();
 document.body.prepend(headerElement);
+
+// Listing Form
+createListingForm();
 
 // new DisplayMessage({
 //   text: "Hello World",
