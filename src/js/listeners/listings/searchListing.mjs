@@ -4,11 +4,11 @@
 
 import { searchListings } from "../../api/listings/searchListing.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
-import { searchForm } from "../../ui/listings/searchForm.mjs";
+// import { searchForm } from "../../ui/listings/searchForm.mjs";
 
 export async function displaySearchListing() {
   try {
-    const cardContainer = document.querySelector("#listing_cards");
+    const cardContainer = document.querySelector("#search_results");
     const result = await searchListings();
     const flatResult = result.flat();
 
@@ -18,29 +18,33 @@ export async function displaySearchListing() {
     // Get the search input value
     const searchInput = document.querySelector("#search_listings_input");
 
-    // Filter the search input value
-    const filteredResult = flatResult.filter((listing) => {
-      return listing.title.toLowerCase().includes(searchInput.value);
+    // Find the first listing that exactly matches the search input value
+    const foundListing = flatResult.find((listing) => {
+      return listing.title.toLowerCase() === searchInput;
     });
 
-    // Display the search results
-    for (let i = 0; i < filteredResult.length; i++) {
-      const card = defaultCard(filteredResult[i]);
+    // Display the search result if found
+    if (foundListing) {
+      const card = defaultCard(foundListing);
       cardContainer.appendChild(card);
-      //   console.log("Flat:", flatResult[i]);
+    } else {
+      // Display a message if no matching listing is found
+      cardContainer.innerHTML = "No matching listing found.";
     }
   } catch (error) {
     console.error("Error displaying searched listings:", error);
   }
 }
 
+// Attach an event listener to the search button
+
+document
+  .querySelector("#search_listings_button")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    displaySearchListing();
+  });
+
 (async () => {
-  // Attach an event listener to the search button
-  document
-    .querySelector("#search_listings_button")
-    .addEventListener("click", (event) => {
-      event.preventDefault();
-      displaySearchListing();
-    });
   await displaySearchListing();
 })();
