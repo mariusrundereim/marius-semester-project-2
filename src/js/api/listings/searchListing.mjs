@@ -3,9 +3,9 @@ import { headers } from "../../auth/headers.mjs";
 // import { displayListings } from "../../listeners/listings/displayListings.mjs";
 
 let recordArray = []; // Declared as global variable
-export async function searchListings(pOffset) {
+export async function searchListings() {
   for (let offset = 0; offset < 1000; offset += 200) {
-    console.log(offset);
+    // console.log(offset);
 
     try {
       const getListingData = {
@@ -24,13 +24,14 @@ export async function searchListings(pOffset) {
       }
       const result = await response.json();
 
-      recordArray.push(result); // Add fetched data to recordArray
+      recordArray.push(...result); // Add fetched data to recordArray
 
-      console.log("Recorded array:", recordArray);
+      // console.log("Recorded array:", recordArray);
+      console.log("API response:", result);
     } catch (error) {
       console.log(error);
     }
   }
   return recordArray; // Return array
 }
-console.log("New array:", recordArray);
+// console.log("New array:", recordArray);
