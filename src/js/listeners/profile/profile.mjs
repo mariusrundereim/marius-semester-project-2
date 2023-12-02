@@ -1,7 +1,5 @@
 import { getProfile } from "../../api/profile/profile.mjs";
-// import { viewActiveBids } from "./activeBids.mjs";
 import { displayProfile } from "../../ui/profile/displayProfile.mjs";
-import { profileWins } from "./profileWins.mjs";
 import { viewActiveBids } from "./activeBids.mjs";
 
 export async function handleProfileRequest() {
@@ -10,7 +8,6 @@ export async function handleProfileRequest() {
     // console.log("Profile from listener", profile);
 
     viewActiveBids(profile);
-    profileWins(profile);
     viewActiveBids(profile);
     return profile;
   } catch (error) {

@@ -1,4 +1,3 @@
-// import { profileCard } from "../../components/card/profileCard.mjs";
 import { profileCard } from "../../components/card/profileCard.mjs";
 
 export function viewActiveBids(profile) {
@@ -10,12 +9,7 @@ export function viewActiveBids(profile) {
     activeBids[0].bids,
     activeBids[0].endsAt,
     activeBids[0].id
-    // console.log(activeBids[0].title),
-    // console.log(activeBids[0].id)
   );
-  // console.log("A card", card);
 
   return activeBids;
 }
-
-// Use profilecard to display the active bids
