@@ -31,7 +31,29 @@ export const listingForm = document
       media: mediaUrls,
       endsAt: new Date(formData.get("endsAt")),
     };
-    console.log(newListing);
 
-    createListing(newListing);
+    // createListing(newListing);
+
+    try {
+      const createdListing = createListingAsync(newListing);
+      alert("Listing created");
+      form.reset();
+      window.location.href = `/listingSpecific.html?id=${createdListing.id}`;
+    } catch (error) {
+      console.error("Error creating listing:", error);
+      alert("Error creating listing");
+    }
   });
+
+// Define a separate asynchronous function
+
+async function createListingAsync(newListing) {
+  try {
+    const result = await createListing(newListing);
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
