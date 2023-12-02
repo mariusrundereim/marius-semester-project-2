@@ -11,9 +11,11 @@
   <body class="bg-slate-200 font-body">
     <main class="container mx-auto my-5">
       <h1 class="text-2xl font-bold my-8 text-center">Login</h1>
-
-      <section id="login_container" class="max-w-md mx-auto">
-        <form class="flex flex-col gap-4 p-2" id="login-form">
+      <section id="login_container" class="flex gap-4 flex-col lg:flex-row">
+        <form
+          class="flex flex-col gap-4 p-2 border border-2 border-black rounded-xl basis-3/4"
+          id="login-form"
+        >
           <div class="flex flex-col">
             <label for="email">Email</label>
             <input
@@ -38,12 +40,27 @@
           <div>
             <button
               type="submit"
-              class="text-white bg-brand-color font-semibold p-2 px-4 rounded-2xl"
+              class="text-white bg-brand-dark hover:bg-brand-color font-semibold p-2 px-4 rounded-xl"
             >
               Login
             </button>
           </div>
         </form>
+        <div
+          class="bg-brand-dark text-white rounded-2xl p-4 min-h-[20rem] hidden sm:block"
+        >
+          <div>
+            <h2 class="text-2xl text-brand-color font-semibold">
+              Great place for bidding!
+            </h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
+              optio nemo maxime officiis maiores cupiditate quae qui quos
+              accusamus illo, quibusdam, facere iure? Adipisci eum dolorem aut
+              possimus voluptatem impedit nemo aperiam!
+            </p>
+          </div>
+        </div>
       </section>
     </main>
   </body>
