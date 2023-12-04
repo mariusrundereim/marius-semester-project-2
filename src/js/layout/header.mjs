@@ -1,6 +1,8 @@
 import { loadToken } from "../storage/storage.mjs";
 import { logoutUser } from "../auth/logout.mjs";
 import { checkLoggedIn } from "../auth/state.mjs";
+import { createButton } from "../utils/helper/createButton.mjs";
+import { createNavLink } from "../utils/helper/navLinks.mjs";
 
 export function header() {
   const isLoggedIn = checkLoggedIn();
@@ -136,53 +138,4 @@ export function header() {
   }
 
   return htmlHeader;
-}
-
-export function createNavLink(text, href, id) {
-  const listItem = document.createElement("li");
-  const link = document.createElement("a");
-  link.classList.add(
-    "text-black",
-    "hover:font-bold",
-    "hover:text-brand-color",
-    "transition-all",
-    "mx-2"
-  );
-  link.href = href;
-  link.textContent = text;
-  if (id) {
-    link.id = id;
-  }
-  listItem.appendChild(link);
-  return listItem;
-}
-
-// Helper function to create buttons and links
-export function createButton(href, text, id, type) {
-  const element =
-    type === "button"
-      ? document.createElement("button")
-      : document.createElement("a");
-  element.href = href;
-  element.textContent = text;
-  element.id = id;
-  if (type === "button") {
-    element.type = "button";
-    element.classList.add(
-      "text-white",
-      "bg-brand-dark",
-      "p-2",
-      "px-4",
-      "rounded-2xl"
-    );
-  } else {
-    element.classList.add(
-      "bg-brand-light",
-      "p-2",
-      "px-4",
-      "rounded-2xl",
-      "hover:bg-brand-color"
-    );
-  }
-  return element;
 }
