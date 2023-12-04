@@ -17,6 +17,7 @@ module.exports = {
         "brand-color": "#1EBFBF",
         "brand-dark": "#181818",
         "brand-light": "#F5F5F5",
+        "brand-red": "#E94A60",
       },
     },
   },

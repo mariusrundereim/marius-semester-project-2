@@ -2,7 +2,12 @@ import { loadToken } from "../storage/storage.mjs";
 import { logoutUser } from "../auth/logout.mjs";
 import { checkLoggedIn } from "../auth/state.mjs";
 import { createButton } from "../utils/helper/createButton.mjs";
-import { createNavLink, profileLinkEvent } from "../utils/helper/navLinks.mjs";
+import {
+  createNavLink,
+  profileLinkEvent,
+  logoutButtonEvent,
+  profileLink,
+} from "../utils/helper/navLinks.mjs";
 
 function createLogo() {
   const logoLink = document.createElement("a");
@@ -43,27 +48,21 @@ function createButtons() {
     "flex-row",
     "items-center",
     "gap-2",
-    "border",
     "border-2",
-    "border-red-500"
+    "border-zomp-500",
+    "px-2",
+    "py-1",
+    "hover:bg-brand-dark",
+    "rounded-full"
   );
   const profile = loadToken("profile");
   if (profile) {
     // Element
     const profileElement = document.createElement("div");
-    profileElement.classList.add(
-      "flex",
-      "flex-row",
-      "items-center",
-      "gap-2",
-      "border-2",
-      "border-zomp-500",
-      "p-2",
-      "rounded-full"
-    );
+    profileElement.id = "profileElement";
+    profileElement.classList.add("flex", "flex-row", "items-center", "gap-2");
     const creditElement = document.createElement("div");
     creditElement.classList.add(
-      "text-sm",
       "bg-brand-dark",
       "text-white",
       "p-2",
@@ -86,7 +85,10 @@ function createButtons() {
     profileElement.appendChild(avatarDiv);
     profileElement.appendChild(creditElement);
     buttonsDiv.appendChild(profileElement);
-    const logoutBtn = createButton("#", "Logout", "logout_btn", "button");
+
+    // Use profileLink to create a link to profile page
+
+    const logoutBtn = logoutButtonEvent();
     buttonsDiv.appendChild(logoutBtn);
   } else {
     const loginBtn = createButton("/src/html/login.html", "Login", "login_btn");
@@ -105,7 +107,7 @@ function createButtons() {
 export function header() {
   const isLoggedIn = checkLoggedIn();
   const htmlHeader = document.createElement("header");
-  htmlHeader.classList.add("p-2", "shadow-lg", "bg-white");
+  htmlHeader.classList.add("p-2", "bg-white");
 
   const containerDiv = document.createElement("div");
   containerDiv.classList.add(

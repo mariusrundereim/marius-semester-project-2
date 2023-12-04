@@ -22,7 +22,7 @@ export function createButton(
       "bg-brand-dark",
       "p-2",
       "px-4",
-      "rounded-2xl",
+      "rounded-full",
       ...additionalClasses
     );
   } else {
@@ -30,7 +30,7 @@ export function createButton(
       "bg-brand-light",
       "p-2",
       "px-4",
-      "rounded-2xl",
+      "rounded-full",
       "hover:bg-brand-color",
       ...additionalClasses
     );

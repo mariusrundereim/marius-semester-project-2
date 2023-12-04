@@ -1,4 +1,6 @@
 import { loadToken } from "../../storage/storage.mjs";
+import { logoutUser } from "../../auth/logout.mjs";
+import { createButton } from "./createButton.mjs";
 
 export function createNavLink(text, href, id) {
   const listItem = document.createElement("li");
@@ -32,7 +34,8 @@ export function profileLinkEvent(text, href) {
   return link;
 }
 
-export function profileEvent(href) {
+// Link to profile page
+export function profileLink(href) {
   const link = document.createElement("a");
   link.href = href;
   link.addEventListener("click", (e) => {
@@ -41,4 +44,22 @@ export function profileEvent(href) {
     window.location = `/src/html/profile.html?name=${profile.name}`;
   });
   return link;
+}
+
+// Logout button
+export function logoutButtonEvent() {
+  const logoutBtn = createButton("#", "Logout", "logout_btn", "button");
+  logoutBtn.classList.add(
+    "text-white",
+    "bg-brand-dark",
+    "hover:bg-brand-red",
+    "p-2",
+    "px-4"
+  );
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    logoutUser();
+    location.href = "/";
+  });
+  return logoutBtn;
 }
