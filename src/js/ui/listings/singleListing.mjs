@@ -1,10 +1,5 @@
 import { bidListing } from "../../api/listings/bidListing.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
-// import { updateRemainingTime } from "../../utils/formatting/formatEndsAt.mjs";
-// import {
-//   bidHistory,
-//   highestBidder,
-// } from "../../listeners/listings/listingElements.mjs";
 
 export function viewListingDetails(listing) {
   console.log("Ends:", listing.endsAt);
@@ -63,7 +58,8 @@ export function viewListingDetails(listing) {
     "md:flex-row",
     "mt-5",
     "mb-4",
-    "min-h-max",
+    "items-stretch",
+    // "min-h-max",
     "gap-2"
   );
 
@@ -75,22 +71,23 @@ export function viewListingDetails(listing) {
     "border",
     "border-1",
     "border-brand-light",
-    "rounded-xl"
+    "rounded-xl",
+    "p-4"
   );
 
   const divInner = document.createElement("div");
-  divInner.classList.add("p-2");
+  divInner.classList.add("mb-4");
   const sellerName = document.createElement("h3");
   sellerName.classList.add("text-md");
   sellerName.textContent = `Seller: ${listing.seller.name}`;
   const listingTitle = document.createElement("h3");
-  listingTitle.classList.add("text-xl", "font-bold");
+  listingTitle.classList.add("text-3xl", "font-bold", "mt-2");
   listingTitle.textContent = listing.title;
 
   const divInner2 = document.createElement("div");
-  divInner2.classList.add("p-2");
+  // divInner2.classList.add("p-2");
   const listingDescription = document.createElement("p");
-  listingDescription.classList.add("text-sm");
+  listingDescription.classList.add("text-lg");
   listingDescription.textContent = listing.description;
 
   // Ends Date from the single listing
@@ -98,6 +95,7 @@ export function viewListingDetails(listing) {
   endsDiv.classList.add(
     "flex",
     "basis-1/2",
+    "justify-center",
     "p-2",
     "h-36",
     "border",
@@ -107,12 +105,17 @@ export function viewListingDetails(listing) {
     "rounded-xl"
   );
   const endsDivInner = document.createElement("div");
-  endsDivInner.classList.add("flex", "flex-col", "justify-center");
+  endsDivInner.classList.add(
+    "flex",
+    "flex-col",
+    "items-center",
+    "justify-center"
+  );
   const endsDivTitle = document.createElement("h3");
   endsDivTitle.classList.add("text-xl", "font-bold");
   endsDivTitle.textContent = "Ends in";
   const endsDivTime = document.createElement("p");
-  endsDivTime.classList.add("text-2xl", "font-bold");
+  endsDivTime.classList.add("text-3xl", "font-semibold");
   endsDivTime.textContent = formatEndsAt(listing.endsAt);
 
   // Append elements to Seller Details section
@@ -166,10 +169,8 @@ export function viewListingDetails(listing) {
     e.preventDefault();
     console.log(placeBidInput.value, listing.id);
     bidListing(listing.id, placeBidInput.value);
-    // Call api - parametere burde være value og id
   });
   placeBidInput.id = "bid_input_amount";
-  // placeBidInput.required = true;
   placeBidInput.classList.add(
     "border",
     "border-1",
@@ -190,7 +191,7 @@ export function viewListingDetails(listing) {
     "px-6",
     "rounded-lg"
   );
-  placeBidButton.textContent = "Bidify";
+  placeBidButton.textContent = "Bid";
   placeBidButton.type = "submit";
   placeBidButton.id = "bid_button";
 
@@ -217,7 +218,6 @@ export function viewListingDetails(listing) {
     "rounded-xl"
   );
   const bidHistoryTitleContainer = document.createElement("div");
-  //bidHistoryTitleContainer.id = "bid_history_title";
   bidHistoryTitleContainer.classList.add(
     "flex",
     "justify-between",

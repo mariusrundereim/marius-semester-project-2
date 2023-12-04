@@ -54,3 +54,7 @@ export function createListingForm() {
     }
   });
 }
+
+(async () => {
+  await createListingForm();
+})();

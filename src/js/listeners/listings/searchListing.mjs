@@ -1,6 +1,5 @@
 import { searchListings } from "../../api/listings/searchListing.mjs";
 import { defaultCard } from "../../components/card/card.mjs";
-// import { searchForm } from "../../ui/listings/searchForm.mjs";
 
 export async function displaySearchListing() {
   try {
@@ -40,12 +39,5 @@ export async function displaySearchListing() {
     console.error("Error displaying searched listings:", error);
   }
 }
-
-// Attach an event listener to the search button
-// Attach an event listener to the search button
-
-// (async () => {
-//   await displaySearchListing();
-// })();
 
 displaySearchListing();

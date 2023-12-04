@@ -8,7 +8,7 @@ export async function handleProfileRequest() {
     // console.log("Profile from listener", profile);
 
     viewActiveBids(profile);
-    viewActiveBids(profile);
+    // viewActiveBids(profile);
     return profile;
   } catch (error) {
     console.error("Error handling", error);

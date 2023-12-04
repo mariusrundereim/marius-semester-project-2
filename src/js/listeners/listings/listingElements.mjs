@@ -3,7 +3,6 @@
 export function bidHistory(listing) {
   console.log(listing.bids);
   const bidHistorySection = document.querySelector("#bid_item");
-  bidHistorySection.classList.add("test");
 
   // If no bids, display message
   if (listing.bids.length === 0) {
@@ -49,6 +48,9 @@ export function bidHistory(listing) {
 export function highestBidder(listing) {
   const highestBidderContainer = document.querySelector("#highest_bidder");
   highestBidderContainer.classList.add(
+    "flex",
+    "align-center",
+    "justify-center",
     "p-2",
     "basis-1/2",
     "border",
@@ -65,10 +67,15 @@ export function highestBidder(listing) {
     return highestBidderContainer;
   }
   const highestBidderInner = document.createElement("div");
-  highestBidderInner.classList.add("flex", "flex-col", "justify-center");
+  highestBidderInner.classList.add(
+    "flex",
+    "flex-col",
+    "justify-center",
+    "items-center"
+  );
   const highestBidderTitle = document.createElement("h3");
   highestBidderTitle.classList.add("text-xl", "font-bold");
-  highestBidderTitle.textContent = "Highest bid";
+  highestBidderTitle.textContent = "Highest bidder";
   const highestBidderName = document.createElement("p");
   highestBidderName.classList.add("text-md");
   highestBidderName.textContent = listing.bids[0].bidderName;
