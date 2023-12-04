@@ -36,7 +36,7 @@ function createNavigation() {
   return navigation;
 }
 
-function createButtons() {
+function createButtons(isLoggedIn) {
   const buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add(
     "flex",
@@ -45,56 +45,32 @@ function createButtons() {
     "border-gray-300",
     "pl-4"
   );
-  const loginBtn = createButton("/src/html/login.html", "Login", "login_btn");
-  const registerBtn = createButton(
-    "/src/html/register.html",
-    "Register",
-    "register_btn"
-  );
-  const logoutBtn = createButton("#", "Logout", "logout_btn", "button");
-  logoutBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    logoutUser();
-    location.href = "/";
-  });
 
-  // Profile
-
-  const profile = loadToken("profile");
-  if (profile) {
-    const profileLink = createNavLink("Profile", "#");
-    profileLink.classList.add("nav-link-profile");
-    profileLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      const profile = loadToken("profile");
-      window.location = `/src/html/profile.html?name=${profile.name}`;
-    });
-    return buttonsDiv;
-  }
-  buttonsDiv.appendChild(loginBtn);
-  buttonsDiv.appendChild(registerBtn);
-  buttonsDiv.appendChild(logoutBtn);
-  return buttonsDiv;
-}
-
-function hideElementBasedOnLoginStatus(
-  isLoggedIn,
-  loginBtn,
-  registerBtn,
-  logoutBtn,
-  profileLink
-) {
   if (isLoggedIn) {
-    loginBtn.classList.add("hidden");
-    registerBtn.classList.add("hidden");
+    const profile = loadToken("profile");
+    const profileElement = document.createElement("div");
+    profileElement.classList.add("flex", "flex-col", "gap-2");
+    const profileNameElement = document.createElement("div");
+    profileNameElement.textContent = profile.name;
+    const creditElement = document.createElement("div");
+    creditElement.textContent = `Credit: ${profile.credits}`;
+    profileElement.appendChild(profileNameElement);
+    profileElement.appendChild(creditElement);
+    buttonsDiv.appendChild(profileElement);
+    const logoutBtn = createButton("#", "Logout", "logout_btn", "button");
+    buttonsDiv.appendChild(logoutBtn);
   } else {
-    logoutBtn.classList.add("hidden");
+    const loginBtn = createButton("/src/html/login.html", "Login", "login_btn");
+    const registerBtn = createButton(
+      "/src/html/register.html",
+      "Register",
+      "register_btn"
+    );
+    buttonsDiv.appendChild(loginBtn);
+    buttonsDiv.appendChild(registerBtn);
   }
 
-  // Hide profile when logged out
-  if (!isLoggedIn) {
-    profileLink.classList.add("hidden");
-  }
+  return buttonsDiv;
 }
 
 export function header() {
@@ -114,20 +90,12 @@ export function header() {
 
   const logoLink = createLogo();
   const navigation = createNavigation();
-  const buttonsDiv = createButtons();
+  const buttonsDiv = createButtons(isLoggedIn);
 
   containerDiv.appendChild(logoLink);
-  navigation.appendChild(buttonsDiv);
   containerDiv.appendChild(navigation);
+  containerDiv.appendChild(buttonsDiv);
   htmlHeader.appendChild(containerDiv);
-
-  hideElementBasedOnLoginStatus(
-    isLoggedIn,
-    buttonsDiv.children[0],
-    buttonsDiv.children[1],
-    buttonsDiv.children[2],
-    navigation.children[0].children[1]
-  );
 
   return htmlHeader;
 }

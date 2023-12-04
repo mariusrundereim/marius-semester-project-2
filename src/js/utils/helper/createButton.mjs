@@ -1,12 +1,20 @@
 // Helper function to create buttons and links
-export function createButton(href, text, id, type) {
+export function createButton(
+  href = "#",
+  text = "Button",
+  id = "",
+  type = "link",
+  additionalClasses = []
+) {
   const element =
     type === "button"
       ? document.createElement("button")
       : document.createElement("a");
+
   element.href = href;
   element.textContent = text;
   element.id = id;
+
   if (type === "button") {
     element.type = "button";
     element.classList.add(
@@ -14,7 +22,8 @@ export function createButton(href, text, id, type) {
       "bg-brand-dark",
       "p-2",
       "px-4",
-      "rounded-2xl"
+      "rounded-2xl",
+      ...additionalClasses
     );
   } else {
     element.classList.add(
@@ -22,8 +31,10 @@ export function createButton(href, text, id, type) {
       "p-2",
       "px-4",
       "rounded-2xl",
-      "hover:bg-brand-color"
+      "hover:bg-brand-color",
+      ...additionalClasses
     );
   }
+
   return element;
 }
