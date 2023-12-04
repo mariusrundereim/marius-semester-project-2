@@ -2,7 +2,7 @@ import { loadToken } from "../storage/storage.mjs";
 import { logoutUser } from "../auth/logout.mjs";
 import { checkLoggedIn } from "../auth/state.mjs";
 import { createButton } from "../utils/helper/createButton.mjs";
-import { createNavLink } from "../utils/helper/navLinks.mjs";
+import { createNavLink, profileLinkEvent } from "../utils/helper/navLinks.mjs";
 
 function createLogo() {
   const logoLink = document.createElement("a");
@@ -24,9 +24,9 @@ function createNavigation() {
   // Links
   const homeLink = createNavLink("Home", "/index.html");
   const listingsLink = createNavLink("Listings", "/src/html/listings.html");
-  const profileLink = createNavLink("Profile", "#");
-  profileLink.classList.add("nav-link-profile");
-  const newList = createNavLink("Add", "#");
+  const profileLink = profileLinkEvent("Profile", "#");
+
+  const newList = createNavLink("Add", "/src/html/newListing.html");
 
   ul.appendChild(homeLink);
   ul.appendChild(profileLink);
@@ -36,25 +36,54 @@ function createNavigation() {
   return navigation;
 }
 
-function createButtons(isLoggedIn) {
+function createButtons() {
   const buttonsDiv = document.createElement("div");
   buttonsDiv.classList.add(
     "flex",
+    "flex-row",
+    "items-center",
     "gap-2",
-    "border-l",
-    "border-gray-300",
-    "pl-4"
+    "border",
+    "border-2",
+    "border-red-500"
   );
-
-  if (isLoggedIn) {
-    const profile = loadToken("profile");
+  const profile = loadToken("profile");
+  if (profile) {
+    // Element
     const profileElement = document.createElement("div");
-    profileElement.classList.add("flex", "flex-col", "gap-2");
-    const profileNameElement = document.createElement("div");
-    profileNameElement.textContent = profile.name;
+    profileElement.classList.add(
+      "flex",
+      "flex-row",
+      "items-center",
+      "gap-2",
+      "border-2",
+      "border-zomp-500",
+      "p-2",
+      "rounded-full"
+    );
     const creditElement = document.createElement("div");
-    creditElement.textContent = `Credit: ${profile.credits}`;
-    profileElement.appendChild(profileNameElement);
+    creditElement.classList.add(
+      "text-sm",
+      "bg-brand-dark",
+      "text-white",
+      "p-2",
+      "px-4",
+      "rounded-full"
+    );
+    creditElement.textContent = `${profile.credits} Credits`;
+    // Avatar
+    const avatarDiv = document.createElement("div");
+    const avatarImg = document.createElement("img");
+    avatarImg.setAttribute("src", `${profile.avatar}`);
+    avatarImg.setAttribute("alt", "Profile avatar");
+    avatarImg.classList.add(
+      "h-12",
+      "aspect-square",
+      "object-cover",
+      "rounded-full"
+    );
+    avatarDiv.appendChild(avatarImg);
+    profileElement.appendChild(avatarDiv);
     profileElement.appendChild(creditElement);
     buttonsDiv.appendChild(profileElement);
     const logoutBtn = createButton("#", "Logout", "logout_btn", "button");
