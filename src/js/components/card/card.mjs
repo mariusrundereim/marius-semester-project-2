@@ -1,15 +1,17 @@
 import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
+import { handleHighestBidder } from "../../utils/helper/lastBid.mjs";
 
-export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
+export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const firstMedia = formatMediaUrl(media);
   const endsAtFormatted = formatEndsAt(endsAt);
+  const highestBid = handleHighestBidder(bids);
   const cardElement = document.createElement("div");
   cardElement.id = "card_item";
 
   cardElement.innerHTML = `
 
-  <div class="bg-white rounded-xl flex flex-col min-w-[10rem] min-h-[25rem]" id="card-item">
+  <div class="bg-white rounded-xl flex flex-col min-w-[10rem] min-h-[25rem] hover:shadow-lg">
           <!--Image-->
           <div >
           <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>
@@ -55,7 +57,11 @@ export function defaultCard({ media, seller, title, endsAt, highestBid, id }) {
                   />
                 </svg>
 
-                <p>${highestBid}</p>
+                <p>${
+                  highestBid
+                    ? `${highestBid.amount} from ${highestBid.bidderName}`
+                    : "No bids yet"
+                }</p>
               </div>
             </div>
             <button
