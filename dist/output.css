@@ -762,6 +762,14 @@ video {
   width: max-content;
 }
 
+.w-52{
+  width: 13rem;
+}
+
+.w-56{
+  width: 14rem;
+}
+
 .min-w-\[10rem\]{
   min-width: 10rem;
 }
@@ -769,6 +777,10 @@ video {
 .min-w-min{
   min-width: -moz-min-content;
   min-width: min-content;
+}
+
+.min-w-\[10px\]{
+  min-width: 10px;
 }
 
 .max-w-md{
@@ -956,6 +968,10 @@ video {
 
 .p-4{
   padding: 1rem;
+}
+
+.p-6{
+  padding: 1.5rem;
 }
 
 .px-2{

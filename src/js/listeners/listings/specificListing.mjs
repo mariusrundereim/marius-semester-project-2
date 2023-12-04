@@ -4,6 +4,7 @@ import {
   bidHistory,
   highestBidder,
 } from "../../listeners/listings/listingElements.mjs";
+import { imageGallery } from "../../ui/listings/listingGallery.mjs";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -26,6 +27,7 @@ export async function getListingById(id, options = {}) {
     viewListingDetails(result);
     bidHistory(result);
     highestBidder(result);
+    imageGallery(result);
     return result;
   } catch (error) {
     console.error(error);
