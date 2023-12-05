@@ -29,7 +29,7 @@ export function profileLinkEvent(text, href) {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const profile = loadToken("profile");
-    window.location = `/src/html/profile.html?name=${profile.name}`;
+    window.location = `./profile.html?name=${profile.name}`;
   });
   return link;
 }

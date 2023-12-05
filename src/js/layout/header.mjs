@@ -13,9 +13,9 @@ function createLogo() {
   const logoLink = document.createElement("a");
   const logo = document.createElement("img");
   logo.classList.add("w-36");
-  logo.setAttribute("src", "../assets/logo/logo_bidify.svg");
+  logo.setAttribute("src", "src/assets/logo/logo_bidify.svg");
   logo.setAttribute("alt", "Brand logo");
-  logoLink.setAttribute("href", "/index.html");
+  logoLink.setAttribute("href", "../index.html");
   logoLink.appendChild(logo);
   return logoLink;
 }
@@ -28,10 +28,10 @@ function createNavigation() {
 
   // Links
   const homeLink = createNavLink("Home", "/index.html");
-  const listingsLink = createNavLink("Listings", "/src/html/listings.html");
+  const listingsLink = createNavLink("Listings", "./listings.html");
   const profileLink = profileLinkEvent("Profile", "#");
 
-  const newList = createNavLink("Add", "/src/html/newListing.html");
+  const newList = createNavLink("Add", "./newListing.html");
 
   ul.appendChild(homeLink);
   ul.appendChild(profileLink);
