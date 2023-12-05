@@ -12,7 +12,7 @@ export async function registerUser(user) {
 
     const response = await fetch(`${api_register}`, postData);
     if (response.ok) {
-      window.location = `/src/html/login.html`;
+      window.location = `./login.html`;
     } else {
       alert("Not ok");
     }
