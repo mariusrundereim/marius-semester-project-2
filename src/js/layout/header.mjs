@@ -15,7 +15,7 @@ function createLogo() {
   logo.classList.add("w-36");
   logo.setAttribute("src", "src/assets/logo/logo_bidify.svg");
   logo.setAttribute("alt", "Brand logo");
-  logoLink.setAttribute("href", "../index.html");
+  logoLink.setAttribute("href", "./index.html");
   logoLink.appendChild(logo);
   return logoLink;
 }
@@ -27,7 +27,7 @@ function createNavigation() {
   navigation.classList.add("flex", "flex-col", "sm:flex-row", "gap-2");
 
   // Links
-  const homeLink = createNavLink("Home", "/index.html");
+  const homeLink = createNavLink("Home", "./index.html");
   const listingsLink = createNavLink("Listings", "./listings.html");
   const profileLink = profileLinkEvent("Profile", "#");
 
