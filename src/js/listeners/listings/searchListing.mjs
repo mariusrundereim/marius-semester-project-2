@@ -40,4 +40,4 @@ export async function displaySearchListing() {
   }
 }
 
-displaySearchListing();
+// displaySearchListing();
