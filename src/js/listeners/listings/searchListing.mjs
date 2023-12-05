@@ -19,9 +19,13 @@ export async function displaySearchListing() {
     console.log("Search input:", searchInput);
 
     // Find the first listing that exactly matches the search input value
-    const foundListing = flatResult.find((listing) => {
-      const title = listing.title.toLowerCase().trim();
-      return title === searchInput;
+    // const foundListing = flatResult.find((listing) => {
+    //   const title = listing.title.toLowerCase().trim();
+    //   return title === searchInput;
+    // });
+
+    const foundListing = flatResult.filter((listing) => {
+      return listing.title.toLowerCase().includes(searchInput.toLowerCase());
     });
 
     // Log the foundListing to check its value

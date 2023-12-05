@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add new Listing</title>
+    <meta name="description" content="Page for creating a listing" />
     <link rel="stylesheet" href="../../dist/output.css" />
     <script type="module" src="../js/script.js"></script>
     <script type="module" src="../js/api/listings/createListing.mjs"></script>
@@ -12,82 +13,106 @@
       src="../js/listeners/listings/createListing.mjs"
     ></script>
   </head>
-  <body class="bg-slate-200 font-body">
+  <body class="bg-slate-200">
     <main class="container mx-auto my-5">
-      <h1 class="text-2xl font-bold my-8 text-center">New listing</h1>
+      <h1 class="text-4xl font-bold my-8 text-center">New listing</h1>
 
-      <section id="newListing_container" class="max-w-md mx-auto">
+      <section id="newListing_container" class="max-w-3xl mx-auto">
         <form class="flex flex-col gap-4 p-2" id="newListing-form">
-          <div class="flex flex-col">
-            <label for="title" class="font-semibold">Title</label>
+          <!--Title-->
+          <label
+            for="title"
+            name="title"
+            class="flex flex-col font-semibold text-lg mb-2"
+            >Title
             <input
               type="text"
               name="title"
-              class="border border-1 bg-white p-1 rounded-md"
+              class="border border-1 bg-white p-2 rounded-md"
               id="newList_title"
-              placeholder="Use serious title"
-            />
-          </div>
-          <div class="flex flex-col">
-            <label for="description" class="font-semibold">Description:</label>
+          /></label>
+          <!--Desc-->
+          <label
+            for="description"
+            name="description"
+            class="flex flex-col font-semibold text-lg mb-2"
+            >Description
             <textarea
               name="description"
-              class="border border-1 bg-white p-1 rounded-md"
+              class="border border-1 font-normal bg-white p-2 rounded-md"
               id="newList_desc"
               cols="30"
               rows="5"
             ></textarea>
-            <p>* Description cannot be greater than 280 characters</p>
-          </div>
-          <div class="flex flex-col">
-            <label for="endsAt" class="font-semibold">Ends at:</label>
+            <p class="font-normal">* Cannot be greater than 280 characters</p>
+          </label>
+          <!--Ends At-->
+          <label
+            for="endsAt"
+            name="endsAt"
+            class="flex flex-col font-semibold text-lg mb-2"
+            >Ends at
             <input
               name="endsAt"
               type="datetime-local"
-              class="border border-1 bg-white p-1 rounded-md"
+              class="border border-1 font-normal bg-white p-2 rounded-md"
               id="newList_endsAt"
-            />
-          </div>
-          <div class="flex flex-col">
-            <label for="media" class="font-semibold">Media:</label>
+          /></label>
+          <!-- Media-->
+          <div class="flex flex-col my-2">
+            <label for="media" class="font-semibold text-lg mb-2"
+              >Cover
+              <span class="mx-2 font-normal text-brand-dark text-sm"
+                >*required</span
+              ></label
+            >
             <input
               type="text"
               name="media[]"
-              class="border border-1 bg-white p-1 rounded-md"
+              class="border border-1 bg-white p-2 rounded-md"
               id="newList_media"
               placeholder="Insert URL"
               required
             />
-            <label for="media-1" class="font-semibold">Media 1</label>
-            <input
-              type="text"
-              name="media[]"
-              class="border border-1 bg-white p-1 rounded-md"
-              id="newList_media_1"
-              placeholder="Insert URL"
-            />
-            <label for="media-2" class="font-semibold">Media 2</label>
-            <input
-              type="text"
-              name="media[]"
-              class="border border-1 bg-white p-1 rounded-md"
-              id="newList_media_2"
-              placeholder="Insert URL"
-            />
-            <label for="media-3" class="font-semibold">Media 3</label>
-            <input
-              type="text"
-              name="media[]"
-              class="border border-1 bg-white p-1 rounded-md"
-              id="newList_media_3"
-              placeholder="Insert URL"
-            />
+            <article class="flex flex-col gap-4 my-4">
+              <!-- Image 1-->
+              <div class="flex flex-col">
+                <label for="media-1" class="text-lg mb-1">Image 1 </label>
+                <input
+                  type="text"
+                  name="media[]"
+                  class="border border-1 bg-white p-2 rounded-md"
+                  id="newList_media_1"
+                  placeholder="Insert URL"
+                />
+              </div>
+              <!-- Image 2-->
+              <div class="flex flex-col">
+                <label for="media-2" class="text-lg mb-1">Image 2</label>
+                <input
+                  type="text"
+                  name="media[]"
+                  class="border border-1 bg-white p-2 rounded-md"
+                  id="newList_media_2"
+                  placeholder="Insert URL"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="media-3" class="text-lg mb-1">Image 3</label>
+                <input
+                  type="text"
+                  name="media[]"
+                  class="border border-1 bg-white p-2 rounded-md"
+                  id="newList_media_3"
+                  placeholder="Insert URL"
+                />
+              </div>
+            </article>
           </div>
-          <button>Add more media</button>
-          <div>
+          <div class="flex justify-center items-center">
             <button
               type="submit"
-              class="text-white bg-brand-color font-semibold p-2 px-4 rounded-2xl"
+              class="text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
             >
               Submit
             </button>
