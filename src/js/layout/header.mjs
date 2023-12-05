@@ -91,9 +91,9 @@ function createButtons() {
     const logoutBtn = logoutButtonEvent();
     buttonsDiv.appendChild(logoutBtn);
   } else {
-    const loginBtn = createButton("/src/html/login.html", "Login", "login_btn");
+    const loginBtn = createButton("./login.html", "Login", "login_btn");
     const registerBtn = createButton(
-      "/src/html/register.html",
+      "./register.html",
       "Register",
       "register_btn"
     );
