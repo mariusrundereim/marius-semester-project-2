@@ -7,7 +7,7 @@ export function searchForm() {
 
   searchButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(searchInput.value);
+    // console.log(searchInput.value);
     displaySearchListing();
   });
 
