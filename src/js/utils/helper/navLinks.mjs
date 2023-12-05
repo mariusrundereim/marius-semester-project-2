@@ -10,7 +10,7 @@ export function createNavLink(text, href, id) {
     "hover:font-bold",
     "hover:text-brand-color",
     "transition-all",
-    "mx-2"
+    "text-lg"
   );
   link.href = href;
   link.textContent = text;

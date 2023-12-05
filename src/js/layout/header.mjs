@@ -23,8 +23,8 @@ function createLogo() {
 function createNavigation() {
   const navigation = document.createElement("nav");
   const ul = document.createElement("ul");
-  ul.classList.add("flex", "flex-col", "sm:flex-row", "gap-2");
-  navigation.classList.add("flex", "flex-col", "sm:flex-row", "gap-2");
+  ul.classList.add("flex", "flex-row");
+  navigation.classList.add("max-w-7xl", "mx-auto", "border", "border-red-400");
 
   // Links
   const homeLink = createNavLink("Home", "./index.html");
@@ -43,18 +43,7 @@ function createNavigation() {
 
 function createButtons() {
   const buttonsDiv = document.createElement("div");
-  buttonsDiv.classList.add(
-    "flex",
-    "flex-row",
-    "items-center",
-    "gap-2",
-    "border-2",
-    "border-zomp-500",
-    "px-2",
-    "py-1",
-    "hover:bg-brand-dark",
-    "rounded-full"
-  );
+  buttonsDiv.classList.add("flex", "flex-row", "items-center", "gap-2");
   const profile = loadToken("profile");
   if (profile) {
     // Element
@@ -77,6 +66,9 @@ function createButtons() {
     avatarImg.setAttribute("alt", "Profile avatar");
     avatarImg.classList.add(
       "h-12",
+      "w-12",
+      "max-h-12",
+      "max-w-12",
       "aspect-square",
       "object-cover",
       "rounded-full"
@@ -107,7 +99,7 @@ function createButtons() {
 export function header() {
   const isLoggedIn = checkLoggedIn();
   const htmlHeader = document.createElement("header");
-  htmlHeader.classList.add("p-2", "bg-white");
+  htmlHeader.classList.add("p-2", "bg-white", "h-20");
 
   const containerDiv = document.createElement("div");
   containerDiv.classList.add(
