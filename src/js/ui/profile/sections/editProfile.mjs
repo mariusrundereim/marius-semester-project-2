@@ -38,7 +38,7 @@ export function editProfile(profile) {
   formInput.type = "text";
   formInput.name = "avatar";
   formInput.placeholder = "Insert URL";
-  formInput.value = profile.avatar;
+  // formInput.value = profile.avatar;
   formBtn.textContent = "Update";
   // Append
   editSection.appendChild(title);
