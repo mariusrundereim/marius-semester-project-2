@@ -127,9 +127,11 @@ export function viewListingDetails(listing) {
   placeBidForm.classList.add("flex", "flex-col", "gap-2");
   const placeBidInput = document.createElement("input");
 
+  console.log("Attaching event listener to bid form");
   placeBidForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(placeBidInput.value, listing.id);
+    console.log("Form submitted");
     bidListing(listing.id, placeBidInput.value);
   });
   placeBidInput.id = "bid_input_amount";
