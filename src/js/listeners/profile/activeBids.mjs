@@ -3,6 +3,11 @@ import { profileCard } from "../../components/card/profileCard.mjs";
 export function viewActiveBids(profile) {
   const activeBids = profile.listings;
 
+  // If there are no active bids, return
+  if (activeBids.length === 0) {
+    return;
+  }
+
   const card = profileCard(
     activeBids[0].media,
     activeBids[0].title,
