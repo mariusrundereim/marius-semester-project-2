@@ -20,16 +20,27 @@ export function profileHero(profile) {
     "w-full",
     "sm:flex-row",
     "justify-between",
-    "gap-4"
+    "gap-4",
+    "cursor-pointer"
   );
   heroSecInnerLeft.classList.add(
     "flex",
+    "flex-col",
+    "sm:flex-row",
     "justify-center",
     "items-center",
     "gap-4"
   );
   heroSecInnerRight.classList.add("flex", "justify-center", "items-center");
-  profileAvatar.classList.add("h-12", "w-12", "rounded-full", "object-cover");
+  profileAvatar.classList.add(
+    "h-24",
+    "w-24",
+    "sm:w-12",
+    "sm:h-12",
+    "aspect-square",
+    "rounded-full",
+    "object-cover"
+  );
   profileName.classList.add("text-2xl", "font-bold");
   profileEditBtn.classList.add(
     "p-2",

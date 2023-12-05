@@ -67,7 +67,8 @@ export function viewListingDetails(listing) {
     "flex",
     "flex-col",
     "items-center",
-    "justify-center"
+    "justify-center",
+    "py-12"
   );
   const endsDivTitle = document.createElement("h3");
   endsDivTitle.classList.add("text-xl", "font-bold");
@@ -106,6 +107,9 @@ export function viewListingDetails(listing) {
     "flex",
     "basis-1/2",
     "flex-col",
+    "items-center",
+    "justify-center",
+
     "border",
     "border-1",
     "border-brand-light",
@@ -113,7 +117,7 @@ export function viewListingDetails(listing) {
     "bg-brand-color"
   );
   const placeBidInner = document.createElement("div");
-  placeBidInner.classList.add("p-2");
+  placeBidInner.classList.add("flex", "flex-col", "items-center", "p-2");
   const placeBidTitle = document.createElement("h3");
   placeBidTitle.classList.add("text-xl", "font-bold");
   placeBidTitle.textContent = "Place a bid";
@@ -178,11 +182,13 @@ export function viewListingDetails(listing) {
   const bidHistoryTitleContainer = document.createElement("div");
   bidHistoryTitleContainer.classList.add(
     "flex",
+    "flex-col",
+    "items-center",
     "justify-between",
-    "text-center"
+    "my-4"
   );
   const bidHistoryTitle = document.createElement("h3");
-  bidHistoryTitle.classList.add("text-xl", "font-bold");
+  bidHistoryTitle.classList.add("text-2xl", "text-center", "font-bold");
   bidHistoryTitle.textContent = "Bidding History";
 
   const bidItemsContainer = document.createElement("div");

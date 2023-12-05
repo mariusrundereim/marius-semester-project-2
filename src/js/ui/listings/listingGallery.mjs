@@ -7,7 +7,7 @@ export function imageGallery(listing) {
 
   const coverImage = createImageElement(
     listing.media[0],
-    "aspect-video object-cover rounded-md cover-image"
+    "aspect-square md:aspect-video object-cover rounded-md cover-image"
   );
   gallerySection.appendChild(coverImage); // Create a container for the rest of the media items
 
