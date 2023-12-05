@@ -47,7 +47,7 @@ export function createListingForm() {
       form.reset();
 
       // Redirect to listing page with specific ID
-      window.location.href = `/src/html/listingSpecific.html?id=${createdListing.id}`;
+      window.location.href = `./listingSpecific.html?id=${createdListing.id}`;
     } catch (error) {
       console.error("Error creating listing:", error);
       alert("Error creating listing");
