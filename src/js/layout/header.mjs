@@ -27,16 +27,21 @@ function createNavigation() {
   navigation.classList.add("max-w-7xl", "mx-auto", "border", "border-red-400");
 
   // Links
-  const homeLink = createNavLink("Home", "./index.html");
   const listingsLink = createNavLink("Listings", "./listings.html");
-  const profileLink = profileLinkEvent("Profile", "#");
 
-  const newList = createNavLink("Add", "./newListing.html");
+  const isLoggedIn = checkLoggedIn();
 
-  ul.appendChild(homeLink);
-  ul.appendChild(profileLink);
-  ul.appendChild(listingsLink);
-  ul.appendChild(newList);
+  if (isLoggedIn) {
+    const profileLink = profileLinkEvent("Profile", "#");
+    const newList = createNavLink("Add", "./newListing.html");
+
+    ul.appendChild(profileLink);
+    ul.appendChild(listingsLink);
+    ul.appendChild(newList);
+  } else {
+    ul.appendChild(listingsLink);
+  }
+
   navigation.appendChild(ul);
   return navigation;
 }
