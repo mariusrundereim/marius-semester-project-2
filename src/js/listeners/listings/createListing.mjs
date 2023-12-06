@@ -8,21 +8,12 @@ export function createListingForm() {
     const formData = new FormData(form);
 
     const mediaUrls = [];
-    const firstMedia = formData.get("media[]");
-    if (firstMedia) {
-      mediaUrls.push(firstMedia);
-    }
-    const secondMedia = formData.get("media[]");
-    if (secondMedia) {
-      mediaUrls.push(secondMedia);
-    }
-    const thirdMedia = formData.get("media[]");
-    if (thirdMedia) {
-      mediaUrls.push(thirdMedia);
-    }
-    const fourthMedia = formData.get("media[]");
-    if (fourthMedia) {
-      mediaUrls.push(fourthMedia);
+    // Iterate over media inputs
+    for (let i = 1; i <= 4; i++) {
+      const mediaInputValue = formData.get(`media-${i}`);
+      if (mediaInputValue) {
+        mediaUrls.push(mediaInputValue);
+      }
     }
 
     const newListing = {
@@ -34,8 +25,6 @@ export function createListingForm() {
 
     try {
       const createdListing = await createListing(newListing);
-      // Do something with the createdListing if needed
-      console.log(createdListing);
 
       // Store in session storage
       sessionStorage.setItem("createdListing", JSON.stringify(createdListing));
