@@ -156,6 +156,7 @@ export function viewListingDetails(listing) {
     "rounded-lg"
   );
   placeBidButton.textContent = "Bid";
+  // placeBidButton.disabled = true;
   placeBidButton.type = "submit";
   placeBidButton.id = "bid_button";
 
@@ -212,3 +213,5 @@ export function viewListingDetails(listing) {
   listingWrapper.appendChild(bidsSection);
   listingWrapper.appendChild(biddingHistorySection);
 }
+
+// export { placeBidButton };

@@ -1,5 +1,6 @@
 import { bidListing } from "../../api/listings/bidListing.mjs";
 import { checkLoggedIn } from "../../auth/state.mjs";
+// import { placeBidButton } from "../../ui/listings/singleListing.mjs";
 
 export function bidOnListing(listing) {
   const bidForm = document.querySelector("#bid_form");
@@ -8,15 +9,16 @@ export function bidOnListing(listing) {
     e.preventDefault();
 
     try {
-      if (!checkLoggedIn()) {
-        // User is not logged in, display a message
-        alert("You must be logged in to place a bid.");
-        console.log("not logged in");
-        return;
-      }
-
       const form = e.target;
       const bidAmount = parseInt(form.bid_input_amount.value);
+
+      // Check if user is logged in with JWT, if not logged in, disable bid button
+      if (!checkLoggedIn()) {
+        alert("You must be logged in to bid on a listing.");
+        console.log("not logged in");
+        placeBidButton.disabled = true;
+        return;
+      }
 
       // Check if bidAmount is a valid number
       if (isNaN(bidAmount) || bidAmount <= 0) {
