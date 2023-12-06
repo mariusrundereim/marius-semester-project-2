@@ -17,9 +17,9 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
           <img class="w-full h-52 rounded-t-lg object-cover" src="${firstMedia}" alt=""></div>
           <!-- Body -->
           <div class="p-2">
-            <div class="mb-4">
+            <div class="mb-4 ">
               <p>by <span>${seller.name}</span></p>
-              <h2 class="text-xl font-semibold">${title}</h2>
+              <h2 class="text-xl font-semibold line-clamp-1">${title}</h2>
             </div>
 
             <div class="flex flex-col gap-2 mb-3">

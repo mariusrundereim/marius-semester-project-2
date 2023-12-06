@@ -16,7 +16,7 @@ export function bidOnListing(listing) {
       if (!checkLoggedIn()) {
         alert("You must be logged in to bid on a listing.");
         console.log("not logged in");
-        placeBidButton.disabled = true;
+        // placeBidButton.disabled = true;
         return;
       }
 
