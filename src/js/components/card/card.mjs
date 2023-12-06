@@ -9,7 +9,7 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const highestBid = handleHighestBidder(bids);
 
   // Create card element
-  const cardElement = document.createElement("div");
+  const cardElement = document.createElement("article");
   const cardImageDiv = document.createElement("div");
   const cardImage = document.createElement("img");
   const cardBody = document.createElement("div");
@@ -26,15 +26,7 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const highestBidDivItem = document.createElement("h3");
 
   // Classes
-  cardElement.classList.add(
-    "bg-white",
-    "rounded-xl",
-    "flex",
-    "flex-col",
-    "min-w-[10rem]",
-    "min-h-[25rem]",
-    "hover:shadow-lg"
-  );
+  cardElement.classList.add("flex", "flex-col", "min-w-[10rem]", "min-h-full");
 
   cardImageDiv.classList.add("h-52", "w-full", "aspect-video");
   cardImage.classList.add("w-full", "h-full", "rounded-2xl", "object-cover");
@@ -42,7 +34,7 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   cardBody.classList.add("p-2");
   cardBodyInner.classList.add("mb-4");
 
-  titleDivItem.classList.add("text-2xl", "font-semibold", "line-clamp-1");
+  titleDivItem.classList.add("text-xl", "font-semibold", "line-clamp-1");
 
   endsDiv.classList.add("flex", "inline-flex", "gap-2");
 
@@ -51,7 +43,7 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   cardImage.src = firstMedia;
   endsDivItem.textContent = endsAtFormatted;
 
-  sellerDivItem.textContent = seller.name;
+  sellerDivItem.textContent = `Seller: ${seller.name}`;
   titleDivItem.textContent = title;
 
   highestBidDivItem.textContent = `${
@@ -61,19 +53,19 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   }`;
 
   // Append
+  cardElement.append(cardImageDiv, cardBody); // End of card element
+  cardBodyInner.append(sellerDiv, titleDiv, endsDiv, highestBidDiv);
+
+  // AppendChild
   cardImageDiv.appendChild(cardImage);
   cardBody.appendChild(cardBodyInner);
-  cardBody.appendChild(endsDiv);
   endsDiv.appendChild(endsDivItem);
 
   sellerDiv.appendChild(sellerDivItem);
   titleDiv.appendChild(titleDivItem);
-  cardBodyInner.append(sellerDiv, titleDiv);
 
   highestBidDiv.appendChild(highestBidDivItem);
   cardBodyInner.appendChild(highestBidDiv);
-
-  cardElement.append(cardImageDiv, cardBody); // End of card element
 
   cardElement.addEventListener("click", () => {
     window.location.href = `listingSpecific.html?id=${id}`;

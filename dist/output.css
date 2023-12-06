@@ -733,6 +733,10 @@ video {
   min-height: max-content;
 }
 
+.min-h-full{
+  min-height: 100%;
+}
+
 .w-10{
   width: 2.5rem;
 }
