@@ -5,10 +5,10 @@ export function viewActiveBids(profile) {
 
   // If there are no active bids, return
   if (activeBids.length === 0) {
-    return;
+    return activeBids;
   }
 
-  const card = profileCard(
+  profileCard(
     activeBids[0].media,
     activeBids[0].title,
     activeBids[0].bids,
