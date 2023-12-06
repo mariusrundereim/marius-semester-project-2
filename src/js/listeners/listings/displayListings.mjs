@@ -10,9 +10,9 @@ export async function displayListings() {
     newListing.innerHTML = "";
 
     const result = await getAllListings();
+    const resultNew = await getAllListings();
 
-    // Ends soon
-    // const endSoonListings = JSON.parse(JSON.stringify(result)); // Deep Copy
+    // Ends soon sort
     const endSoonListings = [...result];
     endSoonListings.sort((a, b) => {
       a = Date.parse(a.endsAt);
@@ -21,24 +21,14 @@ export async function displayListings() {
       return a - b;
     });
 
-    // const newListingListings = JSON.parse(JSON.stringify(result));
-    const newListingListings = [...result];
-    newListingListings.sort((a, b) => {
-      a = Date.parse(a.created);
-      b = Date.parse(b.created);
-      // console.log(a - b);
-      return b - a;
-    });
-    // console.log("New:", newListingListings);
-
-    // Display 10 listings in a for loop
+    // Ends soon listings
     for (let i = 0; i < 4; i++) {
       const card = defaultCard(endSoonListings[i]);
       cardWrapper.appendChild(card);
     }
 
-    for (let i = 0; i < 20; i++) {
-      const card = defaultCard(newListingListings[i]);
+    for (let i = 0; i < 300; i++) {
+      const card = defaultCard(resultNew[i]);
       // const card = defaultCard(result[i]);
       newListing.appendChild(card);
     }

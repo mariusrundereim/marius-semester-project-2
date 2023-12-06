@@ -3,6 +3,91 @@ import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 import { handleHighestBidder } from "../../utils/helper/lastBid.mjs";
 
 export function defaultCard({ media, seller, title, endsAt, bids, id }) {
+  // Handlers
+  const firstMedia = formatMediaUrl(media);
+  const endsAtFormatted = formatEndsAt(endsAt);
+  const highestBid = handleHighestBidder(bids);
+
+  // Create card element
+  const cardElement = document.createElement("div");
+  const cardImageDiv = document.createElement("div");
+  const cardImage = document.createElement("img");
+  const cardBody = document.createElement("div");
+  const cardBodyInner = document.createElement("div");
+
+  const sellerDiv = document.createElement("div");
+  const sellerDivItem = document.createElement("p");
+  const titleDiv = document.createElement("div");
+  const titleDivItem = document.createElement("h2");
+
+  const endsDiv = document.createElement("div");
+  const endsDivItem = document.createElement("h3");
+  const highestBidDiv = document.createElement("div");
+  const highestBidDivItem = document.createElement("h3");
+
+  // Classes
+  cardElement.classList.add(
+    "bg-white",
+    "rounded-xl",
+    "flex",
+    "flex-col",
+    "min-w-[10rem]",
+    "min-h-[25rem]",
+    "hover:shadow-lg"
+  );
+
+  cardImageDiv.classList.add("h-52", "w-full", "aspect-video");
+  cardImage.classList.add("w-full", "h-full", "rounded-2xl", "object-cover");
+
+  cardBody.classList.add("p-2");
+  cardBodyInner.classList.add("mb-4");
+
+  titleDivItem.classList.add("text-2xl", "font-semibold", "line-clamp-1");
+
+  endsDiv.classList.add("flex", "inline-flex", "gap-2");
+
+  // Attributes
+  cardElement.id = "card_item";
+  cardImage.src = firstMedia;
+  endsDivItem.textContent = endsAtFormatted;
+
+  sellerDivItem.textContent = seller.name;
+  titleDivItem.textContent = title;
+
+  highestBidDivItem.textContent = `${
+    highestBid
+      ? `${highestBid.amount} from ${highestBid.bidderName}`
+      : "No bids yet"
+  }`;
+
+  // Append
+  cardImageDiv.appendChild(cardImage);
+  cardBody.appendChild(cardBodyInner);
+  cardBody.appendChild(endsDiv);
+  endsDiv.appendChild(endsDivItem);
+
+  sellerDiv.appendChild(sellerDivItem);
+  titleDiv.appendChild(titleDivItem);
+  cardBodyInner.append(sellerDiv, titleDiv);
+
+  highestBidDiv.appendChild(highestBidDivItem);
+  cardBodyInner.appendChild(highestBidDiv);
+
+  cardElement.append(cardImageDiv, cardBody); // End of card element
+
+  cardElement.addEventListener("click", () => {
+    window.location.href = `listingSpecific.html?id=${id}`;
+  });
+
+  return cardElement;
+}
+
+/*
+import { formatMediaUrl } from "../../utils/formatting/formatMedia.mjs";
+import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
+import { handleHighestBidder } from "../../utils/helper/lastBid.mjs";
+
+export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const firstMedia = formatMediaUrl(media);
   const endsAtFormatted = formatEndsAt(endsAt);
   const highestBid = handleHighestBidder(bids);
@@ -79,3 +164,4 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
 
   return cardElement;
 }
+*/

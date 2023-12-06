@@ -11,7 +11,7 @@ export async function getAllListings() {
     };
 
     const response = await fetch(
-      `${api_listings}?&_seller=true&_bids=true&_active=true`,
+      `${api_listings}?&_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc`,
       getListingData
     );
     if (!response.ok) {
