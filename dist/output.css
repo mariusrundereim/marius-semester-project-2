@@ -1147,6 +1147,10 @@ video {
     display: block;
   }
 
+  .sm\:flex{
+    display: flex;
+  }
+
   .sm\:h-12{
     height: 3rem;
   }
@@ -1193,5 +1197,9 @@ video {
 @media (min-width: 1024px){
   .lg\:flex-row{
     flex-direction: row;
+  }
+
+  .lg\:flex-col{
+    flex-direction: column;
   }
 }
