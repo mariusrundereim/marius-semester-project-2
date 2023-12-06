@@ -4,10 +4,10 @@ import { defaultCard } from "../../components/card/card.mjs";
 
 export async function displayListings() {
   try {
-    const cardWrapper = document.querySelector("#listing_cards");
-    const newListing = document.querySelector("#listing_new_cards");
-    cardWrapper.innerHTML = "";
-    newListing.innerHTML = "";
+    const endsContainer = document.querySelector("#listing_cards");
+    const createdContainer = document.querySelector("#listing_new_cards");
+    endsContainer.innerHTML = "";
+    createdContainer.innerHTML = "";
 
     const result = await getAllListings();
     const resultNew = await getAllListings();
@@ -24,13 +24,13 @@ export async function displayListings() {
     // Ends soon listings
     for (let i = 0; i < 4; i++) {
       const card = defaultCard(endSoonListings[i]);
-      cardWrapper.appendChild(card);
+      endsContainer.appendChild(card);
     }
 
     for (let i = 0; i < 300; i++) {
       const card = defaultCard(resultNew[i]);
       // const card = defaultCard(result[i]);
-      newListing.appendChild(card);
+      createdContainer.appendChild(card);
     }
   } catch (error) {
     console.error("Error fetching and displaying listings:", error);
