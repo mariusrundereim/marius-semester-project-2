@@ -26,9 +26,14 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const highestBidDivItem = document.createElement("h3");
 
   // Classes
-  cardElement.classList.add("flex", "flex-col", "min-w-[10rem]", "min-h-full");
+  cardElement.classList.add(
+    "flex",
+    "flex-col",
+    "min-w-[10rem]",
+    "min-h-[10rem]"
+  );
 
-  cardImageDiv.classList.add("h-52", "w-full", "aspect-video");
+  cardImageDiv.classList.add("w-full", "aspect-video");
   cardImage.classList.add("w-full", "h-full", "rounded-2xl", "object-cover");
 
   cardBody.classList.add("p-2");
