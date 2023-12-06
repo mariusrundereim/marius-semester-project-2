@@ -19,6 +19,9 @@ module.exports = {
         "brand-light": "#F5F5F5",
         "brand-red": "#E94A60",
       },
+      backgroundImage: {
+        "graphic-image-1": "url('/src/assets/graphic/graphic_item_1.svg')",
+      },
     },
   },
   plugins: [],
