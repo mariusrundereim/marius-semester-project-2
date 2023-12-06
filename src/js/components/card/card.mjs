@@ -9,7 +9,7 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
   const highestBid = handleHighestBidder(bids);
 
   // Create card element
-  const cardElement = document.createElement("article");
+  const cardElement = document.createElement("div");
   const cardImageDiv = document.createElement("div");
   const cardImage = document.createElement("img");
   const cardBody = document.createElement("div");
@@ -30,14 +30,28 @@ export function defaultCard({ media, seller, title, endsAt, bids, id }) {
     "flex",
     "flex-col",
     "min-w-[10rem]",
-    "min-h-[10rem]"
+    "min-h-[5rem]",
+    "h-26",
+    "w-full"
   );
 
-  cardImageDiv.classList.add("w-full", "aspect-video");
-  cardImage.classList.add("w-full", "h-full", "rounded-2xl", "object-cover");
+  cardImageDiv.classList.add(
+    "flex",
 
-  cardBody.classList.add("p-2");
-  cardBodyInner.classList.add("mb-4");
+    "h-26",
+    "min-h-[5rem]",
+    "aspect-square"
+  );
+  cardImage.classList.add(
+    "rounded-2xl",
+    "w-full",
+    "object-cover",
+    "flex",
+    "bg-no-image"
+  );
+
+  cardBody.classList.add("flex", "flex-col", "p-2");
+  cardBodyInner.classList.add("flex", "flex-col", "mb-4");
 
   titleDivItem.classList.add("text-xl", "font-semibold", "line-clamp-1");
 

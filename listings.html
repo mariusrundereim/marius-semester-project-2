@@ -9,28 +9,26 @@
     <script type="module" src="./src/js/api/listings/listings.mjs"></script>
     <script type="module" src="./src/js/pages/listings/index.mjs"></script>
   </head>
-  <body class="bg-slate-200 mx-auto">
-    <main class="container mx-auto my-5">
-      <section class="my-10">
-        <form class="mx-auto flex flex-col" id="search_listing_form">
-          <div class="flex flex-col">
-            <label for="search"></label>
-            <div>
-              <input
-                type="text"
-                name="search_listings"
-                class="p-2 rounded-md"
-                placeholder="Search for listings"
-                id="search_listings_input"
-              />
-              <button
-                type="button"
-                id="search_listings_button"
-                class="bg-brand-dark text-brand-light p-2 rounded-md"
-              >
-                Search
-              </button>
-            </div>
+  <body class="bg-brand-light mx-auto">
+    <main class="container mx-auto my-5 px-2">
+      <section class="my-10 flex flex-col items-center sm:items-start">
+        <form class="flex flex-row gap-4" id="search_listing_form">
+          <label for="search" class="hidden">Search</label>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="text"
+              name="search_listings"
+              class="p-2 rounded-md"
+              placeholder="Search for listings"
+              id="search_listings_input"
+            />
+            <button
+              type="button"
+              id="search_listings_button"
+              class="text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-lg"
+            >
+              Search
+            </button>
           </div>
         </form>
       </section>
@@ -44,15 +42,15 @@
         <div class="mb-2">
           <h2 class="text-3xl font-semibold text-brand-dark">Ends soon</h2>
         </div>
-        <div
+        <article
           class="grid grid-cols-1 md:grid-cols-4 gap-4"
           id="listing_cards"
-        ></div>
+        ></article>
       </section>
       <section class="flex gap-2 flex-col mt-24">
-        <div class="mb-2">
+        <article class="mb-2">
           <h2 class="text-3xl font-semibold text-brand-dark">Newly created</h2>
-        </div>
+        </article>
 
         <div
           class="grid grid-cols-1 md:grid-cols-4 gap-4"
