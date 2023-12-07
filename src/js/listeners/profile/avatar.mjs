@@ -12,9 +12,10 @@ export async function updateProfileAvatar() {
 
     // Get the new avatar URL from the form input
     const newAvatarUrl = formInput.value;
+    console.log("New avatar URL:", newAvatarUrl);
 
     // Update the avatar image source
-    avatarImage.src = newAvatarUrl;
+    //avatarImage.src = newAvatarUrl;
 
     // Call the updateAvatar function with the new avatar URL
     await updateAvatar({ avatar: newAvatarUrl });
