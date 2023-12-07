@@ -5,9 +5,14 @@ import {
   userAvatar,
   regPassword,
 } from "../utils/domElements.mjs";
-// import { formValidation } from "../components/formValidation.mjs";
 import * as formValidation from "../components/formValidation.mjs";
-import { displayError } from "../components/displayMessages.mjs";
+import {
+  displayError,
+  clearErrors,
+  nameError,
+  emailError,
+  passwordError,
+} from "../components/displayMessages.mjs";
 
 document
   .querySelector("#registration_form")
@@ -16,22 +21,31 @@ document
 export function handleSubmit(e) {
   e.preventDefault();
 
+  clearErrors();
+
   const nameValid = formValidation.validateName(registerName.value);
   const emailValid = formValidation.validateEmail(regEmail.value);
   const passwordValid = formValidation.validatePassword(regPassword.value);
 
   if (!nameValid) {
-    displayError("First character to Uppercase. Minimum length is 3");
+    displayError(
+      nameError,
+      "First character to Uppercase. Minimum length is 3"
+    );
     return;
   }
 
   if (!emailValid) {
-    displayError("Invalid email. Must be a @stud.noroff.no email address.");
+    displayError(
+      emailError,
+      "Invalid email. Must be a @stud.noroff.no email address."
+    );
     return;
   }
 
   if (!passwordValid) {
     displayError(
+      passwordError,
       "Password must contains: 12 Characters, 2 Numbers, 1 special character"
     );
   }
