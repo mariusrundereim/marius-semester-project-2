@@ -6,14 +6,14 @@ import {
   regPassword,
 } from "../utils/domElements.mjs";
 import * as formValidation from "../components/formValidation.mjs";
+
+import { displayError } from "../components/displayError.mjs";
 import {
-  displayError,
-  clearErrors,
   nameError,
   emailError,
   passwordError,
-} from "../components/displayMessages.mjs";
-
+  clearErrors,
+} from "../components/validation/registerMessage.mjs";
 document
   .querySelector("#registration_form")
   .addEventListener("submit", handleSubmit);
