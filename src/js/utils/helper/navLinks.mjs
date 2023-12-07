@@ -59,7 +59,7 @@ export function logoutButtonEvent() {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     logoutUser();
-    location.href = "/marius-semester-project-2";
+    location.href = "./";
   });
   return logoutBtn;
 }
