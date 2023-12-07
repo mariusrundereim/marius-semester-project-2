@@ -126,8 +126,9 @@ export function viewListingDetails(listing) {
   placeBidForm.id = "bid_form";
   placeBidForm.classList.add("flex", "flex-col", "gap-2");
   const placeBidInput = document.createElement("input");
+  const highestBidAmount = Math.max(...listing.bids.map((bid) => bid.amount));
 
-  console.log("Attaching event listener to bid form");
+  // Bid addEventListener
   placeBidForm.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(placeBidInput.value, listing.id);
@@ -144,7 +145,8 @@ export function viewListingDetails(listing) {
   );
   placeBidInput.placeholder = "Enter your bid";
   placeBidInput.type = "number";
-  placeBidInput.min = 1;
+  // placeBidInput.min = 1;
+  placeBidInput.min = highestBidAmount + 1;
   placeBidInput.max = 1000;
   console.log(placeBidInput.value);
   const placeBidButton = document.createElement("button");
