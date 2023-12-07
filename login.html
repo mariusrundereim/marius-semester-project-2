@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <meta name="description" content="Login form for Bidify website" />
     <link rel="stylesheet" href="./dist/output.css" />
     <script type="module" src="./src/js/script.js"></script>
     <script type="module" src="./src/js/listeners/login.mjs"></script>
   </head>
-  <body class="bg-slate-200 font-body">
+  <body class="bg-brand-light">
     <main class="container mx-auto my-5">
       <h1 class="text-4xl font-bold my-8 text-center">Login</h1>
       <section id="login_container" class="max-w-3xl mx-auto">
@@ -24,7 +25,9 @@
               id="loginEmail"
               placeholder="example@stud.noroff.no"
             />
-            <div id="loginEmailError"></div>
+            <div>
+              <p id="loginEmailError"></p>
+            </div>
           </div>
           <div class="flex flex-col">
             <label

@@ -29,9 +29,6 @@ export function createListingForm() {
       // Store in session storage
       sessionStorage.setItem("createdListing", JSON.stringify(createdListing));
 
-      // Display success message
-      alert("Listing created");
-
       // Form reset
       form.reset();
 
