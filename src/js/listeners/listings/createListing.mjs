@@ -23,21 +23,9 @@ export function createListingForm() {
       endsAt: new Date(formData.get("endsAt")),
     };
 
-    try {
-      const createdListing = await createListing(newListing);
-
-      // Store in session storage
-      sessionStorage.setItem("createdListing", JSON.stringify(createdListing));
-
-      // Form reset
-      form.reset();
-
-      // Redirect to listing page with specific ID
-      window.location.href = `./listingSpecific.html?id=${createdListing.id}`;
-    } catch (error) {
-      console.error("Error creating listing:", error);
-      alert("Error creating listing");
-    }
+    const createdListing = await createListing(newListing);
+    form.reset();
+    window.location.href = `./listingSpecific.html?id=${createdListing.id}`;
   });
 }
 
