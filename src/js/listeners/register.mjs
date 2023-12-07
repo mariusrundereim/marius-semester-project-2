@@ -13,7 +13,7 @@ import {
   emailError,
   passwordError,
   clearErrors,
-} from "../components/validation/registerMessage.mjs";
+} from "../components/validation/registerElements.mjs";
 document
   .querySelector("#registration_form")
   .addEventListener("submit", handleSubmit);
