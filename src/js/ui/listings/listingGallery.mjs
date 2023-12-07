@@ -3,7 +3,13 @@ import { handleThumbnailClick } from "../../listeners/listings/imageGallery.mjs"
 
 export function imageGallery(listing) {
   const gallerySection = document.createElement("section");
-  gallerySection.classList.add("flex", "flex-col", "gap-4"); // Create the first media item
+  gallerySection.classList.add(
+    "flex",
+    "flex-col",
+    "gap-4",
+    "max-w-6xl",
+    "mx-auto"
+  ); // Create the first media item
 
   const coverImage = createImageElement(
     listing.media[0],

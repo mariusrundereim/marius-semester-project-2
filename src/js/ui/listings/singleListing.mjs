@@ -16,9 +16,8 @@ export function viewListingDetails(listing) {
     "md:flex-row",
     "mt-5",
     "mb-4",
-    "items-stretch",
-    // "min-h-max",
-    "gap-2"
+    "min-h-[18rem]",
+    "gap-4"
   );
 
   const sellerDetailsContainer = document.createElement("div");
@@ -56,11 +55,11 @@ export function viewListingDetails(listing) {
     "justify-center",
     "p-2",
     "h-36",
-    "border",
-    "border-1",
+    "self-stretch",
     "text-white",
     "bg-brand-dark",
-    "rounded-xl"
+    "rounded-xl",
+    "min-h-full"
   );
   const endsDivInner = document.createElement("div");
   endsDivInner.classList.add(
@@ -98,8 +97,8 @@ export function viewListingDetails(listing) {
     "md:flex-row",
     "mt-5",
     "mb-4",
-    "min-h-max",
-    "gap-2"
+    "min-h-[18rem]",
+    "gap-4"
   );
 
   const placeBidContainer = document.createElement("div");
@@ -110,9 +109,6 @@ export function viewListingDetails(listing) {
     "items-center",
     "justify-center",
 
-    "border",
-    "border-1",
-    "border-brand-light",
     "rounded-xl",
     "bg-brand-color"
   );
