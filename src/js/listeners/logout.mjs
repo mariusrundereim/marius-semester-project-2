@@ -5,5 +5,5 @@ logout_btn.addEventListener("click", (e) => {
   e.preventDefault();
   logoutUser();
   console.log("clicked");
-  location.href = "./";
+  location.href = "/";
 });
