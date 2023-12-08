@@ -20,8 +20,8 @@ module.exports = {
         "brand-red": "#E94A60",
       },
       backgroundImage: {
-        "graphic-image-1": "url('/src/assets/graphic/graphic_item_1.svg')",
-        "no-image": "url('/src/assets/images/NoImage.png')",
+        "graphic-image-1": "url('./src/assets/graphic/graphic_item_1.svg')",
+        "no-image": "url('./src/assets/images/NoImage.png')",
       },
     },
   },
