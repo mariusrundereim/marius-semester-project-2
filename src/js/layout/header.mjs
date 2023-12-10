@@ -30,10 +30,21 @@ function createNavigation() {
   navigation.appendChild(brandLogoLink);
 
   const brandLogoImg = document.createElement("img");
-  brandLogoImg.classList.add("w-44", "h-12");
-  brandLogoImg.setAttribute("src", "./src/assets/logo/logo_bidify.svg");
+  brandLogoImg.classList.add("w-32", "h-12");
+  brandLogoImg.setAttribute("src", getLogoSrc());
   brandLogoImg.setAttribute("alt", "Brand logo");
   brandLogoLink.appendChild(brandLogoImg);
+
+  // Responsive logo
+  function getLogoSrc() {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 520) {
+      return "./src/assets/logo/logo_bidify.svg";
+    } else {
+      return "./src/assets/logo/logo_bidify_sm.svg";
+    }
+  }
 
   // Primary Navigation
   const primaryNavContainer = document.createElement("div");
@@ -86,7 +97,7 @@ function createNavigation() {
     primaryNavList.appendChild(listItem);
   });
 
-  // Add an event listener to handle navigation
+  // Click Navigation
   primaryNavList.addEventListener("click", (e) => {
     const target = e.target;
     if (target.tagName === "A" && target.getAttribute("href")) {
