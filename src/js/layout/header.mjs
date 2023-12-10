@@ -14,12 +14,14 @@ function createNavigation() {
   // Navigation
   const navigation = document.createElement("nav");
   navigation.classList.add(
+    "relative",
     "flex",
     "flex-col",
     "sm:flex-row",
     "items-center",
     "justify-between",
-    "py-4"
+    "py-4",
+    "w-full"
   );
 
   // Brand Logo
@@ -43,9 +45,9 @@ function createNavigation() {
     "md:top-0",
     "w-full",
     "sm:w-full",
-    "sm:bg-blue-500/50",
+    "sm:bg-white",
     "md:w-min",
-    "bg-red-400/50",
+    "bg-white",
     "p-2",
     "md:px-2"
   );
@@ -139,22 +141,28 @@ function createNavigation() {
     // Unregistered Section
     const unregisteredSection = document.createElement("div");
     unregisteredSection.classList.add("flex", "flex-row", "space-x-2");
-
     secondaryNavContainer.appendChild(unregisteredSection);
 
     // Buttons
+    const registerButtonLink = document.createElement("a");
+    registerButtonLink.setAttribute("href", "/register.html"); // Replace with your registration page URL
 
     const registerButton = createButton(
       "Register",
       "text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
     );
-    unregisteredSection.appendChild(registerButton);
+    registerButtonLink.appendChild(registerButton);
+    unregisteredSection.appendChild(registerButtonLink);
+
+    const loginButtonLink = document.createElement("a");
+    loginButtonLink.setAttribute("href", "/login.html"); // Replace with your login page URL
 
     const loginButton = createButton(
       "Login",
       "text-brand-dark bg-brand-light hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
     );
-    unregisteredSection.appendChild(loginButton);
+    loginButtonLink.appendChild(loginButton);
+    unregisteredSection.appendChild(loginButtonLink);
   }
 
   // Toggle Menu Icon
@@ -216,10 +224,11 @@ function createSvgIcon() {
 // Endpoint and Main Header Function
 export function header() {
   const htmlHeader = document.createElement("header");
-  htmlHeader.classList.add("p-2", "bg-white", "h-20");
+  htmlHeader.classList.add("p-2", "bg-white", "h-20", "flex");
 
   const containerDiv = document.createElement("div");
   containerDiv.classList.add(
+    "relative",
     "container",
     "mx-auto",
     "flex",
