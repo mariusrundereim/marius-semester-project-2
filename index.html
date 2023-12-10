@@ -9,89 +9,9 @@
       content="Homepage to Bidify, it links to register, login and explore listings. And a auction process of how this website works."
     />
     <link rel="stylesheet" href="./dist/output.css" />
-    <!-- <script type="module" src="./src/js/script.js"></script> -->
+    <script type="module" src="./src/js/script.js"></script>
   </head>
   <body>
-    <header class="bg-slate-200 relative">
-      <div class="container mx-auto">
-        <nav
-          class="flex flex-col sm:flex-row items-center justify-between py-4"
-        >
-          <!-- Brand logo -->
-          <a href="./index.html">
-            <img
-              class="w-44 h-12"
-              src="./src/assets/logo/logo_bidify.svg"
-              alt="Brand logo"
-            />
-          </a>
-          <!-- Primary navigation -->
-          <div
-            class="absolute top-32 md:static sm:top-20 md:top-0 w-full sm:w-full sm:bg-blue-500/50 md:w-min bg-red-400/50 p-2 md:px-2"
-          >
-            <ul class="flex flex-col md:flex-row md:space-x-2">
-              <li><a class="text-xl" href="#">Listings</a></li>
-              <li><a class="text-xl" href="#">Profile</a></li>
-              <li><a class="text-xl" href="#">Add</a></li>
-            </ul>
-          </div>
-
-          <!-- Secondary navigation -->
-          <div class="flex space-x-2">
-            <!-- Uregistered -->
-            <div class="flex flex-row space-x-2 hidden">
-              <button
-                class="text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
-              >
-                Register
-              </button>
-              <button
-                class="text-brand-dark bg-brand-light hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
-              >
-                Login
-              </button>
-            </div>
-            <!-- Registered -->
-            <div class="flex flex-row space-x-2">
-              <img
-                class="w-12 h-12 rounded-full aspect-square object-cover"
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-              />
-              <div
-                class="bg-gray-300 px-4 rounded-full flex items-center hidden sm:flex"
-              >
-                <h3>140 Credits</h3>
-              </div>
-              <button
-                class="text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
-              >
-                Logout
-              </button>
-            </div>
-            <!-- Toggle Menu Icon -->
-            <div
-              class="flex items-center justify-center aspect-square w-12 h-12 rounded-full bg-white border md:hidden"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
     <main class="container mx-auto my-5 p-2">
       <section
         class="bg-brand-dark md:bg-graphic-image-1 rounded-2xl p-2 min-h-full flex flex-col justify-around shadow-xl"
