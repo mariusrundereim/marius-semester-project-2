@@ -66,16 +66,16 @@ function createNavigation() {
 
   if (isLoggedIn) {
     navItems.push(
-      { text: "Listings", href: "/listings.html" },
+      { text: "Listings", href: "./listings.html" },
       {
         text: "Profile",
         href: isLoggedIn ? `./profile.html?name=${profile.name}` : "#",
         id: "profile-link",
       },
-      { text: "Add", href: "/newListing.html" }
+      { text: "Add", href: "./newListing.html" }
     );
   } else {
-    navItems.push({ text: "Listings", href: "/listings.html" });
+    navItems.push({ text: "Listings", href: "./listings.html" });
   }
 
   navItems.forEach((item) => {
