@@ -7,13 +7,7 @@ export function profileHero(profile) {
   const profileAvatar = document.createElement("img");
   const profileName = document.createElement("h2");
   const profileEditBtn = document.createElement("button");
-  heroSection.classList.add(
-    "flex",
-    "h-30",
-    "p-4",
-    "rounded-xl",
-    "bg-brand-light"
-  );
+  heroSection.classList.add("flex", "h-30", "p-4", "rounded-xl", "bg-white");
   heroSecInner.classList.add(
     "flex",
     "flex-col",

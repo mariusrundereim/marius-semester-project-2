@@ -11,7 +11,7 @@ export function biddingSection(profile) {
   const bidList = document.createElement("div");
 
   // Classes
-  biddingSection.classList.add("border-2", "border-red-500", "my-4");
+  biddingSection.classList.add("my-4");
   biddingTopDiv.classList.add(
     "flex",
     "flex-col",
@@ -22,13 +22,7 @@ export function biddingSection(profile) {
     "gap-2",
     "sm:gap-4"
   );
-  bidListDiv.classList.add(
-    "flex",
-    "flex-col",
-    "gap-4",
-    "border-6",
-    "border-red-600"
-  );
+  bidListDiv.classList.add("flex", "flex-col", "gap-4");
   bidTitle.classList.add("text-2xl", "font-bold", "mb-4");
   bidLength.classList.add("text-2xl", "mb-4");
   bidList.classList.add("flex", "flex-col", "gap-4");

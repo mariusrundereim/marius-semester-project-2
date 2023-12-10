@@ -15,7 +15,7 @@ export function editProfile(profile) {
     "h-30",
     "p-4",
     "rounded-xl",
-    "bg-brand-light"
+    "bg-white"
   );
   editSecInner.classList.add("flex", "flex-col", "gap-4");
   form.classList.add("flex", "flex-col", "gap-4");

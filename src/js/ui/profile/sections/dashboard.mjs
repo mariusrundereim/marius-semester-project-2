@@ -18,9 +18,7 @@ export function profileDashboard(profile) {
     "min-h-[10rem]",
     "items-center",
     "justify-center",
-    "bg-brand-color",
-    "border",
-    "border-gray-300",
+    "bg-brand-dark",
     "rounded-xl",
     "p-2"
   );
@@ -34,13 +32,11 @@ export function profileDashboard(profile) {
     "justify-center",
     "text-brand-light",
     "bg-brand-dark",
-    "border",
-    "border-gray-300",
     "rounded-xl",
     "p-2"
   );
-  profileWinsTitle.classList.add("text-2xl", "font-bold");
-  profileWinsCount.classList.add("text-2xl");
+  profileWinsTitle.classList.add("text-2xl", "font-bold", "text-white");
+  profileWinsCount.classList.add("text-2xl", "text-white");
   profileCreditTitle.classList.add("text-2xl", "font-bold");
   profileCreditCount.classList.add("text-2xl");
   // Add content
