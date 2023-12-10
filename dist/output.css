@@ -578,28 +578,12 @@ video {
   position: relative;
 }
 
-.right-4{
-  right: 1rem;
+.top-32{
+  top: 8rem;
 }
 
-.top-4{
-  top: 1rem;
-}
-
-.top-5{
-  top: 1.25rem;
-}
-
-.top-24{
-  top: 6rem;
-}
-
-.top-20{
-  top: 5rem;
-}
-
-.top-0{
-  top: 0px;
+.top-36{
+  top: 9rem;
 }
 
 .mx-2{
@@ -981,11 +965,6 @@ video {
   border-color: rgb(248 113 113 / var(--tw-border-opacity));
 }
 
-.border-red-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity));
-}
-
 .bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1013,6 +992,10 @@ video {
 .bg-gray-300{
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
+.bg-red-400\/50{
+  background-color: rgb(248 113 113 / 0.5);
 }
 
 .bg-slate-200{
@@ -1268,12 +1251,36 @@ video {
 }
 
 @media (min-width: 640px){
+  .sm\:top-12{
+    top: 3rem;
+  }
+
+  .sm\:top-16{
+    top: 4rem;
+  }
+
+  .sm\:top-20{
+    top: 5rem;
+  }
+
+  .sm\:flex{
+    display: flex;
+  }
+
   .sm\:h-12{
     height: 3rem;
   }
 
   .sm\:w-12{
     width: 3rem;
+  }
+
+  .sm\:w-full{
+    width: 100%;
+  }
+
+  .sm\:w-10{
+    width: 2.5rem;
   }
 
   .sm\:flex-row{
@@ -1287,15 +1294,19 @@ video {
   .sm\:gap-4{
     gap: 1rem;
   }
+
+  .sm\:bg-blue-500\/50{
+    background-color: rgb(59 130 246 / 0.5);
+  }
 }
 
 @media (min-width: 768px){
-  .md\:absolute{
-    position: absolute;
+  .md\:static{
+    position: static;
   }
 
-  .md\:top-20{
-    top: 5rem;
+  .md\:top-0{
+    top: 0px;
   }
 
   .md\:mx-auto{
@@ -1305,10 +1316,6 @@ video {
 
   .md\:me-4{
     margin-inline-end: 1rem;
-  }
-
-  .md\:flex{
-    display: flex;
   }
 
   .md\:hidden{
@@ -1327,12 +1334,27 @@ video {
     height: 5rem;
   }
 
+  .md\:w-min{
+    width: -moz-min-content;
+    width: min-content;
+  }
+
+  .md\:w-full{
+    width: 100%;
+  }
+
   .md\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:flex-row{
     flex-direction: row;
+  }
+
+  .md\:space-x-2 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:bg-graphic-image-1{
