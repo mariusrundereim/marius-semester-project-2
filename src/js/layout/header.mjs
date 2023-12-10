@@ -86,6 +86,17 @@ function createNavigation() {
     primaryNavList.appendChild(listItem);
   });
 
+  // Add an event listener to handle navigation
+  primaryNavList.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.tagName === "A" && target.getAttribute("href")) {
+      e.preventDefault();
+
+      // Use window.location to navigate relative to the current location
+      window.location.href = target.getAttribute("href");
+    }
+  });
+
   // Secondary Navigation
   const secondaryNavContainer = document.createElement("div");
   secondaryNavContainer.classList.add("flex", "space-x-2");
