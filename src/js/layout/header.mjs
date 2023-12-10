@@ -1,7 +1,16 @@
 import { loadToken } from "../storage/storage.mjs";
 import { checkLoggedIn } from "../auth/state.mjs";
+// import { createButton } from "../utils/helper/createButton.mjs";
+import {
+  logoutButtonEvent,
+  createNavLink,
+  profileLinkEvent,
+} from "../utils/helper/navLinks.mjs";
 
-function createNavigation(isLoggedIn) {
+function createNavigation() {
+  const isLoggedIn = checkLoggedIn();
+  const profile = loadToken("profile");
+
   // Navigation
   const navigation = document.createElement("nav");
   navigation.classList.add(
@@ -51,14 +60,21 @@ function createNavigation(isLoggedIn) {
   );
   primaryNavContainer.appendChild(primaryNavList);
 
-  const navItems = ["Listings", "Profile", "Add"];
+  const navItems = [
+    { text: "Listings", href: "/listings.html" },
+    {
+      text: "Profile",
+      href: isLoggedIn ? `./profile.html?name=${profile.name}` : "#",
+      id: "profile-link",
+    },
+    { text: "Add", href: "/newListing.html" },
+  ];
+
   navItems.forEach((item) => {
-    const listItem = document.createElement("li");
-    const link = document.createElement("a");
-    link.classList.add("text-xl");
-    link.setAttribute("href", "#"); // Update href as needed
-    link.textContent = item;
-    listItem.appendChild(link);
+    const listItem = createNavLink(item.text, item.href);
+    if (item.id) {
+      listItem.id = item.id;
+    }
     primaryNavList.appendChild(listItem);
   });
 
@@ -67,40 +83,79 @@ function createNavigation(isLoggedIn) {
   secondaryNavContainer.classList.add("flex", "space-x-2");
   navigation.appendChild(secondaryNavContainer);
 
-  // Unregistered Section
-  const unregisteredSection = document.createElement("div");
-  unregisteredSection.classList.add(
-    "flex",
-    "flex-row",
-    "space-x-2",
-    isLoggedIn ? "hidden" : null
-  );
-  secondaryNavContainer.appendChild(unregisteredSection);
+  if (isLoggedIn) {
+    // Registered Section
+    const registeredSection = document.createElement("div");
+    registeredSection.classList.add(
+      "flex",
+      "flex-row",
+      "space-x-2",
+      isLoggedIn ? null : "hidden" // Initially hide the registered section
+    );
 
-  const registerButton = createButton(
-    "Register",
-    "text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
-  );
-  unregisteredSection.appendChild(registerButton);
+    const logoutBtn = logoutButtonEvent();
 
-  const loginButton = createButton(
-    "Login",
-    "text-brand-dark bg-brand-light hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
-  );
-  unregisteredSection.appendChild(loginButton);
+    // Div inner
+    const regDivInner = document.createElement("div");
+    const avatarImg = document.createElement("img");
+    const creditDiv = document.createElement("div");
 
-  // Registered Section
-  const registeredSection = document.createElement("div");
-  registeredSection.classList.add(
-    "flex",
-    "flex-row",
-    "space-x-2",
-    isLoggedIn ? "hidden" : null
-  );
-  secondaryNavContainer.appendChild(registeredSection);
+    regDivInner.classList.add("flex", "flex-row", "items-center", "gap-2");
+    const avatarLink = profileLinkEvent(
+      "",
+      `./profile.html?name=${profile.name}`
+    );
+    avatarImg.setAttribute("src", `${profile.avatar}`);
+    avatarImg.setAttribute("alt", "Profile avatar");
+    avatarImg.classList.add(
+      "h-12",
+      "w-12",
+      "max-h-12",
+      "max-w-12",
+      "rounded-full"
+    );
+    creditDiv.classList.add(
+      "bg-brand-dark",
+      "text-white",
+      "p-2",
+      "px-4",
+      "rounded-full"
+    );
+    creditDiv.textContent = `${profile.credits} Credits`;
 
-  // Add elements to the registered section as needed
-  // For example, add an image button, a div with credits, and a logout button
+    const profileLink = document.querySelector("#profile-link");
+    if (profileLink) {
+      profileLink.classList.add("hidden");
+    }
+
+    avatarLink.appendChild(avatarImg);
+    regDivInner.appendChild(avatarLink);
+    regDivInner.appendChild(creditDiv);
+    registeredSection.appendChild(regDivInner);
+    registeredSection.appendChild(logoutBtn);
+
+    secondaryNavContainer.appendChild(registeredSection);
+  } else {
+    // Unregistered Section
+    const unregisteredSection = document.createElement("div");
+    unregisteredSection.classList.add("flex", "flex-row", "space-x-2");
+
+    secondaryNavContainer.appendChild(unregisteredSection);
+
+    // Buttons
+
+    const registerButton = createButton(
+      "Register",
+      "text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
+    );
+    unregisteredSection.appendChild(registerButton);
+
+    const loginButton = createButton(
+      "Login",
+      "text-brand-dark bg-brand-light hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
+    );
+    unregisteredSection.appendChild(loginButton);
+  }
 
   // Toggle Menu Icon
   const toggleMenuIconContainer = document.createElement("div");
@@ -114,12 +169,19 @@ function createNavigation(isLoggedIn) {
     "rounded-full",
     "bg-white",
     "border",
+    "cursor-pointer",
     "md:hidden"
   );
   secondaryNavContainer.appendChild(toggleMenuIconContainer);
 
+  // Toggle Menu Icon
   const toggleMenuIcon = createSvgIcon();
   toggleMenuIconContainer.appendChild(toggleMenuIcon);
+
+  toggleMenuIconContainer.addEventListener("click", (e) => {
+    e.preventDefault();
+    primaryNavContainer.classList.toggle("hidden");
+  });
 
   return navigation;
 }

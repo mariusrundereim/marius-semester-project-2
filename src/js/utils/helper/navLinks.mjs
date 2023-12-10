@@ -17,6 +17,13 @@ export function createNavLink(text, href, id) {
   if (id) {
     link.id = id;
   }
+
+  // Add event listener to handle navigation
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = href; // Update href as needed
+  });
+
   listItem.appendChild(link);
   return listItem;
 }
