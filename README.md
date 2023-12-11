@@ -16,6 +16,7 @@ When a new user joins the website, they are given 1000 credits to use on the sit
 - Jest
 - Cypress
 - Figma
+- Trello
 - Github Pages
 
 ## User stories
