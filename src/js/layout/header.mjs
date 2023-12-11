@@ -103,7 +103,6 @@ function createNavigation() {
     if (target.tagName === "A" && target.getAttribute("href")) {
       e.preventDefault();
 
-      // Use window.location to navigate relative to the current location
       window.location.href = target.getAttribute("href");
     }
   });
@@ -173,8 +172,7 @@ function createNavigation() {
 
     // Buttons
     const registerButtonLink = document.createElement("a");
-    registerButtonLink.setAttribute("href", "/register.html"); // Replace with your registration page URL
-
+    registerButtonLink.setAttribute("href", "./register.html");
     const registerButton = createButton(
       "Register",
       "text-white bg-brand-dark hover:bg-brand-color transition-all hover:shadow-lg font-semibold text-lg p-2 px-4 rounded-full"
@@ -183,7 +181,7 @@ function createNavigation() {
     unregisteredSection.appendChild(registerButtonLink);
 
     const loginButtonLink = document.createElement("a");
-    loginButtonLink.setAttribute("href", "/login.html"); // Replace with your login page URL
+    loginButtonLink.setAttribute("href", "./login.html");
 
     const loginButton = createButton(
       "Login",
