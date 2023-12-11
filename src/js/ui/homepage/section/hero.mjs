@@ -57,14 +57,15 @@ export function pageHero() {
     "link",
     ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
   );
-  const loginButton = createButton("/login", "Login", "login_btn", "link", [
-    "text-xl",
-    "rounded-lg",
-    "md:w-auto",
-    "transition-all",
-  ]);
+  const loginButton = createButton(
+    "./login.html",
+    "Login",
+    "login_btn",
+    "link",
+    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
+  );
   const exploreButton = createButton(
-    "/explore",
+    "./listings.html",
     "Explore",
     "explore_btn",
     "link",
