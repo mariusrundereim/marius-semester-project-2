@@ -14,6 +14,7 @@ import {
   passwordError,
   clearErrors,
 } from "../components/validation/registerElements.mjs";
+import { defaultAvatarUrl } from "../utils/helper/defaultAvatar.mjs";
 document
   .querySelector("#registration_form")
   .addEventListener("submit", handleSubmit);
@@ -52,7 +53,7 @@ export function handleSubmit(e) {
 
   const newUser = {
     name: registerName.value,
-    avatar: userAvatar.value,
+    avatar: userAvatar.value || defaultAvatarUrl,
     email: regEmail.value,
     password: regPassword.value,
   };
