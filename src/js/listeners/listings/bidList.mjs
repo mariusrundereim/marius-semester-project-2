@@ -1,6 +1,4 @@
 import { bidListing } from "../../api/listings/bidListing.mjs";
-import { checkLoggedIn } from "../../auth/state.mjs";
-// import { placeBidButton } from "../../ui/listings/singleListing.mjs";
 
 export function bidOnListing(listing) {
   const bidForm = document.querySelector("#bid_form");
@@ -23,8 +21,9 @@ export function bidOnListing(listing) {
         amount: bidAmount,
       };
 
-      console.log(newBid);
+      // console.log(newBid);
 
+      // Update the bidListing API call
       await bidListing(listing.id, newBid.amount);
     } catch (error) {
       // Handle other types of errors
@@ -34,29 +33,3 @@ export function bidOnListing(listing) {
 
   return bidForm;
 }
-
-/*
-import { bidListing } from "../../api/listings/bidListing.mjs";
-import { checkLoggedIn } from "../../auth/state.mjs";
-
-export function bidOnListing(listing) {
-  const bidForm = document.querySelector("#bid_form");
-  bidForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!checkLoggedIn()) {
-      alert("You must be logged in to bid on a listing");
-      console.log("not logged in");
-      return;
-    } else {
-      console.log("logged in");
-    }
-    const form = e.target;
-    const newBid = {
-      amount: parseInt(form.bid_input_amount.value),
-    };
-    console.log(newBid);
-    await bidListing(listing.id, newBid.amount);
-  });
-  return bidForm;
-}
-*/

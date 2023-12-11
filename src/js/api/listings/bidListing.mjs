@@ -2,6 +2,7 @@
 import { api_listings } from "../env/env.mjs";
 import { headers } from "../../auth/headers.mjs";
 import { bidOnListing } from "../../listeners/listings/bidList.mjs";
+import { updateCredits } from "../../utils/helper/updateCredit.mjs";
 
 export async function bidListing(id, amount) {
   console.log(id, amount);
