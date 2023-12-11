@@ -56,9 +56,8 @@ function createNavigation() {
     "md:top-0",
     "w-full",
     "sm:w-full",
-    "sm:bg-white",
     "md:w-min",
-    "bg-white",
+    "bg-brand-light",
     "p-2",
     "md:px-2"
   );
@@ -85,8 +84,6 @@ function createNavigation() {
       },
       { text: "Add", href: "./newListing.html" }
     );
-  } else {
-    navItems.push({ text: "Listings", href: "./listings.html" });
   }
 
   navItems.forEach((item) => {
@@ -250,7 +247,7 @@ function createSvgIcon() {
 // Endpoint and Main Header Function
 export function header() {
   const htmlHeader = document.createElement("header");
-  htmlHeader.classList.add("p-2", "bg-white", "h-20", "flex");
+  htmlHeader.classList.add("p-2", "h-20", "flex");
 
   const containerDiv = document.createElement("div");
   containerDiv.classList.add(
