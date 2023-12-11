@@ -1,8 +1,9 @@
-// import { profileCard } from "../../components/card/profileCard.mjs";
 import { handleProfileRequest } from "../../listeners/profile/profile.mjs";
-import { profileHero } from "./sections/profileHero.mjs";
-import { editProfile } from "./sections/editProfile.mjs";
-import { profileDashboard } from "./sections/dashboard.mjs";
+import {
+  profileHero,
+  editProfile,
+  profileDashboard,
+} from "./sections/profileHero.mjs";
 import { biddingSection } from "./sections/biddings.mjs";
 import { updateProfileAvatar } from "../../listeners/profile/avatar.mjs";
 
@@ -17,6 +18,17 @@ export async function displayProfile() {
     profileDashboard(profile);
     biddingSection(profile);
     updateProfileAvatar(profile);
+
+    // Toggle edit profile
+    function toggleEditProfile() {
+      const toggleProfileBtn = document.querySelector("#edit_profile_btn");
+
+      toggleProfileBtn.addEventListener("click", () => {
+        const editSection = document.querySelector("#edit_profile");
+        editSection.classList.toggle("hidden");
+      });
+    }
+    toggleEditProfile();
   } catch (error) {
     console.error("Error displaying profile", error);
   }
