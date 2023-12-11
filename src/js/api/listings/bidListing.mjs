@@ -20,7 +20,7 @@ export async function bidListing(id, amount) {
 
     // bidOnListing(result);
     if (response.ok) {
-      // location.reload();
+      location.reload();
     } else {
       throw new Error("This is oing to have to change or something");
     }

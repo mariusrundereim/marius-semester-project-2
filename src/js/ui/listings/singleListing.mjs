@@ -141,7 +141,6 @@ export function viewListingDetails(listing) {
   );
   placeBidInput.placeholder = "Enter your bid";
   placeBidInput.type = "number";
-  // placeBidInput.min = 1;
   placeBidInput.min = highestBidAmount + 1;
   placeBidInput.max = 1000;
   console.log(placeBidInput.value);
