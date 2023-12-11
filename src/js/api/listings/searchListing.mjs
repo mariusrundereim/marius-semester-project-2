@@ -4,7 +4,7 @@ import { headers } from "../../auth/headers.mjs";
 
 let recordArray = []; // Declared as global variable
 export async function searchListings() {
-  for (let offset = 0; offset < 1000; offset += 200) {
+  for (let offset = 0; offset < 1000; offset += 100) {
     // console.log(offset);
 
     try {

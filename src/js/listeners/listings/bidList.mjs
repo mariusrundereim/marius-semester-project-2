@@ -12,14 +12,6 @@ export function bidOnListing(listing) {
       const form = e.target;
       const bidAmount = parseInt(form.bid_input_amount.value);
 
-      // Check if user is logged in with JWT, if not logged in, disable bid button
-      if (!checkLoggedIn()) {
-        alert("You must be logged in to bid on a listing.");
-        console.log("not logged in");
-        // placeBidButton.disabled = true;
-        return;
-      }
-
       // Check if bidAmount is a valid number
       if (isNaN(bidAmount) || bidAmount <= 0) {
         alert("Please enter a valid bid amount.");

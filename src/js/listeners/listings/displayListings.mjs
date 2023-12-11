@@ -27,7 +27,7 @@ export async function displayListings() {
       endsContainer.appendChild(card);
     }
 
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < resultNew.length; i++) {
       const card = defaultCard(resultNew[i]);
       // const card = defaultCard(result[i]);
       createdContainer.appendChild(card);

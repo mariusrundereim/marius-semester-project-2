@@ -1,6 +1,7 @@
 import { bidListing } from "../../api/listings/bidListing.mjs";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 import { imageGallery } from "./listingGallery.mjs";
+import { checkLoggedIn } from "../../auth/state.mjs";
 
 export function viewListingDetails(listing) {
   const listingWrapper = document.querySelector("#listing_container");
@@ -153,7 +154,11 @@ export function viewListingDetails(listing) {
     "rounded-lg"
   );
   placeBidButton.textContent = "Bid";
-  // placeBidButton.disabled = true;
+  if (!checkLoggedIn()) {
+    alert("You must be logged in to bid on a listing.");
+    console.log("not logged in");
+    placeBidButton.disabled = true;
+  }
   placeBidButton.type = "submit";
   placeBidButton.id = "bid_button";
 
