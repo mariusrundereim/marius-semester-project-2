@@ -32,7 +32,7 @@ export function pageHero() {
     "space-y-4",
     "items-center",
     "justify-center",
-    "min-h-[20rem]"
+    "min-h-[34rem]"
   );
   upperTitle.classList.add(
     "text-2xl",
