@@ -1,3 +1,4 @@
+import { checkLoggedIn } from "../../../auth/state.mjs";
 import { createButton } from "../../../utils/helper/createButton.mjs";
 
 export function pageHero() {
@@ -15,7 +16,8 @@ export function pageHero() {
   // Classes
   heroSection.classList.add(
     "bg-brand-dark",
-    "md:bg-graphic-image-1",
+    "bg-graphic-image-one",
+    "md:bg-graphic-image-one",
     "rounded-2xl",
     "p-2",
     "min-h-full",
@@ -49,23 +51,31 @@ export function pageHero() {
 
   // Create buttons
   const regButton = createButton(
-    "/register",
+    "./register.html",
     "Register",
     "register_btn",
     "link",
-    ["w-full", "md:w-auto"]
+    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
   );
   const loginButton = createButton("/login", "Login", "login_btn", "link", [
-    "w-full",
+    "text-xl",
+    "rounded-lg",
     "md:w-auto",
+    "transition-all",
   ]);
   const exploreButton = createButton(
     "/explore",
     "Explore",
     "explore_btn",
     "link",
-    ["w-full", "md:w-auto"]
+    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
   );
+
+  const isLoggedIn = checkLoggedIn();
+  if (isLoggedIn) {
+    regButton.classList.add("hidden");
+    loginButton.classList.add("hidden");
+  }
 
   // Append elements
   buttonDiv.appendChild(regButton);
