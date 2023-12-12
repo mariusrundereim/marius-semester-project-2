@@ -2,6 +2,14 @@
 
 Bidify, an auction house.
 
+## Badges
+
+[![Automated E2E Testing](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/e2e-test.yml)
+
+[![Automated Unit Testing](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/unit-test.yml/badge.svg)](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/unit-test.yml)
+
+[![Deploy static Bidify Website](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/deploy-website.yml/badge.svg)](https://github.com/mariusrundereim/marius-semester-project-2/actions/workflows/deploy-website.yml)
+
 ## Brief
 
 An auction site is looking to launch a website where users can add items to be bid on and bid on items other users have put up for auction.
