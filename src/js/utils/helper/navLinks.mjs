@@ -66,7 +66,7 @@ export function logoutButtonEvent() {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     logoutUser();
-    window.location.href = "/";
+    window.location.href = "./";
   });
   return logoutBtn;
 }

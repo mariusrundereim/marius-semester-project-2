@@ -114,14 +114,20 @@ export function viewListingDetails(listing) {
     "bg-brand-color"
   );
   const placeBidInner = document.createElement("div");
-  placeBidInner.classList.add("flex", "flex-col", "items-center", "p-2");
+  placeBidInner.classList.add(
+    "flex",
+    "flex-col",
+    "items-center",
+    "gap-4",
+    "p-2"
+  );
   const placeBidTitle = document.createElement("h3");
   placeBidTitle.classList.add("text-xl", "font-bold");
   placeBidTitle.textContent = "Place a bid";
   const placeBidForm = document.createElement("form");
 
   placeBidForm.id = "bid_form";
-  placeBidForm.classList.add("flex", "flex-col", "gap-2");
+  placeBidForm.classList.add("flex", "flex-col", "gap-4");
   const placeBidInput = document.createElement("input");
   const highestBidAmount = Math.max(...listing.bids.map((bid) => bid.amount));
 
@@ -137,7 +143,7 @@ export function viewListingDetails(listing) {
     "border",
     "border-1",
     "border-brand-light",
-    "rounded-md",
+    "rounded-lg",
     "p-2"
   );
   placeBidInput.placeholder = "Enter your bid";
@@ -149,16 +155,17 @@ export function viewListingDetails(listing) {
   placeBidButton.classList.add(
     "text-white",
     "bg-brand-dark",
+    "hover:bg-brand-dark",
+    "transition-all",
+    "hover:shadow-lg",
+    "font-semibold",
+    "text-lg",
     "p-2",
-    "px-6",
+    "px-4",
     "rounded-lg"
   );
-  placeBidButton.textContent = "Bid";
-  if (!checkLoggedIn()) {
-    alert("You must be logged in to bid on a listing.");
-    console.log("not logged in");
-    placeBidButton.disabled = true;
-  }
+  placeBidButton.textContent = "Place your bid!";
+
   placeBidButton.type = "submit";
   placeBidButton.id = "bid_button";
 
@@ -214,6 +221,8 @@ export function viewListingDetails(listing) {
   listingWrapper.appendChild(titleSellerSection);
   listingWrapper.appendChild(bidsSection);
   listingWrapper.appendChild(biddingHistorySection);
-}
 
-// export { placeBidButton };
+  if (!checkLoggedIn()) {
+    bidsSection.classList.add("hidden");
+  }
+}

@@ -80,8 +80,8 @@ export function editProfile(profile) {
   const emailTitle = document.createElement("h2");
   const userEmail = document.createElement("p");
 
-  emailDiv.classList.add("flex", "flex-col", "gap-4");
-  emailTitle.classList.add("text-xl");
+  emailDiv.classList.add("flex", "flex-col");
+  emailTitle.classList.add("text-xl", "font-medium");
   userEmail.classList.add("text-lg");
   emailTitle.textContent = "Email";
   userEmail.textContent = profile.email;
@@ -100,11 +100,17 @@ export function editProfile(profile) {
     "bg-white"
   );
   editSecInner.classList.add("flex", "flex-col", "gap-4");
-  form.classList.add("flex", "flex-col", "gap-4");
+  form.classList.add("flex", "flex-col", "gap-2");
   form.id = "updateAvatar_form";
   title.classList.add("text-2xl", "font-bold");
-  formLabel.classList.add("text-xl");
-  formInput.classList.add("border", "border-gray-300", "rounded-xl", "p-2");
+  formLabel.classList.add("text-xl", "font-medium");
+  formInput.classList.add(
+    "border",
+    "border-gray-300",
+    "rounded-xl",
+    "max-w-min",
+    "p-2"
+  );
   formInput.id = "new_avatar";
 
   formBtn.classList.add(
@@ -121,7 +127,7 @@ export function editProfile(profile) {
   );
   // Content
   title.textContent = "Edit Profile";
-  formLabel.textContent = "Avatar URL";
+  formLabel.textContent = "Change avatar";
   formInput.type = "text";
   formInput.name = "avatar";
   formInput.placeholder = "Insert URL";
