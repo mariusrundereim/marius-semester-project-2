@@ -1,7 +1,7 @@
 // import { baseURL } from "../env/env.mjs";
-import { api_listings } from "../env/env.mjs";
-import { headers } from "../../auth/headers.mjs";
-import { bidOnListing } from "../../listeners/listings/bidList.mjs";
+import { api_listings } from "../env/env.js";
+import { headers } from "../../auth/headers.js";
+// import { bidOnListing } from "../../listeners/listings/bidList.mjs";
 import { updateCredits } from "../../utils/helper/updateCredit.mjs";
 
 export async function bidListing(id, amount) {

@@ -1,4 +1,4 @@
-import { bidListing } from "../../api/listings/bidListing.mjs";
+import { bidListing } from "../../api/listings/bidListing.js";
 
 export function bidOnListing(listing) {
   const bidForm = document.querySelector("#bid_form");

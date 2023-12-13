@@ -1,4 +1,4 @@
-import * as storage from "../storage/index.mjs";
+import * as storage from "../storage/index.js";
 
 export const headers = (contentType) => {
   const token = storage.loadToken("token");

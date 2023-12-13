@@ -1,4 +1,4 @@
-import { bidListing } from "../../api/listings/bidListing.mjs";
+import { bidListing } from "../../api/listings/bidListing.js";
 import { formatEndsAt } from "../../utils/formatting/formatEndsAt.mjs";
 import { imageGallery } from "./listingGallery.mjs";
 import { checkLoggedIn } from "../../auth/state.mjs";
