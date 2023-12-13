@@ -1,4 +1,5 @@
 // BidHistory and HighestBidder elements
+// Items for Bidding History section
 
 export function bidHistory(listing) {
   console.log(listing.bids);
@@ -22,7 +23,7 @@ export function bidHistory(listing) {
     bidItem.classList.add(
       "grid",
       "grid-cols-3",
-      "first:bg-gray-300",
+      "first:bg-gray-200",
       "px-2",
       "py-1",
       "rounded-md"
@@ -35,7 +36,7 @@ export function bidHistory(listing) {
     bidAmount.textContent = bid.amount;
     const bidCreated = document.createElement("p");
     bidCreated.classList.add("text-md", "text-right");
-    bidCreated.textContent = bid.created;
+    bidCreated.textContent = bid.created.slice(0, 10);
     bidItem.appendChild(bidderName);
     bidItem.appendChild(bidAmount);
     bidItem.appendChild(bidCreated);

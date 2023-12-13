@@ -1,5 +1,6 @@
 import { loadToken } from "../storage/storage.mjs";
 import { checkLoggedIn } from "../auth/state.mjs";
+// import { logoutUser } from "../auth/logout.mjs";
 // import { createButton } from "../utils/helper/createButton.mjs";
 import {
   logoutButtonEvent,
