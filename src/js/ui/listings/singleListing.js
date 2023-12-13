@@ -150,7 +150,8 @@ export function viewListingDetails(listing) {
   placeBidInput.type = "number";
   placeBidInput.min = highestBidAmount + 1;
   placeBidInput.max = 1000;
-  console.log(placeBidInput.value);
+  // console.log(placeBidInput.value);
+
   const placeBidButton = document.createElement("button");
   placeBidButton.classList.add(
     "text-white",
