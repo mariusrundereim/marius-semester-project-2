@@ -1,1 +1,1 @@
-export * from "./storage.mjs";
+export * from "./storage.js";

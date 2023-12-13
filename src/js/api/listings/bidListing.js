@@ -1,8 +1,8 @@
-// import { baseURL } from "../env/env.mjs";
+// import { baseURL } from "../env/env.js";
 import { api_listings } from "../env/env.js";
 import { headers } from "../../auth/headers.js";
-// import { bidOnListing } from "../../listeners/listings/bidList.mjs";
-import { updateCredits } from "../../utils/helper/updateCredit.mjs";
+// import { bidOnListing } from "../../listeners/listings/bidList.js";
+// import { updateCredits } from "../../utils/helper/updateCredit.js";
 
 export async function bidListing(id, amount) {
   console.log(id, amount);

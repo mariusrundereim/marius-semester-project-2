@@ -1,5 +1,5 @@
-import { header } from "./layout/header.mjs";
-import { updateCredits } from "./utils/helper/updateCredit.mjs";
+import { header } from "./layout/header.js";
+import { updateCredits } from "./utils/helper/updateCredit.js";
 
 // Header
 const headerElement = header();
