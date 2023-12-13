@@ -2,7 +2,6 @@ import { updateAvatar } from "../../api/profile/updateAvatar.js";
 
 export async function updateProfileAvatar() {
   const updateAvatarForm = document.querySelector("#updateAvatar_form");
-  const avatarImage = document.querySelector("#avatar_image"); // Assuming you have an image element
 
   updateAvatarForm.addEventListener("submit", async (e) => {
     e.preventDefault();
