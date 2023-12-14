@@ -15,7 +15,6 @@ export function pageHero() {
 
   // Classes
   heroSection.classList.add(
-    "bg-brand-dark",
     "bg-graphic-image-one",
     "md:bg-graphic-image-one",
     "rounded-2xl",
