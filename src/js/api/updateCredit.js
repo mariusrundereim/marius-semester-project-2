@@ -16,12 +16,9 @@ export async function updateCredit() {
 
   try {
     const response = await fetch(getUrl, getRequestOptions);
-    console.log(response);
 
     if (!response.ok) {
       throw new Error("Error updating credits");
-    } else {
-      console.log("Credits updated successfully");
     }
 
     const result = await response.json();
@@ -31,7 +28,7 @@ export async function updateCredit() {
 
     return credit.credits;
   } catch (error) {
-    console.error("Error:", error.message);
+    // console.error("Error:", error.message);
     throw error;
   }
 }
