@@ -4,11 +4,10 @@ module.exports = {
     "./**/*.html",
     "./**/**/*.html",
     "./src/**/*.html",
-    "./src/**/*.svg",
-    "./src/**/*.png",
     "./src/**/*.js",
     "./src/**/*.js",
     "./src/js/**/*.js",
+    "./src/assets/**/*.{svg,png,jpg,jpeg}",
   ],
   theme: {
     extend: {
