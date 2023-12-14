@@ -161,7 +161,7 @@ export function profileDashboard(profile) {
     "flex-col",
     "gap-4",
     "basis-1/2",
-    "min-h-[10rem]",
+    "min-h-[14rem]",
     "items-center",
     "justify-center",
     "bg-brand-dark",
@@ -176,8 +176,8 @@ export function profileDashboard(profile) {
     "min-h-[10rem]",
     "items-center",
     "justify-center",
-    "text-brand-light",
-    "bg-brand-dark",
+    "text-brand-dark",
+    "bg-brand-color",
     "rounded-xl",
     "p-2"
   );
@@ -186,10 +186,15 @@ export function profileDashboard(profile) {
   profileCreditTitle.classList.add("text-2xl", "font-bold");
   profileCreditCount.classList.add("text-2xl");
   // Add content
-  profileWinsTitle.textContent = "Wins";
-  profileWinsCount.textContent = profile.wins.length;
-  profileCreditTitle.textContent = "Total Credit";
-  profileCreditCount.textContent = profile.credits;
+  if (profile.wins.length === 0) {
+    profileWinsTitle.textContent = "Win";
+    profileWinsCount.textContent = "Bet on Listings to win";
+  } else {
+    profileWinsTitle.textContent = "Wins";
+    profileWinsCount.textContent = profile.wins.length + " " + "Items";
+  }
+  profileCreditTitle.textContent = "Total";
+  profileCreditCount.textContent = profile.credits + " " + "Credits";
   // Append
   dashboardSection.appendChild(profileWins);
   dashboardSection.appendChild(profileCredit);
@@ -200,15 +205,3 @@ export function profileDashboard(profile) {
   profileContainer.appendChild(dashboardSection);
   return dashboardSection;
 }
-
-// Add event listener to show/hide edit profile section
-
-// function toggleEditProfile() {
-//   const toggleProfileBtn = document.querySelector("#edit_profile_btn");
-
-//   toggleProfileBtn.addEventListener("click", () => {
-//     const editSection = document.querySelector("#edit_profile");
-//     editSection.classList.toggle("hidden");
-//   });
-// }
-// toggleEditProfile();
