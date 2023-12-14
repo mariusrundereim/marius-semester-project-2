@@ -16,15 +16,15 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   clearErrors();
   const emailValid = validateEmail(form.loginEmail.value);
-  const passwordValid = validatePassword(form.loginPassword.value);
+  // const passwordValid = validatePassword(form.loginPassword.value);
   if (!emailValid) {
     displayError(loginEmail, "Invalid email.");
     return;
   }
-  if (!passwordValid) {
-    displayError(loginPassword, "Invalid password.");
-    return;
-  }
+  // if (!passwordValid) {
+  //   displayError(loginPassword, "Invalid password.");
+  //   return;
+  // }
 
   const user = {
     email: form.loginEmail.value,

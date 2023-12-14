@@ -44,7 +44,8 @@ export function pageHero() {
     "md:text-6xl",
     "text-brand-light",
     "font-bold",
-    "text-center"
+    "text-center",
+    "bg-brand-red"
   );
   buttonDiv.classList.add("flex", "flex-col", "md:flex-row", "gap-4", "p-4");
 
