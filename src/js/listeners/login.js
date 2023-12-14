@@ -1,14 +1,8 @@
 import { login } from "../auth/login.js";
-import {
-  validateEmail,
-  validatePassword,
-} from "../components/formValidation.js";
+import { validateEmail } from "../components/formValidation.js";
 import { displayError } from "../components/displayError.js";
 
-import {
-  loginEmail,
-  loginPassword,
-} from "../components/validation/loginElements.js";
+import { loginEmail } from "../components/validation/loginElements.js";
 import { clearErrors } from "../components/validation/loginElements.js";
 
 const form = document.querySelector("#login-form");
