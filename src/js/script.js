@@ -1,4 +1,4 @@
-import { header } from "./layout/header.js";
+import { header } from "./layout/header/header.js";
 // import { updateCredit } from "./api/updateCredit.js";
 
 // Header

@@ -1,13 +1,15 @@
-import { loadToken } from "../storage/storage.js";
-import { checkLoggedIn } from "../auth/state.js";
-// import { logoutUser } from "../auth/logout.js";
-// import { createButton } from "../utils/helper/createButton.js";
+import { toogleIcon } from "./sections/toggle.js";
+//Above is new
+import { loadToken } from "../../storage/storage.js";
+import { checkLoggedIn } from "../../auth/state.js";
 import {
   logoutButtonEvent,
   createNavLink,
   profileLinkEvent,
-} from "../utils/helper/navLinks.js";
-import { updateCredit } from "../api/updateCredit.js";
+} from "../../utils/helper/navLinks.js";
+import { updateCredit } from "../../api/updateCredit.js";
+
+// New
 
 function createNavigation() {
   const isLoggedIn = checkLoggedIn();
@@ -210,7 +212,7 @@ function createNavigation() {
   secondaryNavContainer.appendChild(toggleMenuIconContainer);
 
   // Toggle Menu Icon
-  const toggleMenuIcon = createSvgIcon();
+  const toggleMenuIcon = toogleIcon();
   toggleMenuIconContainer.appendChild(toggleMenuIcon);
 
   toggleMenuIconContainer.addEventListener("click", (e) => {
@@ -227,25 +229,6 @@ function createButton(text, className) {
   button.textContent = text;
   button.classList.add(...className.split(" "));
   return button;
-}
-
-// SVG icon element
-function createSvgIcon() {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  svg.setAttribute("fill", "none");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("stroke-width", "1.5");
-  svg.setAttribute("stroke", "currentColor");
-  svg.classList.add("w-6", "h-6");
-
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("stroke-linecap", "round");
-  path.setAttribute("stroke-linejoin", "round");
-  path.setAttribute("d", "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5");
-
-  svg.appendChild(path);
-  return svg;
 }
 
 // Endpoint and Main Header Function
