@@ -7,10 +7,12 @@ import {
   createNavLink,
   profileLinkEvent,
 } from "../utils/helper/navLinks.js";
+import { updateCredit } from "../api/updateCredit.js";
 
 function createNavigation() {
   const isLoggedIn = checkLoggedIn();
   const profile = loadToken("profile");
+  const credits = updateCredit();
 
   // Navigation
   const navigation = document.createElement("nav");
@@ -148,7 +150,8 @@ function createNavigation() {
       "px-4",
       "rounded-full"
     );
-    creditDiv.textContent = `${profile.credits} Credits`;
+    // creditDiv.textContent = `${profile.credits} Credits`;
+    creditDiv.textContent = `${credits} Credits`;
 
     const profileLink = document.querySelector("#profile-link");
     if (profileLink) {
