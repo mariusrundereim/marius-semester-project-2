@@ -27,7 +27,7 @@ export function createButton(
     );
   } else {
     element.classList.add(
-      "bg-brand-light",
+      // "bg-brand-light",
       "p-2",
       "px-4",
       "rounded-full",

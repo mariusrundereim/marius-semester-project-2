@@ -54,21 +54,28 @@ export function pageHero() {
     "Register",
     "register_btn",
     "link",
-    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
+    ["text-xl", "rounded-lg", "bg-brand-light", "md:w-auto", "transition-all"]
   );
   const loginButton = createButton(
     "./login.html",
     "Login",
     "login_btn",
     "link",
-    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
+    ["text-xl", "bg-brand-light", "rounded-lg", "md:w-auto", "transition-all"]
   );
   const exploreButton = createButton(
     "./listings.html",
     "Explore",
     "explore_btn",
     "link",
-    ["text-xl", "rounded-lg", "md:w-auto", "transition-all"]
+    [
+      "text-xl",
+      "rounded-lg",
+      "bg-brand-color",
+      "hover:bg-brand-white",
+      "md:w-auto",
+      "transition-all",
+    ]
   );
 
   const isLoggedIn = checkLoggedIn();
