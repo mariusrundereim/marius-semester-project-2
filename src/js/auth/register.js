@@ -14,7 +14,7 @@ export async function registerUser(user) {
     if (response.ok) {
       window.location = `./login.html`;
     } else {
-      alert("Not ok");
+      // console.log(response);
     }
   } catch (error) {
     console.log(error);

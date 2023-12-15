@@ -1,5 +1,5 @@
 export function validateName(name) {
-  const nameRegex = /^[A-Z][a-zA-Z]{3,}$/;
+  const nameRegex = /^[a-zA-Z][a-zA-Z]{2,}$/;
   return nameRegex.test(name);
 }
 
