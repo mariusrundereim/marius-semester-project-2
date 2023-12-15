@@ -11,10 +11,17 @@ import { updateCredit } from "../../api/updateCredit.js";
 
 // New
 
+async function updateCredits() {
+  const credits = await updateCredit();
+  return `${credits} Credits`;
+  // creditDiv.textContent = `${credits} Credits`;
+  // const creditDiv = document.querySelector("#credit-div");
+}
+
 function createNavigation() {
   const isLoggedIn = checkLoggedIn();
   const profile = loadToken("profile");
-  const credits = updateCredit();
+  // const credits = updateCredit();
 
   // Navigation
   const navigation = document.createElement("nav");
@@ -145,15 +152,18 @@ function createNavigation() {
       "max-w-12",
       "rounded-full"
     );
-    creditDiv.classList.add(
-      "bg-brand-dark",
-      "text-white",
-      "p-2",
-      "px-4",
-      "rounded-full"
-    );
-    // creditDiv.textContent = `${profile.credits} Credits`;
-    creditDiv.textContent = `${credits} Credits`;
+    // Credits div
+    (async () => {
+      const updatedCredits = await updateCredits();
+      creditDiv.classList.add(
+        "bg-brand-dark",
+        "text-white",
+        "p-2",
+        "px-4",
+        "rounded-full"
+      );
+      creditDiv.textContent = updatedCredits;
+    })();
 
     const profileLink = document.querySelector("#profile-link");
     if (profileLink) {
