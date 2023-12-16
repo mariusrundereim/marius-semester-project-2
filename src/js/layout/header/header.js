@@ -7,15 +7,11 @@ import {
   createNavLink,
   profileLinkEvent,
 } from "../../utils/helper/navLinks.js";
+
+import { updateAvatar } from "../../api/profile/updateProfile.js";
 import { updateCredit } from "../../api/updateCredit.js";
 
-// New
-
-async function updateAvatarImage() {
-  const avatar = await updateAvatar();
-  return `${avatar}`;
-}
-
+// Do not use this function
 async function updateCredits() {
   const credits = await updateCredit();
   return `${credits} Credits`;
@@ -150,10 +146,14 @@ function createNavigation() {
     avatarImg.setAttribute("alt", "Profile avatar");
     avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
 
+    (async () => {
+      // Update Avatar image
+      const updatedProfileDetails = await updateAvatar();
+      avatarImg.setAttribute("src", updatedProfileDetails.avatar);
+    })();
+
     // Credits div
     (async () => {
-      // const updatedAvatar = await updateAvatarImage();
-      // avatarImg.setAttribute("src", `${updatedAvatar}`);
       const updatedCredits = await updateCredits();
       creditDiv.classList.add(
         "flex",
