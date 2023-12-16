@@ -11,11 +11,14 @@ import { updateCredit } from "../../api/updateCredit.js";
 
 // New
 
+async function updateAvatarImage() {
+  const avatar = await updateAvatar();
+  return `${avatar}`;
+}
+
 async function updateCredits() {
   const credits = await updateCredit();
   return `${credits} Credits`;
-  // creditDiv.textContent = `${credits} Credits`;
-  // const creditDiv = document.querySelector("#credit-div");
 }
 
 function createNavigation() {
@@ -145,22 +148,22 @@ function createNavigation() {
     );
     avatarImg.setAttribute("src", `${profile.avatar}`);
     avatarImg.setAttribute("alt", "Profile avatar");
-    avatarImg.classList.add(
-      "h-12",
-      "w-12",
-      "max-h-12",
-      "max-w-12",
-      "rounded-full"
-    );
+    avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
     // Credits div
     (async () => {
       const updatedCredits = await updateCredits();
       creditDiv.classList.add(
+        "flex",
+        "items-center",
+        "justify-center",
         "bg-brand-dark",
         "text-white",
         "p-2",
+        "h-12",
         "px-4",
-        "rounded-full"
+        "rounded-full",
+        "hidden",
+        "sm:flex"
       );
       creditDiv.textContent = updatedCredits;
     })();

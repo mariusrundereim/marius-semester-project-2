@@ -47,7 +47,9 @@ export function profileHero(profile) {
     "rounded-xl",
     "text-white",
     "bg-brand-dark",
+    "hover:text-brand-dark",
     "hover:bg-brand-color",
+    "hover:shadow-lg",
     "transition-all"
   );
   profileAvatar.src = profile.avatar;
