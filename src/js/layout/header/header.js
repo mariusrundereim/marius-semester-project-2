@@ -149,8 +149,11 @@ function createNavigation() {
     avatarImg.setAttribute("src", `${profile.avatar}`);
     avatarImg.setAttribute("alt", "Profile avatar");
     avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
+
     // Credits div
     (async () => {
+      // const updatedAvatar = await updateAvatarImage();
+      // avatarImg.setAttribute("src", `${updatedAvatar}`);
       const updatedCredits = await updateCredits();
       creditDiv.classList.add(
         "flex",

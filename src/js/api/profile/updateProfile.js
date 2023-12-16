@@ -18,6 +18,8 @@ export async function updateAvatar(avatar) {
 
     if (response.ok) {
       console.log("Avatar updated successfully");
+      const updatedAvatar = await response.json();
+      console.log("Updated avatar:", updatedAvatar);
       // location.reload();
     } else {
       console.error(`Error updating avatar: ${response.statusText}`);

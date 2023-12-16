@@ -1,4 +1,4 @@
-import { updateAvatar } from "../../api/profile/updateAvatar.js";
+import { updateAvatar } from "../../api/profile/updateProfile.js";
 
 export async function updateProfileAvatar() {
   const updateAvatarForm = document.querySelector("#updateAvatar_form");

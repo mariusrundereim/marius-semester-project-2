@@ -22,6 +22,7 @@ export async function updateCredit() {
     }
 
     const result = await response.json();
+    console.log("What?:", result);
 
     let credit = result;
     console.log(credit.credits);
