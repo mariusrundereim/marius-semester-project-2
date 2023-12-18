@@ -1,5 +1,12 @@
 import { bidListing } from "../../api/listings/bidListing.js";
 
+/**
+ * Bids on a listing.
+ *
+ * @param {Object} listing - The listing object to bid on.
+ * @returns {HTMLElement} - The bid form element.
+ */
+
 export function bidOnListing(listing) {
   const bidForm = document.querySelector("#bid_form");
 
@@ -21,9 +28,6 @@ export function bidOnListing(listing) {
         amount: bidAmount,
       };
 
-      // console.log(newBid);
-
-      // Update the bidListing API call
       await bidListing(listing.id, newBid.amount);
     } catch (error) {
       // Handle other types of errors
