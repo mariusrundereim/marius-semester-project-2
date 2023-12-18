@@ -2,7 +2,6 @@
 // Items for Bidding History section
 
 export function bidHistory(listing) {
-  console.log(listing.bids);
   const bidHistorySection = document.querySelector("#bid_item");
 
   // If no bids, display message
