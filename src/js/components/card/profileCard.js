@@ -10,7 +10,8 @@ export function profileCard({ media, title, description, endsAt, id }) {
   cardElement.id = "profileCard_item";
   cardElement.classList.add(
     "flex",
-    "flex-row",
+    "flex-col",
+    "md:flex-row",
     "justify-between",
     "rounded-xl",
     "bg-white",
@@ -20,10 +21,6 @@ export function profileCard({ media, title, description, endsAt, id }) {
 
   // Create the first inner div with an image
   const firstInnerDiv = document.createElement("div");
-  firstInnerDiv.classList.add(
-    // "w-full",
-    "h-full"
-  );
 
   const image = document.createElement("img");
   image.classList.add(
@@ -42,7 +39,8 @@ export function profileCard({ media, title, description, endsAt, id }) {
   const secondInnerDiv = document.createElement("div");
   secondInnerDiv.classList.add(
     "flex",
-    "flex-row",
+    "flex-col",
+    "md:flex-row",
     "content-center",
     "w-full",
     "justify-between",
