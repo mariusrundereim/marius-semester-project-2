@@ -61,6 +61,20 @@ npm run build
 npm run watch
 ```
 
+## Testing
+
+1. Cypress
+
+```
+npm run test-e2e
+```
+
+2. Jest
+
+```
+npm run test-unit
+```
+
 ## Application
 
 Link to production website [Bidify](https://mariusrundereim.github.io/marius-semester-project-2/)
