@@ -161,9 +161,6 @@ function createNavigation() {
         console.error("Error updating avatar:", error.message);
       }
     })();
-    // avatarImg.setAttribute("alt", "Profile avatar");
-    // avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
-
     // Credits div
     (async () => {
       const updatedCredits = await updateCredits();
@@ -178,7 +175,8 @@ function createNavigation() {
         "px-4",
         "rounded-full",
         "hidden",
-        "sm:flex"
+        "sm:flex",
+        "cursor-default"
       );
       creditDiv.textContent = updatedCredits;
     })();
