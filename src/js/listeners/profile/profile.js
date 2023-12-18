@@ -5,7 +5,6 @@ import { viewActiveBids } from "./activeBids.js";
 export async function handleProfileRequest() {
   try {
     const profile = await getProfile();
-    // console.log("Profile from listener", profile);
 
     viewActiveBids(profile);
 

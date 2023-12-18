@@ -11,7 +11,6 @@ import {
 import { updateAvatar } from "../../api/profile/updateProfile.js";
 import { updateCredit } from "../../api/updateCredit.js";
 
-// Do not use this function
 async function updateCredits() {
   const credits = await updateCredit();
   return `${credits} Credits`;
@@ -122,6 +121,7 @@ function createNavigation() {
 
   if (isLoggedIn) {
     // Registered Section
+
     const registeredSection = document.createElement("div");
     registeredSection.classList.add(
       "flex",
@@ -142,15 +142,27 @@ function createNavigation() {
       "",
       `./profile.html?name=${profile.name}`
     );
-    avatarImg.setAttribute("src", `${profile.avatar}`);
-    avatarImg.setAttribute("alt", "Profile avatar");
-    avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
-
+    //Avatar
     (async () => {
-      // Update Avatar image
-      const updatedProfileDetails = await updateAvatar();
-      avatarImg.setAttribute("src", updatedProfileDetails.avatar);
+      try {
+        const updatedProfileDetails = await updateAvatar();
+
+        const updatedAvatarUrl = updatedProfileDetails.avatar;
+
+        // Update Avatar image only if the update is successful
+        avatarImg.setAttribute("src", `${profile.avatar}`);
+        avatarImg.setAttribute("alt", "Profile avatar");
+        avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
+
+        // Credits div
+        const updatedCredits = await updateCredits();
+        creditDiv.textContent = updatedCredits;
+      } catch (error) {
+        console.error("Error updating avatar:", error.message);
+      }
     })();
+    // avatarImg.setAttribute("alt", "Profile avatar");
+    // avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
 
     // Credits div
     (async () => {

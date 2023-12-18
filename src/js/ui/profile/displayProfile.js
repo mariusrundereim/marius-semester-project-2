@@ -10,7 +10,6 @@ import { updateProfileAvatar } from "../../listeners/profile/avatar.js";
 export async function displayProfile() {
   try {
     const profile = await handleProfileRequest();
-    console.log("Profile from UI", profile);
 
     // From sections
     profileHero(profile);

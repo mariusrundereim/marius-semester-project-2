@@ -9,22 +9,20 @@ export function profileCard({ media, title, description, endsAt, id }) {
   const cardElement = document.createElement("div");
   cardElement.id = "profileCard_item";
   cardElement.classList.add(
-    "grid",
-    "grid-cols-6",
-    "gap-4",
+    "flex",
+    "flex-row",
+    "justify-between",
     "rounded-xl",
     "bg-white",
-    "p-2"
+    "p-2",
+    "gap-6"
   );
 
   // Create the first inner div with an image
   const firstInnerDiv = document.createElement("div");
   firstInnerDiv.classList.add(
-    "w-full",
-    "h-full",
-    "border",
-    "border-2",
-    "border-blue-500"
+    // "w-full",
+    "h-full"
   );
 
   const image = document.createElement("img");
@@ -43,11 +41,14 @@ export function profileCard({ media, title, description, endsAt, id }) {
   // Create the second inner div with text content
   const secondInnerDiv = document.createElement("div");
   secondInnerDiv.classList.add(
-    "border",
-    "border-2",
-    "col-span-4",
-    "bg-gray-400",
-    "border-blue-500"
+    "flex",
+    "flex-row",
+    "content-center",
+    "w-full",
+    "justify-between",
+    "align-center",
+    "space-x-2",
+    "col-span-4"
   );
 
   const titleHeading = document.createElement("h3");

@@ -23,10 +23,9 @@ export async function updateAvatar(avatar) {
     }
 
     const updatedProfileDetails = await response.json();
-    console.log("Updated avatar:", updatedProfileDetails);
 
     return updatedProfileDetails;
   } catch (error) {
-    console.error("Error updating avatar:", error.message);
+    throw error;
   }
 }
