@@ -1,6 +1,5 @@
 import { getAllListings } from "../../api/listings/listings.js";
 import { defaultCard } from "../../components/card/card.js";
-// import { formatEndsAt } from "../../utils/formatting/formatEndsAt.js";
 
 export async function displayListings() {
   try {
@@ -17,7 +16,6 @@ export async function displayListings() {
     endSoonListings.sort((a, b) => {
       a = Date.parse(a.endsAt);
       b = Date.parse(b.endsAt);
-      // console.log(a - b);
       return a - b;
     });
 

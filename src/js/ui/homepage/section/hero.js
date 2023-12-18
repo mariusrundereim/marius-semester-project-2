@@ -37,7 +37,10 @@ export function pageHero() {
     "text-2xl",
     "md:text-4xl",
     "text-brand-light",
-    "text-center"
+    "text-center",
+    "bg-brand-dark/40",
+    "rounded-full",
+    "px-4"
   );
   lowerTitle.classList.add(
     "text-4xl",
@@ -45,7 +48,9 @@ export function pageHero() {
     "text-brand-light",
     "font-bold",
     "text-center",
-    "bg-brand-red"
+    "bg-brand-dark/40",
+    "rounded-full",
+    "px-4"
   );
   buttonDiv.classList.add("flex", "flex-col", "md:flex-row", "gap-4", "p-4");
 

@@ -24,8 +24,6 @@ export async function getProfile() {
 
     const result = await response.json();
     const profileResult = result;
-    console.log("Profile from API", profileResult);
-    // console.log("Get profile name:", profileResult.name);
     return profileResult;
   } catch (error) {
     console.error("Error getting profile", error);

@@ -21,7 +21,6 @@ document
 
 export function handleSubmit(e) {
   e.preventDefault();
-  console.log("Form submitted");
 
   clearErrors();
 
@@ -29,7 +28,7 @@ export function handleSubmit(e) {
   const emailValid = formValidation.validateEmail(regEmail.value);
   const passwordValid = formValidation.validatePassword(regPassword.value);
 
-  console.log(nameValid, emailValid, passwordValid);
+  // console.log(nameValid, emailValid, passwordValid);
 
   if (!nameValid) {
     displayError(

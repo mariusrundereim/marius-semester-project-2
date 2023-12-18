@@ -1,16 +1,25 @@
-import { loadToken } from "../storage/storage.js";
-import { checkLoggedIn } from "../auth/state.js";
-// import { logoutUser } from "../auth/logout.js";
-// import { createButton } from "../utils/helper/createButton.js";
+import { toogleIcon } from "./sections/toggle.js";
+//Above is new
+import { loadToken } from "../../storage/storage.js";
+import { checkLoggedIn } from "../../auth/state.js";
 import {
   logoutButtonEvent,
   createNavLink,
   profileLinkEvent,
-} from "../utils/helper/navLinks.js";
+} from "../../utils/helper/navLinks.js";
+
+import { updateAvatar } from "../../api/profile/updateProfile.js";
+import { updateCredit } from "../../api/updateCredit.js";
+
+async function updateCredits() {
+  const credits = await updateCredit();
+  return `${credits} Credits`;
+}
 
 function createNavigation() {
   const isLoggedIn = checkLoggedIn();
   const profile = loadToken("profile");
+  // const credits = updateCredit();
 
   // Navigation
   const navigation = document.createElement("nav");
@@ -112,6 +121,7 @@ function createNavigation() {
 
   if (isLoggedIn) {
     // Registered Section
+
     const registeredSection = document.createElement("div");
     registeredSection.classList.add(
       "flex",
@@ -132,23 +142,44 @@ function createNavigation() {
       "",
       `./profile.html?name=${profile.name}`
     );
-    avatarImg.setAttribute("src", `${profile.avatar}`);
-    avatarImg.setAttribute("alt", "Profile avatar");
-    avatarImg.classList.add(
-      "h-12",
-      "w-12",
-      "max-h-12",
-      "max-w-12",
-      "rounded-full"
-    );
-    creditDiv.classList.add(
-      "bg-brand-dark",
-      "text-white",
-      "p-2",
-      "px-4",
-      "rounded-full"
-    );
-    creditDiv.textContent = `${profile.credits} Credits`;
+    //Avatar
+    (async () => {
+      try {
+        const updatedProfileDetails = await updateAvatar();
+
+        const updatedAvatarUrl = updatedProfileDetails.avatar;
+
+        // Update Avatar image only if the update is successful
+        avatarImg.setAttribute("src", `${profile.avatar}`);
+        avatarImg.setAttribute("alt", "Profile avatar");
+        avatarImg.classList.add("h-12", "w-12", "object-cover", "rounded-full");
+
+        // Credits div
+        const updatedCredits = await updateCredits();
+        creditDiv.textContent = updatedCredits;
+      } catch (error) {
+        console.error("Error updating avatar:", error.message);
+      }
+    })();
+    // Credits div
+    (async () => {
+      const updatedCredits = await updateCredits();
+      creditDiv.classList.add(
+        "flex",
+        "items-center",
+        "justify-center",
+        "bg-brand-dark",
+        "text-white",
+        "p-2",
+        "h-12",
+        "px-4",
+        "rounded-full",
+        "hidden",
+        "sm:flex",
+        "cursor-default"
+      );
+      creditDiv.textContent = updatedCredits;
+    })();
 
     const profileLink = document.querySelector("#profile-link");
     if (profileLink) {
@@ -207,7 +238,7 @@ function createNavigation() {
   secondaryNavContainer.appendChild(toggleMenuIconContainer);
 
   // Toggle Menu Icon
-  const toggleMenuIcon = createSvgIcon();
+  const toggleMenuIcon = toogleIcon();
   toggleMenuIconContainer.appendChild(toggleMenuIcon);
 
   toggleMenuIconContainer.addEventListener("click", (e) => {
@@ -224,25 +255,6 @@ function createButton(text, className) {
   button.textContent = text;
   button.classList.add(...className.split(" "));
   return button;
-}
-
-// SVG icon element
-function createSvgIcon() {
-  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  svg.setAttribute("fill", "none");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("stroke-width", "1.5");
-  svg.setAttribute("stroke", "currentColor");
-  svg.classList.add("w-6", "h-6");
-
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("stroke-linecap", "round");
-  path.setAttribute("stroke-linejoin", "round");
-  path.setAttribute("d", "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5");
-
-  svg.appendChild(path);
-  return svg;
 }
 
 // Endpoint and Main Header Function
