@@ -1,6 +1,6 @@
 # Semester Project 2
 
-Bidify, an auction house.
+![image](https://raw.githubusercontent.com/mariusrundereim/marius-semester-project-2/main/src/assets/images/cover-image.png)
 
 ## Badges
 
